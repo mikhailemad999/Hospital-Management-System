@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-primary":"#ffffff","on-tertiary":"#ffffff","tertiary-fixed":"#cce5ff","error":"#ba1a1a","on-error-container":"#93000a","secondary":"#515f74","secondary-fixed":"#d5e3fd","on-tertiary-container":"#74c1ff","primary-fixed":"#d2e4ff","background":"#f8f9ff","on-secondary-fixed-variant":"#3a485c","on-surface-variant":"#42474f","surface-container-lowest":"#ffffff","surface":"#f8f9ff","surface-variant":"#d3e4fe","surface-container-low":"#eff4ff","on-tertiary-fixed":"#001d31","on-secondary-fixed":"#0d1c2f","inverse-primary":"#a0c9ff","secondary-container":"#d5e3fd","surface-container-highest":"#d3e4fe","inverse-on-surface":"#eaf1ff","tertiary-fixed-dim":"#93ccff","on-background":"#0b1c30","inverse-surface":"#213145","error-container":"#ffdad6","primary-fixed-dim":"#a0c9ff","secondary-fixed-dim":"#b9c7e0","surface-bright":"#f8f9ff","outline":"#727780","on-primary-fixed-variant":"#07497d","surface-dim":"#cbdbf5","on-tertiary-fixed-variant":"#004b73","primary":"#00355f","on-surface":"#0b1c30","outline-variant":"#c2c7d1","surface-container":"#e5eeff","surface-container-high":"#dce9ff","on-primary-fixed":"#001c37","on-primary-container":"#8ebdf9","on-secondary":"#ffffff","surface-tint":"#2d6197","on-error":"#ffffff","on-secondary-container":"#57657b","tertiary":"#003756","primary-container":"#0f4c81","tertiary-container":"#004e78"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"space-xl":"1.5rem","space-xs":"0.25rem","margin":"1.5rem","gutter":"1rem","space-md":"0.75rem","margin-compact":"0.75rem","space-sm":"0.5rem","space-lg":"1rem","gutter-dense":"0.5rem"},"fontFamily":{"body-lg":["Inter"],"label-code-lg":["JetBrains Mono"],"body-sm":["Inter"],"label-code-sm":["JetBrains Mono"],"headline-lg":["Inter"],"headline-sm":["Inter"],"display-lg-mobile":["Inter"],"tabular-vitals":["Inter"],"label-code-md":["JetBrains Mono"],"display-lg":["Inter"],"body-md":["Inter"],"title-md":["Inter"],"headline-md":["Inter"]},"fontSize":{"body-lg":["15px",{"lineHeight":"22px","fontWeight":"400"}],"label-code-lg":["13px",{"lineHeight":"18px","fontWeight":"500"}],"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"label-code-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.04em","fontWeight":"600"}],"headline-lg":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"600"}],"headline-sm":["16px",{"lineHeight":"24px","letterSpacing":"-0.005em","fontWeight":"600"}],"display-lg-mobile":["26px",{"lineHeight":"34px","letterSpacing":"-0.01em","fontWeight":"700"}],"tabular-vitals":["14px",{"lineHeight":"20px","fontWeight":"600"}],"label-code-md":["12px",{"lineHeight":"16px","fontWeight":"500"}],"display-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-md":["13px",{"lineHeight":"18px","fontWeight":"400"}],"title-md":["15px",{"lineHeight":"22px","fontWeight":"600"}],"headline-md":["20px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}]}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-lowest border-r border-outline-variant/40 z-50 flex flex-col justify-between select-none shadow-[0_1px_8px_rgba(0,0,0,0.02)]"><div class="flex flex-col h-full overflow-hidden"><div class="h-14 px-4 flex items-center gap-3 border-b border-outline-variant/30 shrink-0 bg-surface-container-lowest"><div class="w-8 h-8 rounded-lg bg-primary-container flex items-center justify-center text-on-primary shadow-sm"><span class="material-symbols-outlined text-[20px]">local_hospital</span></div><div class="flex flex-col"><span class="font-title-md text-title-md text-primary tracking-tight">MedCore EHR</span><span class="font-label-code-sm text-label-code-sm text-secondary uppercase tracking-wider">Enterprise v4.8</span></div></div><div class="flex-1 overflow-y-auto px-3 py-4 space-y-5"><nav class="space-y-4" data-active-classes="bg-primary-container text-on-primary rounded-lg shadow-sm font-semibold"><div class="space-y-1"><div class="px-2.5 pb-1 font-label-code-sm text-label-code-sm text-secondary uppercase tracking-wider">1. Overview &amp; Command</div><a aria-current="page" class="flex items-center gap-3 px-2.5 py-1.5 transition-colors bg-primary-container text-on-primary rounded-lg shadow-sm font-semibold" data-path="admin-dashboard" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">monitoring</span><span class="font-body-md text-body-md truncate">Admin Dashboard</span></a><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="emergency-ed-board" href="#"><span class="material-symbols-outlined text-[19px] shrink-0 text-error">e911_emergency</span><span class="font-body-md text-body-md truncate">Emergency ED Board</span></a></div><div class="space-y-1"><div class="px-2.5 pb-1 font-label-code-sm text-label-code-sm text-secondary uppercase tracking-wider">2. Patient Management</div><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="master-patient-index" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">badge</span><span class="font-body-md text-body-md truncate">Master Patient Index</span></a><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="patient-registration" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">person_add</span><span class="font-body-md text-body-md truncate">Registration</span></a><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="admissions-and-beds" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">hotel</span><span class="font-body-md text-body-md truncate">Admissions &amp; Beds</span></a></div><div class="space-y-1"><div class="px-2.5 pb-1 font-label-code-sm text-label-code-sm text-secondary uppercase tracking-wider">3. Clinical Workstations</div><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="doctor-clinic" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">stethoscope</span><span class="font-body-md text-body-md truncate">Doctor Clinic</span></a><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="nursing-and-mar" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">medication</span><span class="font-body-md text-body-md truncate">Nursing &amp; MAR</span></a><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="operating-theaters" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">vital_signs</span><span class="font-body-md text-body-md truncate">Operating Theaters / OR</span></a></div><div class="space-y-1"><div class="px-2.5 pb-1 font-label-code-sm text-label-code-sm text-secondary uppercase tracking-wider">4. Diagnostics &amp; Logistics</div><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="pharmacy-and-fefo-stock" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">prescriptions</span><span class="font-body-md text-body-md truncate">Pharmacy &amp; FEFO Stock</span></a><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="laboratory" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">chips</span><span class="font-body-md text-body-md truncate">Laboratory</span></a><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="radiology" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">radiology</span><span class="font-body-md text-body-md truncate">Radiology</span></a></div><div class="space-y-1"><div class="px-2.5 pb-1 font-label-code-sm text-label-code-sm text-secondary uppercase tracking-wider">5. Finance &amp; Governance</div><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="billing-and-cashier" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">receipt_long</span><span class="font-body-md text-body-md truncate">Billing &amp; Cashier</span></a><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="payroll-and-commissions" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">payments</span><span class="font-body-md text-body-md truncate">Payroll &amp; Commissions</span></a><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="audit-trail" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">verified_user</span><span class="font-body-md text-body-md truncate">Audit Trail</span></a><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="hospital-settings" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">settings</span><span class="font-body-md text-body-md truncate">Settings</span></a></div></nav></div><div class="p-3 border-t border-outline-variant/30 shrink-0 bg-surface-container-low/40"><div class="flex items-center justify-between text-secondary px-1"><div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span><span class="font-label-code-sm text-label-code-sm text-on-surface-variant">SYSTEM ONLINE</span></div><span class="font-label-code-sm text-label-code-sm text-secondary">HL7/FHIR v4</span></div></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-14 bg-surface-container-lowest border-b border-outline-variant/40 z-40 flex items-center justify-between px-6 shadow-[0_1px_4px_rgba(0,0,0,0.03)]"><div class="flex items-center gap-4 flex-1 max-w-3xl"><button class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg border border-outline-variant/60 bg-surface-container-low/50 hover:bg-surface-container-low text-on-surface transition-colors shrink-0" type="button"><span class="material-symbols-outlined text-[18px] text-primary">domain</span><span class="font-title-md text-body-sm truncate max-w-[210px]">Metro Central - Main</span><span class="material-symbols-outlined text-[16px] text-secondary">expand_more</span></button><div class="relative flex-1 max-w-lg"><span class="material-symbols-outlined absolute left-2.5 top-1/2 -translate-y-1/2 text-secondary text-[18px]">search</span><input class="w-full pl-8 pr-12 py-1.5 text-body-sm font-body-sm rounded-lg border border-outline-variant/60 bg-surface focus:bg-surface-container-lowest focus:border-primary focus:outline-none placeholder:text-secondary/60 text-on-surface transition-all" placeholder="Search Patient by MRN, National ID, Name, Staff Code (Press '/' to focus)..." type="text"/><span class="absolute right-2 top-1/2 -translate-y-1/2 px-1.5 py-0.5 rounded border border-outline-variant/50 text-[10px] font-label-code-sm text-secondary bg-surface-container-low">⌘K</span></div></div><div class="flex items-center gap-3 shrink-0"><div class="flex items-center gap-1.5 px-2 py-1 rounded-lg bg-error-container text-on-error-container border border-error/20"><span class="material-symbols-outlined text-[16px] text-error">campaign</span><span class="font-label-code-sm text-label-code-sm font-bold uppercase">Trauma Code Red: OR-3</span></div><div class="hidden xl:flex items-center gap-2 px-2.5 py-1 rounded-lg bg-surface-container-low border border-outline-variant/40"><span class="material-symbols-outlined text-[16px] text-primary">badge</span><div class="flex flex-col text-left"><span class="font-title-md text-[11px] text-on-surface leading-tight">Dr. Sarah Vance, MD</span><span class="font-label-code-sm text-[10px] text-secondary leading-tight">Trauma Unit A • Shift 1</span></div><span class="w-1.5 h-1.5 rounded-full bg-emerald-600 ml-1"></span></div><button class="px-2 py-1 rounded-lg border border-outline-variant/60 hover:bg-surface-container-low text-on-surface-variant font-label-code-sm text-label-code-sm transition-colors" type="button">AR</button><button class="relative p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-error ring-2 ring-surface-container-lowest"></span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="w-full pt-14 px-gutter bg-surface min-h-screen"><div class="flex flex-col w-full space-y-4 pb-10">
+<!-- 1. SUB-HEADER & ACCREDITATION COMMAND BANNER -->
+<section class="bg-surface-container-lowest rounded-xl p-4 shadow-sm flex flex-col xl:flex-row xl:items-center justify-between gap-4">
+<div class="space-y-1.5">
+<div class="flex flex-wrap items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-primary text-on-primary font-label-code-sm text-label-code-sm uppercase tracking-wider font-bold">QOPI Certified</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-code-sm text-label-code-sm font-semibold">ASCO / CAP ACCREDITED 2025</span>
+<span class="flex items-center gap-1.5 px-2 py-0.5 rounded bg-secondary-container text-on-secondary-fixed font-label-code-sm text-label-code-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+          USP &lt;800&gt; / &lt;797&gt; NEG-PRESSURE SYNCED
+        </span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight">
+        Medical Oncology &amp; Chemotherapy Infusion Center
+      </h1>
+<p class="font-body-sm text-body-sm text-secondary">
+        Autonomous Day-Hospital Workstation • High-Hazard Admixture Telemetry, Dual-RN Verification &amp; Dose Density Control
+      </p>
+</div>
+<!-- Quick Clinical Actions -->
+<div class="flex flex-wrap items-center gap-2 shrink-0">
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-title-md text-body-sm transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[17px] text-secondary">barcode_scanner</span>
+<span>Print Hazardous Barcodes</span>
+</button>
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container text-error font-title-md text-body-sm transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[17px]">lock_reset</span>
+<span>Extravasation Kit Lockout</span>
+</button>
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-secondary-container text-on-secondary-fixed hover:bg-secondary-fixed font-title-md text-body-sm transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[17px]">verified_user</span>
+<span>Dual-RN Chemo Sign-off</span>
+</button>
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary-container text-on-primary hover:bg-primary font-title-md text-body-sm transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[17px]">add_circle</span>
+<span>+ Plan New Protocol</span>
+</button>
+</div>
+</section>
+<!-- 2. TOP METRIC KPI STRIP -->
+<section class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3">
+<!-- Bay Occupancy -->
+<div class="bg-surface-container-lowest rounded-xl p-3.5 shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-code-sm text-label-code-sm uppercase tracking-wider text-secondary">Active Infusion Bays</span>
+<span class="material-symbols-outlined text-primary text-[20px]">airline_seat_recline_extra</span>
+</div>
+<div class="mt-2 flex items-baseline gap-2">
+<span class="font-display-lg text-display-lg font-bold text-on-surface">26 <span class="text-secondary font-normal text-headline-md">/ 30</span></span>
+<span class="px-1.5 py-0.5 rounded bg-primary-fixed text-on-primary-fixed-variant font-label-code-sm text-label-code-sm font-bold">86.7% Cap</span>
+</div>
+<div class="mt-2.5 flex items-center justify-between font-body-sm text-body-sm text-secondary">
+<span>4 Turnovers in cleaning</span>
+<span class="font-tabular-vitals text-tabular-vitals font-semibold text-primary">0 Waiting in Lobby</span>
+</div>
+<!-- Progress Bar -->
+<div class="w-full bg-surface-container h-1.5 rounded-full mt-2 overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 86.7%"></div>
+</div>
+</div>
+<!-- ANC Clearance Rate -->
+<div class="bg-surface-container-lowest rounded-xl p-3.5 shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-code-sm text-label-code-sm uppercase tracking-wider text-secondary">ANC &amp; CBC Clearance</span>
+<span class="material-symbols-outlined text-secondary text-[20px]">chips</span>
+</div>
+<div class="mt-2 flex items-baseline gap-2">
+<span class="font-display-lg text-display-lg font-bold text-on-surface">94.2%</span>
+<span class="px-1.5 py-0.5 rounded bg-error-container text-on-error-container font-label-code-sm text-label-code-sm font-bold">2 Lab Holds</span>
+</div>
+<div class="mt-2.5 flex items-center justify-between font-body-sm text-body-sm text-secondary">
+<span>1 Febrile Neutropenia (Bay 02)</span>
+<span class="font-tabular-vitals text-tabular-vitals font-semibold text-error">ANC &lt; 900/µL</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full mt-2 overflow-hidden">
+<div class="bg-primary-container h-full rounded-full" style="width: 94.2%"></div>
+</div>
+</div>
+<!-- CSTD USP 800 Metric -->
+<div class="bg-surface-container-lowest rounded-xl p-3.5 shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-code-sm text-label-code-sm uppercase tracking-wider text-secondary">CSTD USP &lt;800&gt; Containment</span>
+<span class="material-symbols-outlined text-primary text-[20px]">shield_with_heart</span>
+</div>
+<div class="mt-2 flex items-baseline gap-2">
+<span class="font-display-lg text-display-lg font-bold text-on-surface">100%</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-primary font-label-code-sm text-label-code-sm font-bold">Zero Breach</span>
+</div>
+<div class="mt-2.5 flex items-center justify-between font-body-sm text-body-sm text-secondary">
+<span>Cleanroom Vapors: 0.00 ppm</span>
+<span class="font-tabular-vitals text-tabular-vitals font-semibold text-primary">PhaSeal Locked</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full mt-2 overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 100%"></div>
+</div>
+</div>
+<!-- Dual-RN Sign-off Rate -->
+<div class="bg-surface-container-lowest rounded-xl p-3.5 shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-code-sm text-label-code-sm uppercase tracking-wider text-secondary">Dual-Nurse Independent Verification</span>
+<span class="material-symbols-outlined text-primary-container text-[20px]">fact_check</span>
+</div>
+<div class="mt-2 flex items-baseline gap-2">
+<span class="font-display-lg text-display-lg font-bold text-on-surface">100%</span>
+<span class="px-1.5 py-0.5 rounded bg-secondary-container text-on-secondary-fixed font-label-code-sm text-label-code-sm font-bold">ASCO Safe</span>
+</div>
+<div class="mt-2.5 flex items-center justify-between font-body-sm text-body-sm text-secondary">
+<span>Cytotoxic Dispatched: 18 Bags</span>
+<span class="font-tabular-vitals text-tabular-vitals font-semibold text-primary">0 Bypass Orders</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full mt-2 overflow-hidden">
+<div class="bg-primary-container h-full rounded-full" style="width: 100%"></div>
+</div>
+</div>
+</section>
+<!-- 3. ACTIVE INFUSION CHAIR & BAY GRID MATRIX -->
+<section class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+<!-- Filter Toolbar -->
+<div class="p-3 bg-surface-container-low/60 flex flex-col lg:flex-row lg:items-center justify-between gap-3">
+<!-- Tabs -->
+<div class="flex items-center gap-1 overflow-x-auto pb-1 lg:pb-0">
+<button class="px-3 py-1.5 rounded-lg bg-primary-container text-on-primary font-label-code-sm text-label-code-sm font-semibold tracking-wide shrink-0" type="button">
+          All Bays (30)
+        </button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-lowest hover:bg-surface-container text-on-surface-variant font-label-code-sm text-label-code-sm font-medium shrink-0 transition-colors" type="button">
+          Active Infusions (26)
+        </button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-lowest hover:bg-surface-container text-on-surface-variant font-label-code-sm text-label-code-sm font-medium shrink-0 transition-colors" type="button">
+          Hydration / Pre-Med (4)
+        </button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-lowest hover:bg-surface-container text-on-surface-variant font-label-code-sm text-label-code-sm font-medium shrink-0 transition-colors" type="button">
+          Cytotoxic Running (18)
+        </button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-lowest hover:bg-surface-container text-on-surface-variant font-label-code-sm text-label-code-sm font-medium shrink-0 transition-colors" type="button">
+          Post-Observation (4)
+        </button>
+</div>
+<!-- Quick Search & Actions -->
+<div class="flex items-center gap-2 shrink-0">
+<div class="flex items-center gap-1.5 px-2 py-1 rounded-lg bg-surface-container-lowest text-secondary font-label-code-sm text-label-code-sm">
+<span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
+<span>LIVE TELEMETRY: ALARIS PUMPS LINKED</span>
+</div>
+<button class="p-1.5 rounded-lg bg-surface-container-lowest hover:bg-surface-container text-secondary transition-colors" title="Export Daily Infusion Log" type="button">
+<span class="material-symbols-outlined text-[18px]">file_download</span>
+</button>
+</div>
+</div>
+<!-- Dense Data Table Container -->
+<div class="overflow-x-auto">
+<table class="w-full text-left font-body-sm text-body-sm">
+<thead class="bg-surface-container-low text-secondary font-label-code-sm text-label-code-sm uppercase tracking-wider select-none">
+<tr>
+<th class="py-2.5 px-3 font-semibold">Bay # &amp; Patient Record</th>
+<th class="py-2.5 px-3 font-semibold">Oncology Protocol / Cycle</th>
+<th class="py-2.5 px-3 font-semibold">Pre-Chemo Organ Clearance</th>
+<th class="py-2.5 px-3 font-semibold">Pre-Medication Wait</th>
+<th class="py-2.5 px-3 font-semibold min-w-[240px]">Pump Telemetry &amp; Drug Delivery</th>
+<th class="py-2.5 px-3 font-semibold">Dual-RN Barcode Verif.</th>
+<th class="py-2.5 px-3 text-right font-semibold">Status / Clinical Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-high/30">
+<!-- ROW 1: ELEANOR VANCE (Focused Row) -->
+<tr class="bg-surface-container-low/30 hover:bg-surface-container-low/60 transition-colors">
+<td class="py-3 px-3">
+<div class="flex items-center gap-2">
+<span class="px-1.5 py-0.5 rounded bg-primary text-on-primary font-label-code-sm text-label-code-sm font-bold">BAY 04</span>
+<span class="text-secondary font-label-code-sm text-label-code-sm">(Window)</span>
+</div>
+<div class="font-title-md text-title-md text-primary mt-0.5">Eleanor R. Vance, 58F</div>
+<div class="font-label-code-sm text-label-code-sm text-secondary">MRN: 883921 • BSA: 1.72 m²</div>
+</td>
+<td class="py-3 px-3 max-w-[200px]">
+<div class="font-title-md text-body-md text-on-surface leading-tight">AC-T Protocol (Doxorubicin + Cyclophosphamide)</div>
+<div class="text-primary font-label-code-sm text-label-code-sm mt-0.5 font-bold">Cycle 3 of 6 • Day 1 (Invasive Ductal Carcinoma)</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex items-center gap-1.5">
+<span class="px-1.5 py-0.5 rounded bg-secondary-container text-on-secondary-fixed font-label-code-sm text-label-code-sm font-bold">ANC 1,850/µL</span>
+<span class="text-primary font-label-code-sm text-label-code-sm">PASS</span>
+</div>
+<div class="font-body-sm text-[11px] text-secondary mt-0.5">Plt: 185k • Bili: 0.8 mg/dL • ECOG: 1</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[15px]">check_circle</span>
+<span class="font-title-md text-body-sm font-semibold">Pre-Meds Done</span>
+</div>
+<div class="text-[11px] text-secondary mt-0.5">Dex 10mg + Ondan 8mg @ 08:30 EST (Wait Elapsed)</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex items-center justify-between">
+<span class="font-title-md text-body-sm text-error font-semibold">Doxorubicin (Adriamycin) 60mg/m²</span>
+<span class="font-tabular-vitals text-tabular-vitals font-bold text-primary">17m left</span>
+</div>
+<div class="font-label-code-sm text-label-code-sm text-secondary">Dose: 103.2mg in 100mL D5W • 150 mL/hr</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full mt-1.5 overflow-hidden">
+<div class="bg-error h-full rounded-full" style="width: 58%"></div>
+</div>
+<div class="flex justify-between font-label-code-sm text-[10px] text-secondary mt-0.5">
+<span>Vol Remaining: 42 mL</span>
+<span>Alaris Pump #04-A</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex items-center gap-1 font-label-code-sm text-label-code-sm text-primary">
+<span class="material-symbols-outlined text-[15px]">verified</span>
+<span>RN1: S. Vance • RN2: K. Price</span>
+</div>
+<div class="font-label-code-sm text-[10px] text-secondary mt-0.5">CSTD Seal Chemfort™ Verified</div>
+</td>
+<td class="py-3 px-3 text-right">
+<div class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container text-primary font-label-code-sm text-label-code-sm font-semibold mb-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span>BP 122/78 • HR 74</span>
+</div>
+<div>
+<button class="px-2.5 py-1 rounded bg-surface-container-high hover:bg-secondary-container text-on-surface font-title-md text-body-sm transition-colors shadow-sm" type="button">
+                  Log Toxicity / CTC-AE
+                </button>
+</div>
+</td>
+</tr>
+<!-- ROW 2: ARTHUR PENDELTON -->
+<tr class="bg-surface-container-lowest hover:bg-surface-container-low/40 transition-colors">
+<td class="py-3 px-3">
+<div class="flex items-center gap-2">
+<span class="px-1.5 py-0.5 rounded bg-secondary text-on-secondary font-label-code-sm text-label-code-sm font-bold">BAY 08</span>
+<span class="text-secondary font-label-code-sm text-label-code-sm">(Interior)</span>
+</div>
+<div class="font-title-md text-title-md text-primary mt-0.5">Arthur Pendelton, 68M</div>
+<div class="font-label-code-sm text-label-code-sm text-secondary">MRN: 884029 • BSA: 1.94 m²</div>
+</td>
+<td class="py-3 px-3 max-w-[200px]">
+<div class="font-title-md text-body-md text-on-surface leading-tight">FOLFOX6 (Colorectal Adenocarcinoma)</div>
+<div class="text-secondary font-label-code-sm text-label-code-sm mt-0.5">Cycle 4 of 12 • Day 1</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex items-center gap-1.5">
+<span class="px-1.5 py-0.5 rounded bg-secondary-container text-on-secondary-fixed font-label-code-sm text-label-code-sm font-bold">ANC 2,120/µL</span>
+<span class="text-primary font-label-code-sm text-label-code-sm">PASS</span>
+</div>
+<div class="font-body-sm text-[11px] text-secondary mt-0.5">Plt: 142k • CrCl: 72 mL/min • ECOG: 0</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[15px]">check_circle</span>
+<span class="font-title-md text-body-sm font-semibold">Pre-Meds Done</span>
+</div>
+<div class="text-[11px] text-secondary mt-0.5">Aprepitant 125mg + Dexamethasone @ 08:45</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex items-center justify-between">
+<span class="font-title-md text-body-sm text-primary font-semibold">Oxaliplatin 85mg/m² in D5W 500mL</span>
+<span class="font-tabular-vitals text-tabular-vitals font-bold text-on-surface">1h 14m left</span>
+</div>
+<div class="font-label-code-sm text-label-code-sm text-secondary">164.9mg Total • Rate: 250 mL/hr • Warm Blanket req.</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full mt-1.5 overflow-hidden">
+<div class="bg-primary-container h-full rounded-full" style="width: 38%"></div>
+</div>
+<div class="flex justify-between font-label-code-sm text-[10px] text-secondary mt-0.5">
+<span>Vol Remaining: 310 mL</span>
+<span>Cold Allodynia Precautions</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex items-center gap-1 font-label-code-sm text-label-code-sm text-primary">
+<span class="material-symbols-outlined text-[15px]">verified</span>
+<span>RN1: M. Diaz • RN2: K. Price</span>
+</div>
+<div class="font-label-code-sm text-[10px] text-secondary mt-0.5">5-FU CADD Pump Programmed</div>
+</td>
+<td class="py-3 px-3 text-right">
+<div class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container text-secondary font-label-code-sm text-label-code-sm font-semibold mb-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span>BP 138/82 • HR 68</span>
+</div>
+<div>
+<button class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-title-md text-body-sm transition-colors" type="button">
+                  Log Toxicity / CTC-AE
+                </button>
+</div>
+</td>
+</tr>
+<!-- ROW 3: BEATRICE AL-MANSOOR -->
+<tr class="bg-surface-container-lowest hover:bg-surface-container-low/40 transition-colors">
+<td class="py-3 px-3">
+<div class="flex items-center gap-2">
+<span class="px-1.5 py-0.5 rounded bg-secondary text-on-secondary font-label-code-sm text-label-code-sm font-bold">BAY 12</span>
+<span class="text-secondary font-label-code-sm text-label-code-sm">(Semi-Private)</span>
+</div>
+<div class="font-title-md text-title-md text-primary mt-0.5">Beatrice Al-Mansoor, 34F</div>
+<div class="font-label-code-sm text-label-code-sm text-secondary">MRN: 902184 • BSA: 1.61 m²</div>
+</td>
+<td class="py-3 px-3 max-w-[200px]">
+<div class="font-title-md text-body-md text-on-surface leading-tight">ABVD Regimen (Classical Hodgkin Lymphoma)</div>
+<div class="text-secondary font-label-code-sm text-label-code-sm mt-0.5">Cycle 2 of 4 • Day 15</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex items-center gap-1.5">
+<span class="px-1.5 py-0.5 rounded bg-secondary-container text-on-secondary-fixed font-label-code-sm text-label-code-sm font-bold">ANC 1,490/µL</span>
+<span class="text-primary font-label-code-sm text-label-code-sm">CLEAR</span>
+</div>
+<div class="font-body-sm text-[11px] text-secondary mt-0.5">PFT DLCO: 92% • QTc: 412ms (Normal)</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[15px]">check_circle</span>
+<span class="font-title-md text-body-sm font-semibold">Pre-Meds Done</span>
+</div>
+<div class="text-[11px] text-secondary mt-0.5">Hydrocortisone 100mg + Diphenhydramine</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex items-center justify-between">
+<span class="font-title-md text-body-sm text-primary font-semibold">Bleomycin 10 units/m² IVPB</span>
+<span class="font-tabular-vitals text-tabular-vitals font-bold text-on-surface">22m left</span>
+</div>
+<div class="font-label-code-sm text-label-code-sm text-secondary">16.1 Units in 50mL 0.9% NaCl • Rate: 100 mL/hr</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full mt-1.5 overflow-hidden">
+<div class="bg-primary-container h-full rounded-full" style="width: 72%"></div>
+</div>
+<div class="flex justify-between font-label-code-sm text-[10px] text-secondary mt-0.5">
+<span>Vol Remaining: 14 mL</span>
+<span>Pulmonary Monitor Active</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex items-center gap-1 font-label-code-sm text-label-code-sm text-primary">
+<span class="material-symbols-outlined text-[15px]">verified</span>
+<span>RN1: S. Vance • RN2: R. Chen</span>
+</div>
+<div class="font-label-code-sm text-[10px] text-secondary mt-0.5">Lifetime Bleo: 60 U (Limit 400 U)</div>
+</td>
+<td class="py-3 px-3 text-right">
+<div class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container text-secondary font-label-code-sm text-label-code-sm font-semibold mb-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span>SpO2 99% • RR 16</span>
+</div>
+<div>
+<button class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-title-md text-body-sm transition-colors" type="button">
+                  Log Toxicity / CTC-AE
+                </button>
+</div>
+</td>
+</tr>
+<!-- ROW 4: MARCUS AURELIUS -->
+<tr class="bg-surface-container-lowest hover:bg-surface-container-low/40 transition-colors">
+<td class="py-3 px-3">
+<div class="flex items-center gap-2">
+<span class="px-1.5 py-0.5 rounded bg-secondary text-on-secondary font-label-code-sm text-label-code-sm font-bold">BAY 15</span>
+<span class="text-secondary font-label-code-sm text-label-code-sm">(Main Hall)</span>
+</div>
+<div class="font-title-md text-title-md text-primary mt-0.5">Marcus Aurelius, 62M</div>
+<div class="font-label-code-sm text-label-code-sm text-secondary">MRN: 902810 • BSA: 2.05 m²</div>
+</td>
+<td class="py-3 px-3 max-w-[200px]">
+<div class="font-title-md text-body-md text-on-surface leading-tight">Pembrolizumab (Keytruda) Immunotherapy</div>
+<div class="text-secondary font-label-code-sm text-label-code-sm mt-0.5">Cycle 8 of 24 (q3w) • Melanoma Stage IV</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex items-center gap-1.5">
+<span class="px-1.5 py-0.5 rounded bg-secondary-container text-on-secondary-fixed font-label-code-sm text-label-code-sm font-bold">TSH 2.1 mIU/L</span>
+<span class="text-primary font-label-code-sm text-label-code-sm">NORMAL</span>
+</div>
+<div class="font-body-sm text-[11px] text-secondary mt-0.5">ALT: 22 U/L • Cortisol: 14 µg/dL • ECOG: 0</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[15px]">info</span>
+<span class="font-title-md text-body-sm font-semibold">No Pre-Med Req.</span>
+</div>
+<div class="text-[11px] text-secondary mt-0.5">Low infusion-reaction profile protocol</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex items-center justify-between">
+<span class="font-title-md text-body-sm text-primary font-semibold">Pembrolizumab 200mg Fixed Dose</span>
+<span class="font-tabular-vitals text-tabular-vitals font-bold text-on-surface">06m left</span>
+</div>
+<div class="font-label-code-sm text-label-code-sm text-secondary">100mL 0.9% NaCl • 0.2-micron Low Protein Filter</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full mt-1.5 overflow-hidden">
+<div class="bg-primary-container h-full rounded-full" style="width: 82%"></div>
+</div>
+<div class="flex justify-between font-label-code-sm text-[10px] text-secondary mt-0.5">
+<span>Vol Remaining: 12 mL</span>
+<span>Autoimmune Checklist Ok</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex items-center gap-1 font-label-code-sm text-label-code-sm text-primary">
+<span class="material-symbols-outlined text-[15px]">verified</span>
+<span>RN1: K. Price • RN2: R. Chen</span>
+</div>
+<div class="font-label-code-sm text-[10px] text-secondary mt-0.5">0.2µ inline filter verified</div>
+</td>
+<td class="py-3 px-3 text-right">
+<div class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container text-secondary font-label-code-sm text-label-code-sm font-semibold mb-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span>BP 118/74 • Temp 36.8°C</span>
+</div>
+<div>
+<button class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-title-md text-body-sm transition-colors" type="button">
+                  Log Toxicity / CTC-AE
+                </button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- 4. SPLIT DETAILED INSPECTION PANELS (BOTTOM GRID) -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-4">
+<!-- LEFT PANEL: 60% (Col-span 7) - REGIMEN ROADMAP & CUMULATIVE CARDIOTOXICITY TRACKER -->
+<div class="lg:col-span-7 bg-surface-container-lowest rounded-xl p-4 shadow-sm space-y-4">
+<!-- Panel Header -->
+<div class="flex items-center justify-between">
+<div class="space-y-0.5">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-label-code-sm text-label-code-sm font-bold uppercase">Bay 04 Clinical Matrix</span>
+<span class="font-label-code-sm text-label-code-sm text-secondary">Protocol ID: B-004-IDC-AC-T</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary tracking-tight">
+            Active Regimen Roadmap &amp; Cumulative Anthracycline Exposure
+          </h2>
+<p class="font-body-sm text-body-sm text-secondary">Patient: Vance, Eleanor R. • 58 y/o Female • BSA 1.72 m²</p>
+</div>
+<button class="px-2.5 py-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container text-primary font-title-md text-body-sm transition-colors shadow-sm" type="button">
+          Modify Doses
+        </button>
+</div>
+<!-- Regimen Cycle Stepper Timeline -->
+<div class="bg-surface-container-low p-3.5 rounded-xl space-y-2">
+<div class="flex items-center justify-between font-label-code-sm text-label-code-sm text-secondary uppercase font-semibold">
+<span>Treatment Cycles Progress (Dose-Dense Q2W)</span>
+<span class="text-primary font-bold">50% Completed (Cycle 3 Running)</span>
+</div>
+<div class="grid grid-cols-6 gap-1.5 text-center">
+<div class="p-2 rounded bg-surface-container-lowest text-on-surface shadow-xs">
+<div class="font-label-code-sm text-label-code-sm font-bold text-primary">Cycle 1</div>
+<div class="font-body-sm text-[11px] text-secondary">AC Done</div>
+<div class="mt-1 flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[14px]">check</span></div>
+</div>
+<div class="p-2 rounded bg-surface-container-lowest text-on-surface shadow-xs">
+<div class="font-label-code-sm text-label-code-sm font-bold text-primary">Cycle 2</div>
+<div class="font-body-sm text-[11px] text-secondary">AC Done</div>
+<div class="mt-1 flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[14px]">check</span></div>
+</div>
+<div class="p-2 rounded bg-primary text-on-primary shadow-xs">
+<div class="font-label-code-sm text-label-code-sm font-bold">Cycle 3</div>
+<div class="font-body-sm text-[11px] text-primary-fixed">AC Active</div>
+<div class="mt-1 flex items-center justify-center text-primary-fixed"><span class="material-symbols-outlined text-[14px] animate-spin">progress_activity</span></div>
+</div>
+<div class="p-2 rounded bg-surface-container text-secondary">
+<div class="font-label-code-sm text-label-code-sm font-bold text-on-surface">Cycle 4</div>
+<div class="font-body-sm text-[11px] text-secondary">AC In 14d</div>
+<div class="mt-1 flex items-center justify-center text-secondary"><span class="material-symbols-outlined text-[14px]">schedule</span></div>
+</div>
+<div class="p-2 rounded bg-surface-container text-secondary">
+<div class="font-label-code-sm text-label-code-sm font-bold text-on-surface">Cycle 5</div>
+<div class="font-body-sm text-[11px] text-secondary">Paclitaxel</div>
+<div class="mt-1 flex items-center justify-center text-secondary"><span class="material-symbols-outlined text-[14px]">schedule</span></div>
+</div>
+<div class="p-2 rounded bg-surface-container text-secondary">
+<div class="font-label-code-sm text-label-code-sm font-bold text-on-surface">Cycle 6</div>
+<div class="font-body-sm text-[11px] text-secondary">Paclitaxel</div>
+<div class="mt-1 flex items-center justify-center text-secondary"><span class="material-symbols-outlined text-[14px]">schedule</span></div>
+</div>
+</div>
+</div>
+<!-- Cumulative Lifetime Anthracycline Exposure Card -->
+<div class="bg-surface-container-low/50 rounded-xl p-3.5 space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">monitor_heart</span>
+<span class="font-title-md text-title-md text-primary">Doxorubicin Lifetime Cardiotoxicity Ceiling</span>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-container text-primary font-label-code-sm text-label-code-sm font-bold">ECHO Baseline LVEF: 62%</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+<div class="p-2.5 rounded-lg bg-surface-container-lowest">
+<div class="font-label-code-sm text-label-code-sm text-secondary uppercase">Lifetime Limit</div>
+<div class="font-tabular-vitals text-headline-sm font-bold text-on-surface mt-0.5">450 mg/m²</div>
+<div class="font-body-sm text-[11px] text-secondary">Max cumulative safe dose</div>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container-lowest">
+<div class="font-label-code-sm text-label-code-sm text-secondary uppercase">Current Exposure</div>
+<div class="font-tabular-vitals text-headline-sm font-bold text-primary mt-0.5">180 mg/m²</div>
+<div class="font-body-sm text-[11px] text-secondary">Post-Cycle 3 cumulative</div>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container-lowest">
+<div class="font-label-code-sm text-label-code-sm text-secondary uppercase">Exposure Ratio</div>
+<div class="font-tabular-vitals text-headline-sm font-bold text-primary mt-0.5">40.0%</div>
+<div class="font-body-sm text-[11px] text-primary">Low Cardiotoxic Risk</div>
+</div>
+</div>
+<!-- Cumulative Progress visual bar with safety markers -->
+<div class="space-y-1">
+<div class="w-full bg-surface-container h-3 rounded-full overflow-hidden flex relative">
+<!-- Safe Zone (up to 400 mg/m2 = 88%) -->
+<div class="bg-primary h-full transition-all" style="width: 40%"></div>
+<div class="bg-surface-container-high h-full" style="width: 48%"></div>
+<!-- Danger Zone (> 400 mg/m2) -->
+<div class="bg-error/30 h-full" style="width: 12%"></div>
+</div>
+<div class="flex justify-between font-label-code-sm text-[10px] text-secondary">
+<span>0 mg/m²</span>
+<span>180 mg/m² (Current)</span>
+<span>400 mg/m² (Warning Tier)</span>
+<span>450 mg/m² (Strict Ceiling)</span>
+</div>
+</div>
+</div>
+<!-- Bottom Split: NCI CTCAE Toxicity Log & Organ Clearance Gates -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+<!-- CTCAE v5.0 Toxicity Log -->
+<div class="bg-surface-container-low/40 rounded-xl p-3 space-y-2">
+<div class="flex items-center justify-between">
+<span class="font-label-code-sm text-label-code-sm uppercase tracking-wider text-secondary font-bold">CTCAE v5.0 Toxicity Grading</span>
+<span class="material-symbols-outlined text-secondary text-[16px]">assignment</span>
+</div>
+<div class="space-y-1.5">
+<div class="flex items-center justify-between p-1.5 rounded bg-surface-container-lowest font-body-sm text-body-sm">
+<span class="text-on-surface">Nausea / Emesis</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-code-sm text-label-code-sm font-bold">Grade 1 (Mild)</span>
+</div>
+<div class="flex items-center justify-between p-1.5 rounded bg-surface-container-lowest font-body-sm text-body-sm">
+<span class="text-on-surface">Peripheral Neuropathy</span>
+<span class="px-1.5 py-0.5 rounded bg-secondary-container text-on-secondary-fixed font-label-code-sm text-label-code-sm font-bold">Grade 0 (None)</span>
+</div>
+<div class="flex items-center justify-between p-1.5 rounded bg-surface-container-lowest font-body-sm text-body-sm">
+<span class="text-on-surface">Oral Mucositis</span>
+<span class="px-1.5 py-0.5 rounded bg-secondary-container text-on-secondary-fixed font-label-code-sm text-label-code-sm font-bold">Grade 0 (None)</span>
+</div>
+<div class="flex items-center justify-between p-1.5 rounded bg-surface-container-lowest font-body-sm text-body-sm">
+<span class="text-on-surface">Alopecia</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-code-sm text-label-code-sm font-bold">Grade 2 (Cold Cap)</span>
+</div>
+</div>
+</div>
+<!-- Organ Function Gateways -->
+<div class="bg-surface-container-low/40 rounded-xl p-3 space-y-2">
+<div class="flex items-center justify-between">
+<span class="font-label-code-sm text-label-code-sm uppercase tracking-wider text-secondary font-bold">Pre-Chemo Organ Gates</span>
+<span class="material-symbols-outlined text-secondary text-[16px]">verified</span>
+</div>
+<div class="space-y-1.5">
+<div class="flex items-center justify-between p-1.5 rounded bg-surface-container-lowest font-body-sm text-body-sm">
+<span class="text-on-surface">Renal CrCl (Cockcroft)</span>
+<span class="font-tabular-vitals text-tabular-vitals font-semibold text-primary">88 mL/min (Pass)</span>
+</div>
+<div class="flex items-center justify-between p-1.5 rounded bg-surface-container-lowest font-body-sm text-body-sm">
+<span class="text-on-surface">Serum Creatinine</span>
+<span class="font-tabular-vitals text-tabular-vitals font-semibold text-on-surface">0.9 mg/dL</span>
+</div>
+<div class="flex items-center justify-between p-1.5 rounded bg-surface-container-lowest font-body-sm text-body-sm">
+<span class="text-on-surface">AST / ALT Hepatic</span>
+<span class="font-tabular-vitals text-tabular-vitals font-semibold text-on-surface">24 / 28 U/L</span>
+</div>
+<div class="flex items-center justify-between p-1.5 rounded bg-surface-container-lowest font-body-sm text-body-sm">
+<span class="text-on-surface">Total Bilirubin</span>
+<span class="font-tabular-vitals text-tabular-vitals font-semibold text-on-surface">0.8 mg/dL</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT PANEL: 40% (Col-span 5) - HAZARDOUS DRUG ADMIXTURE & CLEANROOM USP <800> -->
+<div class="lg:col-span-5 bg-surface-container-lowest rounded-xl p-4 shadow-sm space-y-4 flex flex-col justify-between">
+<div class="space-y-3">
+<!-- Cleanroom Header -->
+<div class="flex items-center justify-between">
+<div>
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-code-sm text-label-code-sm font-bold uppercase text-primary">USP &lt;800&gt; / &lt;797&gt; CLEANROOM TELEMETRY</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface mt-0.5">Oncology Admixture Cleanroom #2</h3>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-container text-primary font-label-code-sm text-label-code-sm font-bold">ISO Class 5</span>
+</div>
+<!-- BSC Hood Physical Telemetry Gauges -->
+<div class="grid grid-cols-2 gap-2.5">
+<div class="p-3 rounded-lg bg-surface-container-low/70 space-y-1">
+<div class="font-label-code-sm text-label-code-sm text-secondary uppercase">Biological Safety Cabinet (BSC-02)</div>
+<div class="font-tabular-vitals text-headline-sm font-bold text-on-surface">-0.045 <span class="text-body-sm font-normal text-secondary">in. w.g.</span></div>
+<div class="flex items-center gap-1 text-[11px] text-primary">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+<span>Negative Pressure Nominal</span>
+</div>
+</div>
+<div class="p-3 rounded-lg bg-surface-container-low/70 space-y-1">
+<div class="font-label-code-sm text-label-code-sm text-secondary uppercase">Laminar Air Velocity</div>
+<div class="font-tabular-vitals text-headline-sm font-bold text-on-surface">102 <span class="text-body-sm font-normal text-secondary">fpm</span></div>
+<div class="flex items-center gap-1 text-[11px] text-primary">
+<span class="material-symbols-outlined text-[14px]">air</span>
+<span>Class II Type B2 Exhaust</span>
+</div>
+</div>
+</div>
+<!-- Active Compounding Queue Card -->
+<div class="p-3 rounded-xl bg-surface-container-low/40 space-y-2.5">
+<div class="flex items-center justify-between">
+<span class="font-label-code-sm text-label-code-sm font-bold uppercase text-secondary">Active Cleanroom Batch</span>
+<span class="px-1.5 py-0.5 rounded bg-primary-container text-on-primary font-label-code-sm text-label-code-sm font-bold">HAZ-9821</span>
+</div>
+<div class="space-y-1">
+<div class="font-title-md text-body-md text-on-surface">Doxorubicin HCl 103.2 mg in 100 mL D5W</div>
+<div class="font-body-sm text-[12px] text-secondary">Reconstituted under HEPA laminar containment • Lot #DX-2025-081</div>
+</div>
+<!-- Gravimetric Check Matrix -->
+<div class="p-2 rounded bg-surface-container-lowest space-y-1 font-body-sm text-body-sm">
+<div class="flex justify-between items-center">
+<span class="text-secondary">Gravimetric Expected:</span>
+<span class="font-tabular-vitals text-tabular-vitals text-on-surface">104.0 g (±0.5%)</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-secondary">Measured Scale Weight:</span>
+<span class="font-tabular-vitals text-tabular-vitals font-bold text-primary">104.2 g (0.19% Δ) PASS</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-secondary">Compounding Pharmacist:</span>
+<span class="font-title-md text-body-sm text-on-surface">Dr. Helena Kim, PharmD, BCOP</span>
+</div>
+</div>
+</div>
+<!-- CSTD & Spike Hardware Safety Verification -->
+<div class="p-3 rounded-xl bg-surface-container-low/40 space-y-2">
+<div class="flex items-center justify-between">
+<span class="font-label-code-sm text-label-code-sm font-bold uppercase text-secondary">CSTD System Check</span>
+<span class="font-label-code-sm text-label-code-sm text-primary font-bold">100% INTACT</span>
+</div>
+<div class="space-y-1.5 font-body-sm text-[12px]">
+<div class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-primary">lock</span>
+<span>PhaSeal™ Optima Injector &amp; Bag Access Device Locked</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-primary">science</span>
+<span>Negative-Pressure Cleanroom Exhaust: Zero VOC Volatility</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-primary">health_and_safety</span>
+<span>Cytotoxic Chemo Spill Kit Standby: Cart #03 Verified</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Footer for Pharmacists -->
+<div class="pt-2 flex items-center justify-between gap-2">
+<button class="w-full py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-title-md text-body-sm transition-colors text-center shadow-sm" type="button">
+          Print CSTD Certification
+        </button>
+<button class="w-full py-2 rounded-lg bg-primary text-on-primary hover:bg-primary-container font-title-md text-body-sm transition-colors text-center shadow-sm" type="button">
+          Release Next Chemo Batch
+        </button>
+</div>
+</div>
+</section>
+</div></main></div></body></html>

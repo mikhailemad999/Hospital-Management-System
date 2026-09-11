@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-primary":"#ffffff","on-tertiary":"#ffffff","tertiary-fixed":"#cce5ff","error":"#ba1a1a","on-error-container":"#93000a","secondary":"#515f74","secondary-fixed":"#d5e3fd","on-tertiary-container":"#74c1ff","primary-fixed":"#d2e4ff","background":"#f8f9ff","on-secondary-fixed-variant":"#3a485c","on-surface-variant":"#42474f","surface-container-lowest":"#ffffff","surface":"#f8f9ff","surface-variant":"#d3e4fe","surface-container-low":"#eff4ff","on-tertiary-fixed":"#001d31","on-secondary-fixed":"#0d1c2f","inverse-primary":"#a0c9ff","secondary-container":"#d5e3fd","surface-container-highest":"#d3e4fe","inverse-on-surface":"#eaf1ff","tertiary-fixed-dim":"#93ccff","on-background":"#0b1c30","inverse-surface":"#213145","error-container":"#ffdad6","primary-fixed-dim":"#a0c9ff","secondary-fixed-dim":"#b9c7e0","surface-bright":"#f8f9ff","outline":"#727780","on-primary-fixed-variant":"#07497d","surface-dim":"#cbdbf5","on-tertiary-fixed-variant":"#004b73","primary":"#00355f","on-surface":"#0b1c30","outline-variant":"#c2c7d1","surface-container":"#e5eeff","surface-container-high":"#dce9ff","on-primary-fixed":"#001c37","on-primary-container":"#8ebdf9","on-secondary":"#ffffff","surface-tint":"#2d6197","on-error":"#ffffff","on-secondary-container":"#57657b","tertiary":"#003756","primary-container":"#0f4c81","tertiary-container":"#004e78"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"space-xl":"1.5rem","space-xs":"0.25rem","margin":"1.5rem","gutter":"1rem","space-md":"0.75rem","margin-compact":"0.75rem","space-sm":"0.5rem","space-lg":"1rem","gutter-dense":"0.5rem"},"fontFamily":{"body-lg":["Inter"],"label-code-lg":["JetBrains Mono"],"body-sm":["Inter"],"label-code-sm":["JetBrains Mono"],"headline-lg":["Inter"],"headline-sm":["Inter"],"display-lg-mobile":["Inter"],"tabular-vitals":["Inter"],"label-code-md":["JetBrains Mono"],"display-lg":["Inter"],"body-md":["Inter"],"title-md":["Inter"],"headline-md":["Inter"]},"fontSize":{"body-lg":["15px",{"lineHeight":"22px","fontWeight":"400"}],"label-code-lg":["13px",{"lineHeight":"18px","fontWeight":"500"}],"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"label-code-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.04em","fontWeight":"600"}],"headline-lg":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"600"}],"headline-sm":["16px",{"lineHeight":"24px","letterSpacing":"-0.005em","fontWeight":"600"}],"display-lg-mobile":["26px",{"lineHeight":"34px","letterSpacing":"-0.01em","fontWeight":"700"}],"tabular-vitals":["14px",{"lineHeight":"20px","fontWeight":"600"}],"label-code-md":["12px",{"lineHeight":"16px","fontWeight":"500"}],"display-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-md":["13px",{"lineHeight":"18px","fontWeight":"400"}],"title-md":["15px",{"lineHeight":"22px","fontWeight":"600"}],"headline-md":["20px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}]}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-lowest border-r border-outline-variant/40 z-50 flex flex-col justify-between select-none shadow-[0_1px_8px_rgba(0,0,0,0.02)]"><div class="flex flex-col h-full overflow-hidden"><div class="h-14 px-4 flex items-center gap-3 border-b border-outline-variant/30 shrink-0 bg-surface-container-lowest"><div class="w-8 h-8 rounded-lg bg-primary-container flex items-center justify-center text-on-primary shadow-sm"><span class="material-symbols-outlined text-[20px]">local_hospital</span></div><div class="flex flex-col"><span class="font-title-md text-title-md text-primary tracking-tight">MedCore EHR</span><span class="font-label-code-sm text-label-code-sm text-secondary uppercase tracking-wider">Enterprise v4.8</span></div></div><div class="flex-1 overflow-y-auto px-3 py-4 space-y-5"><nav class="space-y-4" data-active-classes="bg-primary-container text-on-primary rounded-lg shadow-sm font-semibold"><div class="space-y-1"><div class="px-2.5 pb-1 font-label-code-sm text-label-code-sm text-secondary uppercase tracking-wider">1. Overview &amp; Command</div><a aria-current="page" class="flex items-center gap-3 px-2.5 py-1.5 transition-colors bg-primary-container text-on-primary rounded-lg shadow-sm font-semibold" data-path="admin-dashboard" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">monitoring</span><span class="font-body-md text-body-md truncate">Admin Dashboard</span></a><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="emergency-ed-board" href="#"><span class="material-symbols-outlined text-[19px] shrink-0 text-error">e911_emergency</span><span class="font-body-md text-body-md truncate">Emergency ED Board</span></a></div><div class="space-y-1"><div class="px-2.5 pb-1 font-label-code-sm text-label-code-sm text-secondary uppercase tracking-wider">2. Patient Management</div><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="master-patient-index" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">badge</span><span class="font-body-md text-body-md truncate">Master Patient Index</span></a><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="patient-registration" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">person_add</span><span class="font-body-md text-body-md truncate">Registration</span></a><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="admissions-and-beds" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">hotel</span><span class="font-body-md text-body-md truncate">Admissions &amp; Beds</span></a></div><div class="space-y-1"><div class="px-2.5 pb-1 font-label-code-sm text-label-code-sm text-secondary uppercase tracking-wider">3. Clinical Workstations</div><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="doctor-clinic" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">stethoscope</span><span class="font-body-md text-body-md truncate">Doctor Clinic</span></a><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="nursing-and-mar" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">medication</span><span class="font-body-md text-body-md truncate">Nursing &amp; MAR</span></a><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="operating-theaters" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">vital_signs</span><span class="font-body-md text-body-md truncate">Operating Theaters / OR</span></a></div><div class="space-y-1"><div class="px-2.5 pb-1 font-label-code-sm text-label-code-sm text-secondary uppercase tracking-wider">4. Diagnostics &amp; Logistics</div><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="pharmacy-and-fefo-stock" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">prescriptions</span><span class="font-body-md text-body-md truncate">Pharmacy &amp; FEFO Stock</span></a><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="laboratory" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">chips</span><span class="font-body-md text-body-md truncate">Laboratory</span></a><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="radiology" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">radiology</span><span class="font-body-md text-body-md truncate">Radiology</span></a></div><div class="space-y-1"><div class="px-2.5 pb-1 font-label-code-sm text-label-code-sm text-secondary uppercase tracking-wider">5. Finance &amp; Governance</div><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="billing-and-cashier" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">receipt_long</span><span class="font-body-md text-body-md truncate">Billing &amp; Cashier</span></a><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="payroll-and-commissions" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">payments</span><span class="font-body-md text-body-md truncate">Payroll &amp; Commissions</span></a><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="audit-trail" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">verified_user</span><span class="font-body-md text-body-md truncate">Audit Trail</span></a><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="hospital-settings" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">settings</span><span class="font-body-md text-body-md truncate">Settings</span></a></div></nav></div><div class="p-3 border-t border-outline-variant/30 shrink-0 bg-surface-container-low/40"><div class="flex items-center justify-between text-secondary px-1"><div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span><span class="font-label-code-sm text-label-code-sm text-on-surface-variant">SYSTEM ONLINE</span></div><span class="font-label-code-sm text-label-code-sm text-secondary">HL7/FHIR v4</span></div></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-14 bg-surface-container-lowest border-b border-outline-variant/40 z-40 flex items-center justify-between px-6 shadow-[0_1px_4px_rgba(0,0,0,0.03)]"><div class="flex items-center gap-4 flex-1 max-w-3xl"><button class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg border border-outline-variant/60 bg-surface-container-low/50 hover:bg-surface-container-low text-on-surface transition-colors shrink-0" type="button"><span class="material-symbols-outlined text-[18px] text-primary">domain</span><span class="font-title-md text-body-sm truncate max-w-[210px]">Metro Central - Main</span><span class="material-symbols-outlined text-[16px] text-secondary">expand_more</span></button><div class="relative flex-1 max-w-lg"><span class="material-symbols-outlined absolute left-2.5 top-1/2 -translate-y-1/2 text-secondary text-[18px]">search</span><input class="w-full pl-8 pr-12 py-1.5 text-body-sm font-body-sm rounded-lg border border-outline-variant/60 bg-surface focus:bg-surface-container-lowest focus:border-primary focus:outline-none placeholder:text-secondary/60 text-on-surface transition-all" placeholder="Search Patient by MRN, National ID, Name, Staff Code (Press '/' to focus)..." type="text"/><span class="absolute right-2 top-1/2 -translate-y-1/2 px-1.5 py-0.5 rounded border border-outline-variant/50 text-[10px] font-label-code-sm text-secondary bg-surface-container-low">⌘K</span></div></div><div class="flex items-center gap-3 shrink-0"><div class="flex items-center gap-1.5 px-2 py-1 rounded-lg bg-error-container text-on-error-container border border-error/20"><span class="material-symbols-outlined text-[16px] text-error">campaign</span><span class="font-label-code-sm text-label-code-sm font-bold uppercase">Trauma Code Red: OR-3</span></div><div class="hidden xl:flex items-center gap-2 px-2.5 py-1 rounded-lg bg-surface-container-low border border-outline-variant/40"><span class="material-symbols-outlined text-[16px] text-primary">badge</span><div class="flex flex-col text-left"><span class="font-title-md text-[11px] text-on-surface leading-tight">Dr. Sarah Vance, MD</span><span class="font-label-code-sm text-[10px] text-secondary leading-tight">Trauma Unit A • Shift 1</span></div><span class="w-1.5 h-1.5 rounded-full bg-emerald-600 ml-1"></span></div><button class="px-2 py-1 rounded-lg border border-outline-variant/60 hover:bg-surface-container-low text-on-surface-variant font-label-code-sm text-label-code-sm transition-colors" type="button">AR</button><button class="relative p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-error ring-2 ring-surface-container-lowest"></span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="w-full pt-14 px-gutter bg-surface min-h-screen"><div class="flex flex-col w-full pb-8">
+<!-- STAT Critical Equipment Dispatch Ticker -->
+<div class="w-full bg-error text-on-error px-4 py-2.5 rounded-lg shadow-md mb-4 flex flex-wrap items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[20px] animate-pulse" style="font-variation-settings: 'FILL' 1;">emergency_home</span>
+<div class="flex items-center gap-2">
+<span class="font-label-code-sm text-label-code-sm uppercase tracking-wider bg-on-error/20 px-2 py-0.5 rounded">STAT Rapid Dispatch #DSP-9042</span>
+<span class="font-body-md text-body-md font-semibold">Dräger Evita V800 ICU Ventilator (Asset #BME-VENT-4099)</span>
+<span class="font-body-sm text-body-sm opacity-90 hidden md:inline">• Carrier: Tech R. Gomez • En route: Central Depot ➔ ED Trauma Bay 2 (ETA: 3m 40s)</span>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<span class="font-label-code-sm text-label-code-sm bg-surface-container-lowest text-error px-2 py-0.5 rounded font-bold">RTLS TRACKING ACTIVE</span>
+<button class="bg-surface-container-lowest text-error hover:bg-error-container text-label-code-sm font-label-code-sm px-2.5 py-1 rounded transition-colors" onclick="alert('RTLS Beacon: Cart 4 Transit Corridor East. Lock Code: 7719')" type="button">Acknowledge Hand-Off</button>
+</div>
+</div>
+<!-- Screen Header & Operational Status Bar -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-4">
+<div>
+<div class="flex items-center gap-2.5">
+<div class="w-7 h-7 rounded bg-primary-container text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">precision_manufacturing</span>
+</div>
+<h1 class="font-headline-md text-headline-md text-primary tracking-tight">Biomedical Engineering &amp; Clinical Telemetry</h1>
+<span class="font-label-code-sm text-label-code-sm px-2 py-0.5 rounded bg-surface-container-high text-primary font-semibold">IEC 62353 / NFPA 99 CERTIFIED</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary mt-0.5">Continuous IoT sensor stream, life-support asset telemetry, preventive maintenance, and electrical safety compliance across 18 clinical wards.</p>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<div class="bg-surface-container-lowest px-3 py-1.5 rounded shadow-sm flex items-center gap-3 text-secondary">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
+<span class="font-label-code-sm text-label-code-sm text-on-surface">RTLS MESH: 99.9%</span>
+</div>
+<span class="text-outline-variant font-label-code-sm">|</span>
+<div class="flex items-center gap-1.5">
+<span class="font-label-code-sm text-label-code-sm text-secondary">TELEMETRY SYNC:</span>
+<span class="font-label-code-sm text-label-code-sm text-primary font-bold">0.8s</span>
+</div>
+</div>
+<button class="bg-primary text-on-primary hover:bg-primary-container px-3 py-1.5 rounded font-label-code-sm text-label-code-sm flex items-center gap-1.5 shadow-sm transition-colors" onclick="document.getElementById('quick-dispatch-modal').classList.toggle('hidden')" type="button">
+<span class="material-symbols-outlined text-[16px]">bolt</span>
+<span>Stage Float Asset</span>
+</button>
+<button class="bg-surface-container-lowest text-primary hover:bg-surface-container-low px-3 py-1.5 rounded font-label-code-sm text-label-code-sm flex items-center gap-1.5 shadow-sm transition-colors" onclick="alert('Exporting FDA 21 CFR Part 820 Audit Trail (PDF/A format)...')" type="button">
+<span class="material-symbols-outlined text-[16px]">file_download</span>
+<span>Audit Export</span>
+</button>
+</div>
+</div>
+<!-- 4 Primary Enterprise BMET KPI Cards -->
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3 mb-4">
+<!-- KPI 1 -->
+<div class="bg-surface-container-lowest p-3.5 rounded-lg shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-code-sm text-label-code-sm text-secondary uppercase tracking-wider block">Active Monitored Fleet</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-headline-lg text-headline-lg text-primary tracking-tight">2,840</span>
+<span class="font-label-code-sm text-label-code-sm text-emerald-700 bg-emerald-100 px-1.5 py-0.5 rounded font-bold">98.4% Available</span>
+</div>
+</div>
+<div class="w-8 h-8 rounded bg-surface-container-low flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">medical_services</span>
+</div>
+</div>
+<div class="mt-3 pt-2.5 bg-surface-container-low/40 -mx-3.5 -mb-3.5 px-3.5 py-2 flex items-center justify-between font-label-code-sm text-label-code-sm text-secondary">
+<span>In PM / Bench: <strong class="text-on-surface">46 units</strong></span>
+<span>Quarantine: <strong class="text-on-surface">2 units</strong></span>
+</div>
+</div>
+<!-- KPI 2 -->
+<div class="bg-surface-container-lowest p-3.5 rounded-lg shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-code-sm text-label-code-sm text-secondary uppercase tracking-wider block">Life-Support (Tier 1 High-Risk)</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-headline-lg text-headline-lg text-primary tracking-tight">380</span>
+<span class="font-label-code-sm text-label-code-sm text-primary bg-primary-fixed px-1.5 py-0.5 rounded font-bold">100% Calibrated</span>
+</div>
+</div>
+<div class="w-8 h-8 rounded bg-primary-fixed-dim/30 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">vital_signs</span>
+</div>
+</div>
+<div class="mt-3 pt-2.5 bg-surface-container-low/40 -mx-3.5 -mb-3.5 px-3.5 py-2 flex items-center justify-between font-label-code-sm text-label-code-sm text-secondary">
+<span>Ventilators: <strong class="text-on-surface">114</strong></span>
+<span>Defibs: <strong class="text-on-surface">88</strong></span>
+<span>ECMO: <strong class="text-on-surface">16</strong></span>
+</div>
+</div>
+<!-- KPI 3 -->
+<div class="bg-surface-container-lowest p-3.5 rounded-lg shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-code-sm text-label-code-sm text-secondary uppercase tracking-wider block">Preventive Maint (PM) Compliance</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-headline-lg text-headline-lg text-primary tracking-tight">99.1%</span>
+<span class="font-label-code-sm text-label-code-sm text-emerald-700 bg-emerald-100 px-1.5 py-0.5 rounded font-bold">Zero Overdue</span>
+</div>
+</div>
+<div class="w-8 h-8 rounded bg-surface-container-low flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+</div>
+</div>
+<div class="mt-3 pt-2.5 bg-surface-container-low/40 -mx-3.5 -mb-3.5 px-3.5 py-2 flex items-center justify-between font-label-code-sm text-label-code-sm text-secondary">
+<span class="text-amber-800">3 Due within 48h</span>
+<span>Next Batch: <strong>Mon 08:00</strong></span>
+</div>
+</div>
+<!-- KPI 4 -->
+<div class="bg-surface-container-lowest p-3.5 rounded-lg shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-code-sm text-label-code-sm text-secondary uppercase tracking-wider block">Equipment Call Out &amp; Float Pool</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-headline-lg text-headline-lg text-primary tracking-tight">15</span>
+<span class="font-label-code-sm text-label-code-sm text-error bg-error-container text-on-error-container px-1.5 py-0.5 rounded font-bold">1 STAT Transit</span>
+</div>
+</div>
+<div class="w-8 h-8 rounded bg-surface-container-low flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[18px]">alt_route</span>
+</div>
+</div>
+<div class="mt-3 pt-2.5 bg-surface-container-low/40 -mx-3.5 -mb-3.5 px-3.5 py-2 flex items-center justify-between font-label-code-sm text-label-code-sm text-secondary">
+<span>Central Float Pool: <strong>15 Ready</strong></span>
+<span class="text-primary font-bold">Avg Dispatch: <strong>4.2m</strong></span>
+</div>
+</div>
+</div>
+<!-- Main Multi-Pane BMET Command Layout -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-3 items-start">
+<!-- LEFT & CENTER: Fleet Device Telemetry & Work Orders (8 Cols on XL) -->
+<div class="xl:col-span-8 space-y-3">
+<!-- Filter and Query Bar -->
+<div class="bg-surface-container-lowest p-3 rounded-lg shadow-sm flex flex-wrap items-center justify-between gap-2.5">
+<div class="flex flex-wrap items-center gap-2 flex-1 min-w-[280px]">
+<!-- Ward Selector -->
+<div class="relative">
+<select class="bg-surface-container-low text-on-surface font-body-sm text-body-sm pl-2.5 pr-7 py-1.5 rounded focus:outline-none focus:bg-surface-container-lowest transition-colors cursor-pointer appearance-none">
+<option>All Hospital Sectors (18 Wards)</option>
+<option selected="">ICU (Intensive Care Unit)</option>
+<option>OR (Surgical Suites)</option>
+<option>ED (Emergency Department)</option>
+<option>NICU (Neonatal ICU)</option>
+<option>Dialysis Center</option>
+<option>Calibration Lab &amp; Depot</option>
+</select>
+<span class="material-symbols-outlined absolute right-1.5 top-1/2 -translate-y-1/2 text-[16px] text-secondary pointer-events-none">expand_more</span>
+</div>
+<!-- Modality Filter -->
+<div class="relative">
+<select class="bg-surface-container-low text-on-surface font-body-sm text-body-sm pl-2.5 pr-7 py-1.5 rounded focus:outline-none focus:bg-surface-container-lowest transition-colors cursor-pointer appearance-none">
+<option>All Modalities</option>
+<option selected="">Life-Support (Tier 1)</option>
+<option>Diagnostic Telemetry</option>
+<option>Infusion &amp; Syringe Pumps</option>
+<option>Surgical &amp; Anesthesia</option>
+<option>Patient Monitoring</option>
+</select>
+<span class="material-symbols-outlined absolute right-1.5 top-1/2 -translate-y-1/2 text-[16px] text-secondary pointer-events-none">expand_more</span>
+</div>
+<!-- Risk Level Filter -->
+<div class="relative">
+<select class="bg-surface-container-low text-on-surface font-body-sm text-body-sm pl-2.5 pr-7 py-1.5 rounded focus:outline-none focus:bg-surface-container-lowest transition-colors cursor-pointer appearance-none">
+<option>Risk: All Tiers</option>
+<option>High Risk (Critical Care)</option>
+<option>Medium Risk</option>
+<option>Low Risk</option>
+</select>
+<span class="material-symbols-outlined absolute right-1.5 top-1/2 -translate-y-1/2 text-[16px] text-secondary pointer-events-none">expand_more</span>
+</div>
+<!-- Status Filter -->
+<div class="relative">
+<select class="bg-surface-container-low text-on-surface font-body-sm text-body-sm pl-2.5 pr-7 py-1.5 rounded focus:outline-none focus:bg-surface-container-lowest transition-colors cursor-pointer appearance-none">
+<option>Status: All (Operational + Service)</option>
+<option>Active Patient Attached</option>
+<option>PM Active / Work Order</option>
+<option>Standby Ready</option>
+</select>
+<span class="material-symbols-outlined absolute right-1.5 top-1/2 -translate-y-1/2 text-[16px] text-secondary pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- Right Mini Actions -->
+<div class="flex items-center gap-1.5 shrink-0">
+<button class="p-1.5 rounded bg-surface-container-low text-primary hover:bg-surface-container-high transition-colors" onclick="location.reload()" title="Refresh Live Feeds" type="button">
+<span class="material-symbols-outlined text-[18px]">refresh</span>
+</button>
+<span class="font-label-code-sm text-label-code-sm text-secondary pl-1">Showing 5 of 380 Life-Support Devices</span>
+</div>
+</div>
+<!-- High-Density Telemetry & Equipment Matrix Table -->
+<div class="bg-surface-container-lowest rounded-lg shadow-sm overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low text-secondary font-label-code-sm text-label-code-sm uppercase tracking-wider">
+<th class="py-2.5 px-3">Asset ID / Device Model</th>
+<th class="py-2.5 px-3">Location &amp; RTLS Tag</th>
+<th class="py-2.5 px-3">Power &amp; IoT Telemetry</th>
+<th class="py-2.5 px-3">Safety &amp; Calibration (IEC 62353)</th>
+<th class="py-2.5 px-3">Status</th>
+<th class="py-2.5 px-3 text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-low text-on-surface font-body-sm text-body-sm">
+<!-- Device 1: SELECTED ROW - Dräger Evita V800 (Linked to Drilldown Pane) -->
+<tr class="bg-primary-fixed/30 hover:bg-primary-fixed/40 transition-colors cursor-pointer group" onclick="selectDevice('BME-VENT-4081')">
+<td class="py-2.5 px-3">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse shrink-0" title="IoT Link Healthy"></span>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-label-code-sm text-label-code-sm font-bold text-primary">#BME-VENT-4081</span>
+<span class="font-label-code-sm text-[10px] bg-primary text-on-primary px-1 py-0.2 rounded">TIER-1 LIFE SUPPORT</span>
+</div>
+<div class="font-title-md text-body-sm text-on-surface font-medium leading-tight">Dräger Evita V800 ICU Ventilator</div>
+<div class="font-label-code-sm text-label-code-sm text-secondary">SN: EV80-99412-A • Modality: MV</div>
+</div>
+</div>
+</td>
+<td class="py-2.5 px-3 whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-title-md text-body-sm text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-primary">hotel</span>
+                      ICU Pod 4E Bed 01
+                    </span>
+<span class="font-label-code-sm text-label-code-sm text-secondary">Patient: Eleanor R. Vance (MRN #9021-4)</span>
+<span class="font-label-code-sm text-[10px] text-on-secondary-container">RTLS Tag: #UWB-9804 (Accuracy ±0.3m)</span>
+</div>
+</td>
+<td class="py-2.5 px-3 whitespace-nowrap">
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center gap-2">
+<span class="font-label-code-sm text-label-code-sm text-emerald-800 bg-emerald-50 px-1.5 py-0.2 rounded font-semibold">120V AC STABLE</span>
+<span class="font-label-code-sm text-label-code-sm text-primary font-bold">Bat: 98% (4h 22m)</span>
+</div>
+<span class="font-label-code-sm text-label-code-sm text-secondary">Self-Test: <strong class="text-emerald-700">PASS (04:00 Today)</strong></span>
+<span class="font-label-code-sm text-label-code-sm text-secondary">Peak Insp Press: <strong class="text-on-surface">24 cmH2O</strong> • FiO2: <strong class="text-on-surface">45%</strong></span>
+</div>
+</td>
+<td class="py-2.5 px-3 whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-label-code-sm text-label-code-sm text-on-surface">Leakage: <strong class="text-emerald-700 font-bold">42 µA</strong> (&lt;100 µA Limit)</span>
+<span class="font-label-code-sm text-label-code-sm text-secondary">Calibrated: 14-Oct-2024</span>
+<span class="font-label-code-sm text-label-code-sm text-secondary">Next Due: <span class="text-primary font-semibold">14-Apr-2025</span> (152d)</span>
+</div>
+</td>
+<td class="py-2.5 px-3 whitespace-nowrap">
+<div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-label-code-sm text-label-code-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-700"></span>
+                    OPERATIONAL (ACTIVE)
+                  </div>
+</td>
+<td class="py-2.5 px-3 text-right whitespace-nowrap">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1 rounded bg-surface-container text-primary hover:bg-primary hover:text-on-primary transition-colors" onclick="openWorkOrderModal('BME-VENT-4081')" title="Create Work Order" type="button">
+<span class="material-symbols-outlined text-[16px]">build</span>
+</button>
+<button class="p-1 rounded bg-surface-container text-primary hover:bg-primary hover:text-on-primary transition-colors" onclick="alert('Downloading IEC 62353 Calibration Certificate for #BME-VENT-4081...')" title="Download Calibration Certificate PDF" type="button">
+<span class="material-symbols-outlined text-[16px]">description</span>
+</button>
+<button class="p-1 rounded bg-surface-container text-error hover:bg-error hover:text-on-error transition-colors" onclick="confirmQuarantine('BME-VENT-4081')" title="Quarantine Device" type="button">
+<span class="material-symbols-outlined text-[16px]">block</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Device 2: Zoll R Series Defibrillator -->
+<tr class="hover:bg-surface-container-low/60 transition-colors cursor-pointer" onclick="selectDevice('BME-DEFIB-1022')">
+<td class="py-2.5 px-3">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-600 shrink-0"></span>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-label-code-sm text-label-code-sm font-bold text-primary">#BME-DEFIB-1022</span>
+<span class="font-label-code-sm text-[10px] bg-primary text-on-primary px-1 py-0.2 rounded">TIER-1 LIFE SUPPORT</span>
+</div>
+<div class="font-title-md text-body-sm text-on-surface font-medium leading-tight">Zoll R Series ALS Defibrillator</div>
+<div class="font-label-code-sm text-label-code-sm text-secondary">SN: ZR-8810-99 • Modality: DEFIB / PACER</div>
+</div>
+</div>
+</td>
+<td class="py-2.5 px-3 whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-title-md text-body-sm text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-error">emergency</span>
+                      ED Trauma Room 1 Crash Cart
+                    </span>
+<span class="font-label-code-sm text-label-code-sm text-secondary">Standby Ready (Crash Cart A)</span>
+<span class="font-label-code-sm text-[10px] text-on-secondary-container">RTLS Tag: #UWB-2291</span>
+</div>
+</td>
+<td class="py-2.5 px-3 whitespace-nowrap">
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center gap-2">
+<span class="font-label-code-sm text-label-code-sm text-emerald-800 bg-emerald-50 px-1.5 py-0.2 rounded font-semibold">DOCK CHARGING</span>
+<span class="font-label-code-sm text-label-code-sm text-primary font-bold">Bat: 100%</span>
+</div>
+<span class="font-label-code-sm text-label-code-sm text-secondary">Shock Self-Test: <strong class="text-emerald-700">PASS (30J Test Discharge)</strong></span>
+<span class="font-label-code-sm text-label-code-sm text-secondary">Pacer Impedance: <strong class="text-on-surface">52 Ω (Optimal)</strong></span>
+</div>
+</td>
+<td class="py-2.5 px-3 whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-label-code-sm text-label-code-sm text-on-surface">Leakage: <strong class="text-emerald-700 font-bold">28 µA</strong> (&lt;100 µA Limit)</span>
+<span class="font-label-code-sm text-label-code-sm text-secondary">Calibrated: 02-Sep-2024</span>
+<span class="font-label-code-sm text-label-code-sm text-secondary">Next Due: <span class="text-on-surface font-semibold">02-Mar-2025</span> (109d)</span>
+</div>
+</td>
+<td class="py-2.5 px-3 whitespace-nowrap">
+<div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-surface-container-high text-primary font-label-code-sm text-label-code-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                    STANDBY READY
+                  </div>
+</td>
+<td class="py-2.5 px-3 text-right whitespace-nowrap">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1 rounded bg-surface-container text-primary hover:bg-primary hover:text-on-primary transition-colors" onclick="openWorkOrderModal('BME-DEFIB-1022')" title="Create Work Order" type="button">
+<span class="material-symbols-outlined text-[16px]">build</span>
+</button>
+<button class="p-1 rounded bg-surface-container text-primary hover:bg-primary hover:text-on-primary transition-colors" onclick="alert('Downloading Calibration Certificate for #BME-DEFIB-1022...')" title="Download Calibration Certificate PDF" type="button">
+<span class="material-symbols-outlined text-[16px]">description</span>
+</button>
+<button class="p-1 rounded bg-surface-container text-error hover:bg-error hover:text-on-error transition-colors" onclick="confirmQuarantine('BME-DEFIB-1022')" title="Quarantine Device" type="button">
+<span class="material-symbols-outlined text-[16px]">block</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Device 3: Alaris Smart Infusion System -->
+<tr class="hover:bg-surface-container-low/60 transition-colors cursor-pointer" onclick="selectDevice('BME-INF-8921')">
+<td class="py-2.5 px-3">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-amber-500 shrink-0" title="PM Approaching in 36h"></span>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-label-code-sm text-label-code-sm font-bold text-primary">#BME-INF-8921</span>
+<span class="font-label-code-sm text-[10px] bg-secondary text-on-secondary px-1 py-0.2 rounded">TIER-2 INFUSION</span>
+</div>
+<div class="font-title-md text-body-sm text-on-surface font-medium leading-tight">BD Alaris 8015 PC Unit + 4 Pump Modules</div>
+<div class="font-label-code-sm text-label-code-sm text-secondary">SN: BD-AL-4481 • Guardrails Suite v12.1</div>
+</div>
+</div>
+</td>
+<td class="py-2.5 px-3 whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-title-md text-body-sm text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-primary">domain</span>
+                      Biomed Calibration Lab Bench 3
+                    </span>
+<span class="font-label-code-sm text-label-code-sm text-secondary">Technician: Marcus Brody (CBET)</span>
+<span class="font-label-code-sm text-[10px] text-on-secondary-container">RTLS Tag: #UWB-1102</span>
+</div>
+</td>
+<td class="py-2.5 px-3 whitespace-nowrap">
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center gap-2">
+<span class="font-label-code-sm text-label-code-sm text-amber-800 bg-amber-50 px-1.5 py-0.2 rounded font-semibold">TEST BENCH PWR</span>
+<span class="font-label-code-sm text-label-code-sm text-primary font-bold">Bat: 84%</span>
+</div>
+<span class="font-label-code-sm text-label-code-sm text-secondary">Flow Sensor Cal: <strong class="text-amber-800 font-semibold">±3.8% (Recalibrating)</strong></span>
+<span class="font-label-code-sm text-label-code-sm text-secondary">Pressure Transducer: <strong class="text-emerald-700">Calibrated</strong></span>
+</div>
+</td>
+<td class="py-2.5 px-3 whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-label-code-sm text-label-code-sm text-on-surface">Leakage: <strong class="text-emerald-700 font-bold">36 µA</strong> (&lt;100 µA Limit)</span>
+<span class="font-label-code-sm text-label-code-sm text-amber-800 font-bold">PM Due: Tomorrow 10:00 AM</span>
+<span class="font-label-code-sm text-label-code-sm text-secondary">WO #2024-BMET-8839 Open</span>
+</div>
+</td>
+<td class="py-2.5 px-3 whitespace-nowrap">
+<div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-amber-100 text-amber-900 font-label-code-sm text-label-code-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-600"></span>
+                    PM IN PROGRESS
+                  </div>
+</td>
+<td class="py-2.5 px-3 text-right whitespace-nowrap">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1 rounded bg-surface-container text-primary hover:bg-primary hover:text-on-primary transition-colors" onclick="openWorkOrderModal('BME-INF-8921')" title="Resume Calibration" type="button">
+<span class="material-symbols-outlined text-[16px]">tune</span>
+</button>
+<button class="p-1 rounded bg-surface-container text-primary hover:bg-primary hover:text-on-primary transition-colors" onclick="alert('Downloading Work Order Draft...')" title="Download Calibration Certificate PDF" type="button">
+<span class="material-symbols-outlined text-[16px]">description</span>
+</button>
+<button class="p-1 rounded bg-surface-container text-error hover:bg-error hover:text-on-error transition-colors" onclick="confirmQuarantine('BME-INF-8921')" title="Quarantine Device" type="button">
+<span class="material-symbols-outlined text-[16px]">block</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Device 4: Datex-Ohmeda Aespire Anesthesia Machine -->
+<tr class="hover:bg-surface-container-low/60 transition-colors cursor-pointer" onclick="selectDevice('BME-ANESTH-0304')">
+<td class="py-2.5 px-3">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-600 shrink-0"></span>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-label-code-sm text-label-code-sm font-bold text-primary">#BME-ANESTH-0304</span>
+<span class="font-label-code-sm text-[10px] bg-primary text-on-primary px-1 py-0.2 rounded">TIER-1 LIFE SUPPORT</span>
+</div>
+<div class="font-title-md text-body-sm text-on-surface font-medium leading-tight">Datex-Ohmeda Aespire 7900</div>
+<div class="font-label-code-sm text-label-code-sm text-secondary">SN: GE-DO-7911-C • Gas Scavenger Active</div>
+</div>
+</div>
+</td>
+<td class="py-2.5 px-3 whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-title-md text-body-sm text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-error">emergency</span>
+                      OR-03 Surgical Suite (Active Case)
+                    </span>
+<span class="font-label-code-sm text-label-code-sm text-secondary">Lead Anesthetist: Dr. K. Sato, MD</span>
+<span class="font-label-code-sm text-[10px] text-on-secondary-container">RTLS Tag: #UWB-7734</span>
+</div>
+</td>
+<td class="py-2.5 px-3 whitespace-nowrap">
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center gap-2">
+<span class="font-label-code-sm text-label-code-sm text-emerald-800 bg-emerald-50 px-1.5 py-0.2 rounded font-semibold">120V AC ISOLATED</span>
+<span class="font-label-code-sm text-label-code-sm text-primary font-bold">Bat: 100% (6h 15m)</span>
+</div>
+<span class="font-label-code-sm text-label-code-sm text-secondary">Pipeline Press: <strong class="text-on-surface">O2 54 PSI / N2O 51 PSI</strong></span>
+<span class="font-label-code-sm text-label-code-sm text-secondary">Circuit Leak Test: <strong class="text-emerald-700">PASS (12 mL/min)</strong></span>
+</div>
+</td>
+<td class="py-2.5 px-3 whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-label-code-sm text-label-code-sm text-on-surface">Leakage: <strong class="text-emerald-700 font-bold">48 µA</strong> (&lt;100 µA Limit)</span>
+<span class="font-label-code-sm text-label-code-sm text-secondary">Calibrated: 18-Aug-2024</span>
+<span class="font-label-code-sm text-label-code-sm text-secondary">Next Due: <span class="text-on-surface font-semibold">18-Feb-2025</span> (95d)</span>
+</div>
+</td>
+<td class="py-2.5 px-3 whitespace-nowrap">
+<div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-label-code-sm text-label-code-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-700"></span>
+                    SURGICAL ENGAGED
+                  </div>
+</td>
+<td class="py-2.5 px-3 text-right whitespace-nowrap">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1 rounded bg-surface-container text-primary hover:bg-primary hover:text-on-primary transition-colors" onclick="openWorkOrderModal('BME-ANESTH-0304')" title="Create Work Order" type="button">
+<span class="material-symbols-outlined text-[16px]">build</span>
+</button>
+<button class="p-1 rounded bg-surface-container text-primary hover:bg-primary hover:text-on-primary transition-colors" onclick="alert('Downloading Calibration Certificate for #BME-ANESTH-0304...')" title="Download Calibration Certificate PDF" type="button">
+<span class="material-symbols-outlined text-[16px]">description</span>
+</button>
+<button class="p-1 rounded bg-surface-container text-error hover:bg-error hover:text-on-error transition-colors" onclick="confirmQuarantine('BME-ANESTH-0304')" title="Quarantine Device" type="button">
+<span class="material-symbols-outlined text-[16px]">block</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Device 5: Maquet Cardiohelp ECMO -->
+<tr class="hover:bg-surface-container-low/60 transition-colors cursor-pointer" onclick="selectDevice('BME-ECMO-0109')">
+<td class="py-2.5 px-3">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-600 shrink-0"></span>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-label-code-sm text-label-code-sm font-bold text-primary">#BME-ECMO-0109</span>
+<span class="font-label-code-sm text-[10px] bg-primary text-on-primary px-1 py-0.2 rounded">CRITICAL LIFE SUPPORT</span>
+</div>
+<div class="font-title-md text-body-sm text-on-surface font-medium leading-tight">Getinge / Maquet Cardiohelp System</div>
+<div class="font-label-code-sm text-label-code-sm text-secondary">SN: MQ-CH-1102 • Dual Sensor Flow Console</div>
+</div>
+</div>
+</td>
+<td class="py-2.5 px-3 whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-title-md text-body-sm text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-primary">hotel</span>
+                      Cardiovascular ICU Pod 2 Bed 04
+                    </span>
+<span class="font-label-code-sm text-label-code-sm text-secondary">Patient: Robert M. Chen (MRN #4489-1)</span>
+<span class="font-label-code-sm text-[10px] text-on-secondary-container">RTLS Tag: #UWB-5503</span>
+</div>
+</td>
+<td class="py-2.5 px-3 whitespace-nowrap">
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center gap-2">
+<span class="font-label-code-sm text-label-code-sm text-emerald-800 bg-emerald-50 px-1.5 py-0.2 rounded font-semibold">120V UPS REDUNDANT</span>
+<span class="font-label-code-sm text-label-code-sm text-primary font-bold">Dual Bat: 100%</span>
+</div>
+<span class="font-label-code-sm text-label-code-sm text-secondary">Flow Rate: <strong class="text-on-surface">3.8 L/min</strong> • RPM: <strong class="text-on-surface">3,200</strong></span>
+<span class="font-label-code-sm text-label-code-sm text-secondary">Bubble Detection: <strong class="text-emerald-700">CLEAR (Active)</strong></span>
+</div>
+</td>
+<td class="py-2.5 px-3 whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-label-code-sm text-label-code-sm text-on-surface">Leakage: <strong class="text-emerald-700 font-bold">19 µA</strong> (&lt;50 µA CF Limit)</span>
+<span class="font-label-code-sm text-label-code-sm text-secondary">Calibrated: 30-Oct-2024</span>
+<span class="font-label-code-sm text-label-code-sm text-secondary">Next Due: <span class="text-primary font-semibold">30-Apr-2025</span> (168d)</span>
+</div>
+</td>
+<td class="py-2.5 px-3 whitespace-nowrap">
+<div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-label-code-sm text-label-code-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-700"></span>
+                    OPERATIONAL (VA ECMO)
+                  </div>
+</td>
+<td class="py-2.5 px-3 text-right whitespace-nowrap">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1 rounded bg-surface-container text-primary hover:bg-primary hover:text-on-primary transition-colors" onclick="openWorkOrderModal('BME-ECMO-0109')" title="Create Work Order" type="button">
+<span class="material-symbols-outlined text-[16px]">build</span>
+</button>
+<button class="p-1 rounded bg-surface-container text-primary hover:bg-primary hover:text-on-primary transition-colors" onclick="alert('Downloading Calibration Certificate for #BME-ECMO-0109...')" title="Download Calibration Certificate PDF" type="button">
+<span class="material-symbols-outlined text-[16px]">description</span>
+</button>
+<button class="p-1 rounded bg-surface-container text-error hover:bg-error hover:text-on-error transition-colors" onclick="confirmQuarantine('BME-ECMO-0109')" title="Quarantine Device" type="button">
+<span class="material-symbols-outlined text-[16px]">block</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination & Bench Diagnostic Status Footer -->
+<div class="px-3.5 py-2.5 bg-surface-container-low/40 flex flex-wrap items-center justify-between gap-2 font-label-code-sm text-label-code-sm text-secondary">
+<div class="flex items-center gap-2">
+<span>Database: <strong class="text-on-surface">MedCore Equipment Master CMMS</strong></span>
+<span>•</span>
+<span>Firmware Repository: <strong class="text-emerald-700">v14.02 Up-To-Date</strong></span>
+</div>
+<div class="flex items-center gap-1">
+<button class="px-2 py-1 rounded bg-surface-container hover:bg-surface-container-high text-primary disabled:opacity-50" disabled="" type="button">Previous</button>
+<span class="px-2 font-bold text-on-surface">Page 1 of 76</span>
+<button class="px-2 py-1 rounded bg-surface-container hover:bg-surface-container-high text-primary" onclick="alert('Loading Page 2...')" type="button">Next</button>
+</div>
+</div>
+</div>
+<!-- Electrical Safety Testing Stand IEC 62353 & NFPA 99 Quick Diagnostics Bar -->
+<div class="bg-surface-container-lowest p-3.5 rounded-lg shadow-sm">
+<div class="flex items-center justify-between mb-2.5">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-primary">electrical_services</span>
+<h3 class="font-title-md text-title-md text-primary">Continuous Electrical Safety Telemetry &amp; Ground Integrity</h3>
+</div>
+<span class="font-label-code-sm text-label-code-sm text-secondary">NFPA 99 Health Care Facilities Code • Automated Rig</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+<div class="bg-surface-container-low/50 p-2.5 rounded">
+<div class="flex justify-between items-center text-secondary font-label-code-sm text-label-code-sm">
+<span>Chassis Ground Resistance</span>
+<span class="text-emerald-700 font-bold">NOMINAL</span>
+</div>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-tabular-vitals text-tabular-vitals text-on-surface font-bold">0.04 Ω</span>
+<span class="font-label-code-sm text-label-code-sm text-secondary">(Standard Limit &lt; 0.10 Ω)</span>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full mt-2 overflow-hidden">
+<div class="bg-emerald-600 h-full w-[40%]"></div>
+</div>
+</div>
+<div class="bg-surface-container-low/50 p-2.5 rounded">
+<div class="flex justify-between items-center text-secondary font-label-code-sm text-label-code-sm">
+<span>Touch Leakage Current</span>
+<span class="text-emerald-700 font-bold">PASS</span>
+</div>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-tabular-vitals text-tabular-vitals text-on-surface font-bold">34.2 µA</span>
+<span class="font-label-code-sm text-label-code-sm text-secondary">(Standard Limit &lt; 100.0 µA)</span>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full mt-2 overflow-hidden">
+<div class="bg-emerald-600 h-full w-[34%]"></div>
+</div>
+</div>
+<div class="bg-surface-container-low/50 p-2.5 rounded">
+<div class="flex justify-between items-center text-secondary font-label-code-sm text-label-code-sm">
+<span>Patient Applied Part (CF)</span>
+<span class="text-emerald-700 font-bold">STERILE SAFE</span>
+</div>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-tabular-vitals text-tabular-vitals text-on-surface font-bold">11.8 µA</span>
+<span class="font-label-code-sm text-label-code-sm text-secondary">(Standard Limit &lt; 50.0 µA)</span>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full mt-2 overflow-hidden">
+<div class="bg-primary h-full w-[23%]"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT: Selected Device Live Inspection & Work Order Execution Pane (4 Cols on XL) -->
+<div class="xl:col-span-4 space-y-3">
+<!-- Device Drilldown Card: #BME-VENT-4081 -->
+<div class="bg-surface-container-lowest p-4 rounded-lg shadow-sm">
+<div class="flex items-start justify-between pb-3 bg-surface-container-low/40 -mx-4 -mt-4 p-4 rounded-t-lg">
+<div>
+<div class="flex items-center gap-2">
+<span class="font-label-code-sm text-label-code-sm bg-primary text-on-primary px-1.5 py-0.5 rounded font-bold">ACTIVE INSPECTION</span>
+<span class="font-label-code-sm text-label-code-sm text-emerald-800 font-semibold">● LIVE STREAM</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-primary mt-1">Dräger Evita V800 (#BME-VENT-4081)</h2>
+<p class="font-label-code-sm text-label-code-sm text-secondary">ICU Pod 4E Bed 01 • Patient: Eleanor R. Vance</p>
+</div>
+<button class="p-1 rounded text-secondary hover:text-primary hover:bg-surface-container transition-colors" onclick="alert('Maximizing Telemetry HUD...')" title="Maximize Telemetry Window" type="button">
+<span class="material-symbols-outlined text-[20px]">open_in_full</span>
+</button>
+</div>
+<!-- Real-Time IoT Sub-System Telemetry Feed -->
+<div class="mt-3 space-y-2.5">
+<span class="font-label-code-sm text-label-code-sm text-secondary uppercase tracking-wider block">IoT Sensor Calibration Telemetry</span>
+<!-- Metric 1: O2 Fuel Cell -->
+<div class="bg-surface-container-low/40 p-2.5 rounded">
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<span class="text-on-surface font-medium">Galvanic O2 Cell Response</span>
+<span class="font-label-code-sm text-label-code-sm text-emerald-800 font-bold bg-emerald-50 px-1.5 rounded">99.8% (OPTIMAL)</span>
+</div>
+<div class="flex items-center justify-between mt-1 text-label-code-sm font-label-code-sm text-secondary">
+<span>Voltage: 14.8 mV (Linear Range 10-18 mV)</span>
+<span>Drift: &lt; 0.1% / 24h</span>
+</div>
+<div class="w-full bg-surface-container-high h-1 rounded-full mt-1.5 overflow-hidden">
+<div class="bg-emerald-600 h-full w-[98%]"></div>
+</div>
+</div>
+<!-- Metric 2: Expiratory Flow Sensor -->
+<div class="bg-surface-container-low/40 p-2.5 rounded">
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<span class="text-on-surface font-medium">Expiratory Hot-Wire Flow Sensor</span>
+<span class="font-label-code-sm text-label-code-sm text-primary font-bold bg-primary-fixed/60 px-1.5 rounded">±1.2% ACCURACY</span>
+</div>
+<div class="flex items-center justify-between mt-1 text-label-code-sm font-label-code-sm text-secondary">
+<span>Zero-Point Flow: 0.00 L/min</span>
+<span>Target Limit: &lt; ±2.5%</span>
+</div>
+<div class="w-full bg-surface-container-high h-1 rounded-full mt-1.5 overflow-hidden">
+<div class="bg-primary h-full w-[95%]"></div>
+</div>
+</div>
+<!-- Metric 3: Internal Turbine / Blower -->
+<div class="bg-surface-container-low/40 p-2.5 rounded">
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<span class="text-on-surface font-medium">Internal Turbine Runtime</span>
+<span class="font-label-code-sm text-label-code-sm text-on-surface font-bold">4,120 / 10,000 hrs</span>
+</div>
+<div class="flex items-center justify-between mt-1 text-label-code-sm font-label-code-sm text-secondary">
+<span>Bearings: Normal • Temp: 38.4°C</span>
+<span>58.8% Life Remaining</span>
+</div>
+<div class="w-full bg-surface-container-high h-1 rounded-full mt-1.5 overflow-hidden">
+<div class="bg-primary h-full w-[41%]"></div>
+</div>
+</div>
+</div>
+<!-- Preventive Maintenance Checklist (Interactive) -->
+<div class="mt-4 pt-3 bg-surface-container-low/20 -mx-4 px-4">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-code-sm text-label-code-sm text-secondary uppercase tracking-wider">PM Standard Routine (Checklist)</span>
+<span class="font-label-code-sm text-label-code-sm text-emerald-800 font-bold">4/4 Completed</span>
+</div>
+<div class="space-y-1.5">
+<label class="flex items-center gap-2.5 p-1.5 rounded hover:bg-surface-container-low cursor-pointer transition-colors">
+<input checked="" class="w-4 h-4 rounded text-primary focus:ring-primary accent-primary" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface flex-1">O-Ring &amp; Pneumatic Seal Integrity</span>
+<span class="font-label-code-sm text-[10px] text-emerald-700 font-bold">PASSED</span>
+</label>
+<label class="flex items-center gap-2.5 p-1.5 rounded hover:bg-surface-container-low cursor-pointer transition-colors">
+<input checked="" class="w-4 h-4 rounded text-primary focus:ring-primary accent-primary" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface flex-1">HEPA / Bacterial Exp Filter Inspection</span>
+<span class="font-label-code-sm text-[10px] text-emerald-700 font-bold">NEW INSTALLED</span>
+</label>
+<label class="flex items-center gap-2.5 p-1.5 rounded hover:bg-surface-container-low cursor-pointer transition-colors">
+<input checked="" class="w-4 h-4 rounded text-primary focus:ring-primary accent-primary" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface flex-1">Battery Discharge Load Test (30 min test)</span>
+<span class="font-label-code-sm text-[10px] text-emerald-700 font-bold">100% CAPACITY</span>
+</label>
+<label class="flex items-center gap-2.5 p-1.5 rounded hover:bg-surface-container-low cursor-pointer transition-colors">
+<input checked="" class="w-4 h-4 rounded text-primary focus:ring-primary accent-primary" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface flex-1">Electrical Ground Continuity (IEC 62353)</span>
+<span class="font-label-code-sm text-[10px] text-emerald-700 font-bold">0.04 Ω (VERIFIED)</span>
+</label>
+</div>
+</div>
+<!-- Lead Biomedical Engineer Sign-Off Box -->
+<div class="mt-4 p-3 rounded bg-surface-container-low flex flex-col gap-2">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-code-sm text-[10px] text-secondary uppercase tracking-wider block">Lead Inspecting BMET / CBET</span>
+<span class="font-title-md text-body-sm text-on-surface font-semibold">Marcus Brody, CBET #84102</span>
+<span class="font-label-code-sm text-label-code-sm text-secondary block">Senior Clinical Systems Specialist</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+</div>
+</div>
+<div class="p-2 rounded bg-surface-container-lowest text-label-code-sm font-label-code-sm text-secondary flex items-center justify-between">
+<div class="flex flex-col">
+<span class="text-[10px] text-secondary uppercase">NIST Traceable Token</span>
+<span class="text-on-surface font-bold truncate max-w-[190px]">NIST-CAL-2024-9981-MB</span>
+</div>
+<span class="text-emerald-700 font-bold bg-emerald-50 px-1.5 py-0.5 rounded text-[10px]">CRYPTOGRAPHIC HASH OK</span>
+</div>
+<div class="flex items-center gap-2 pt-1">
+<button class="flex-1 bg-primary hover:bg-primary-container text-on-primary py-1.5 rounded font-label-code-sm text-label-code-sm font-semibold transition-colors shadow-sm" onclick="alert('Calibration record signed &amp; permanently locked in 21 CFR Part 11 compliant audit ledger.')" type="button">
+              Authorize Calibration
+            </button>
+<button class="bg-surface-container-lowest hover:bg-surface-container text-secondary hover:text-on-surface p-1.5 rounded transition-colors" onclick="alert('Printing Zebra Brady IP thermal barcode tag...')" title="Print Device Barcode Tag" type="button">
+<span class="material-symbols-outlined text-[18px]">print</span>
+</button>
+</div>
+</div>
+</div>
+<!-- FDA / MDR Medical Device Safety & Recall Intercept Feed -->
+<div class="bg-surface-container-lowest p-3.5 rounded-lg shadow-sm">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-secondary">policy</span>
+<h3 class="font-title-md text-body-sm text-primary font-semibold">FDA &amp; MDR Device Safety Intercept</h3>
+</div>
+<span class="font-label-code-sm text-label-code-sm bg-emerald-100 text-emerald-800 px-1.5 py-0.2 rounded font-bold">0 MATCHES</span>
+</div>
+<div class="p-2.5 rounded bg-surface-container-low/50 text-body-sm font-body-sm space-y-1.5">
+<div class="flex items-center justify-between">
+<span class="font-label-code-sm text-label-code-sm text-secondary">FDA CDRH MAUDE &amp; UDI Gateway:</span>
+<span class="font-label-code-sm text-label-code-sm text-emerald-700 font-bold">Synchronized</span>
+</div>
+<p class="text-on-surface-variant text-[11px] leading-relaxed">
+            Automatic serial match completed against 42 active Class I/II Medical Device Safety Alerts issued in November 2024. Zero Metro Central device serials implicated.
+          </p>
+<div class="pt-1 flex items-center justify-between text-label-code-sm font-label-code-sm text-secondary">
+<span>Last Gateway Check: <strong class="text-on-surface">12 mins ago</strong></span>
+<a class="text-primary hover:underline font-semibold" href="#" onclick="alert('Opening National Recall Query Engine...')">Query Database</a>
+</div>
+</div>
+</div>
+<!-- Quick Dispatch Central Float Pool Status Box -->
+<div class="bg-surface-container-lowest p-3.5 rounded-lg shadow-sm">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-primary">inventory_2</span>
+<h3 class="font-title-md text-body-sm text-primary font-semibold">Central Float Depot Inventory</h3>
+</div>
+<span class="font-label-code-sm text-label-code-sm text-secondary">Clean Utility Basement B1</span>
+</div>
+<div class="space-y-1.5">
+<div class="flex items-center justify-between p-2 rounded bg-surface-container-low/40">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary">vaccines</span>
+<span class="font-body-sm text-body-sm text-on-surface">Alaris 8015 Smart Pumps</span>
+</div>
+<span class="font-label-code-sm text-label-code-sm bg-surface-container-lowest px-2 py-0.5 rounded font-bold text-primary">12 Staged Ready</span>
+</div>
+<div class="flex items-center justify-between p-2 rounded bg-surface-container-low/40">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary">monitor_heart</span>
+<span class="font-body-sm text-body-sm text-on-surface">Philips IntelliVue Transport Monitors</span>
+</div>
+<span class="font-label-code-sm text-label-code-sm bg-surface-container-lowest px-2 py-0.5 rounded font-bold text-primary">2 Staged Ready</span>
+</div>
+<div class="flex items-center justify-between p-2 rounded bg-surface-container-low/40">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary">child_care</span>
+<span class="font-body-sm text-body-sm text-on-surface">Giraffe OmniBed Infant Incubator</span>
+</div>
+<span class="font-label-code-sm text-label-code-sm bg-surface-container-lowest px-2 py-0.5 rounded font-bold text-primary">1 Staged Ready</span>
+</div>
+</div>
+<button class="w-full mt-3 bg-surface-container text-primary hover:bg-surface-container-high py-1.5 rounded font-label-code-sm text-label-code-sm font-semibold transition-colors flex items-center justify-center gap-1.5" onclick="document.getElementById('quick-dispatch-modal').classList.toggle('hidden')" type="button">
+<span class="material-symbols-outlined text-[16px]">local_shipping</span>
+<span>Dispatch Staged Equipment to Ward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Interactive Modal: Rapid Float Equipment Dispatch (Hidden by default) -->
+<div class="hidden fixed inset-0 z-50 bg-inverse-surface/60 backdrop-blur-sm flex items-center justify-center p-4" id="quick-dispatch-modal">
+<div class="bg-surface-container-lowest w-full max-w-lg rounded-xl shadow-xl overflow-hidden animate-in fade-in">
+<div class="p-4 bg-primary text-on-primary flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">bolt</span>
+<h3 class="font-title-md text-title-md font-semibold">Dispatch Float Clinical Asset</h3>
+</div>
+<button class="text-on-primary/80 hover:text-on-primary" onclick="document.getElementById('quick-dispatch-modal').classList.add('hidden')" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="p-4 space-y-3.5">
+<div>
+<label class="block font-label-code-sm text-label-code-sm text-secondary uppercase mb-1">Select Staged Float Device</label>
+<select class="w-full bg-surface-container-low text-on-surface font-body-sm text-body-sm p-2 rounded focus:outline-none focus:bg-surface-container-lowest">
+<option>Alaris 8015 Pump Quad (#BME-INF-4100) - Clean Depot B1</option>
+<option>Philips IntelliVue MX450 Transport (#BME-MON-2289) - Ready</option>
+<option>GE Giraffe OmniBed Incubator (#BME-INC-0081) - Preheated</option>
+</select>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<div>
+<label class="block font-label-code-sm text-label-code-sm text-secondary uppercase mb-1">Destination Ward</label>
+<select class="w-full bg-surface-container-low text-on-surface font-body-sm text-body-sm p-2 rounded focus:outline-none focus:bg-surface-container-lowest">
+<option>ED - Trauma Bay 1</option>
+<option>ICU Pod 4E</option>
+<option>OR Surgical Suite 2</option>
+<option>Labor &amp; Delivery</option>
+<option>Dialysis Unit</option>
+</select>
+</div>
+<div>
+<label class="block font-label-code-sm text-label-code-sm text-secondary uppercase mb-1">Priority Level</label>
+<select class="w-full bg-surface-container-low text-on-surface font-body-sm text-body-sm p-2 rounded focus:outline-none focus:bg-surface-container-lowest">
+<option class="text-error font-bold">STAT Emergency (&lt; 5 mins)</option>
+<option selected="">Urgent Clinical (&lt; 20 mins)</option>
+<option>Routine Ward Restock</option>
+</select>
+</div>
+</div>
+<div>
+<label class="block font-label-code-sm text-label-code-sm text-secondary uppercase mb-1">Assigned Porter / Tech Code</label>
+<input class="w-full bg-surface-container-low text-on-surface font-body-sm text-body-sm p-2 rounded focus:outline-none focus:bg-surface-container-lowest" type="text" value="TECH-771 (R. Gomez)"/>
+</div>
+</div>
+<div class="p-3 bg-surface-container-low/50 flex items-center justify-end gap-2">
+<button class="px-3 py-1.5 rounded font-label-code-sm text-label-code-sm text-secondary hover:bg-surface-container" onclick="document.getElementById('quick-dispatch-modal').classList.add('hidden')" type="button">Cancel</button>
+<button class="bg-primary text-on-primary px-4 py-1.5 rounded font-label-code-sm text-label-code-sm font-semibold hover:bg-primary-container transition-colors" onclick="alert('Dispatch order transmitted to Porter pager and RTLS tracking activated.'); document.getElementById('quick-dispatch-modal').classList.add('hidden');" type="button">Confirm &amp; Transmit Dispatch</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Client-side Interactive Behaviors -->
+<script>
+  function selectDevice(assetId) {
+    console.log('Telemetry inspection locked to asset:', assetId);
+  }
+
+  function openWorkOrderModal(assetId) {
+    const reason = prompt('Initiate Work Order for ' + assetId + ':\nEnter description or failure symptom:', 'Routine Electrical Safety / PM Recalibration');
+    if (reason) {
+      alert('Work Order #2024-WO-' + Math.floor(1000 + Math.random() * 9000) + ' created for ' + assetId + '.\nTechnician assigned: Marcus Brody (CBET).');
+    }
+  }
+
+  function confirmQuarantine(assetId) {
+    if (confirm('CRITICAL ACTION: Immediately lock out and quarantine asset ' + assetId + '? Device will be tagged out-of-service in RTLS and EHR.')) {
+      alert('Asset ' + assetId + ' locked and flagged RED (Biohazard / Electrical Safety Quarantine). Facility Safety Officer notified.');
+    }
+  }
+</script></main></div></body></html>

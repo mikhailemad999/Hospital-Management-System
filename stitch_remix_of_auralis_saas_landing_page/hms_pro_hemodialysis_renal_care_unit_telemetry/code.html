@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-primary":"#ffffff","on-tertiary":"#ffffff","tertiary-fixed":"#cce5ff","error":"#ba1a1a","on-error-container":"#93000a","secondary":"#515f74","secondary-fixed":"#d5e3fd","on-tertiary-container":"#74c1ff","primary-fixed":"#d2e4ff","background":"#f8f9ff","on-secondary-fixed-variant":"#3a485c","on-surface-variant":"#42474f","surface-container-lowest":"#ffffff","surface":"#f8f9ff","surface-variant":"#d3e4fe","surface-container-low":"#eff4ff","on-tertiary-fixed":"#001d31","on-secondary-fixed":"#0d1c2f","inverse-primary":"#a0c9ff","secondary-container":"#d5e3fd","surface-container-highest":"#d3e4fe","inverse-on-surface":"#eaf1ff","tertiary-fixed-dim":"#93ccff","on-background":"#0b1c30","inverse-surface":"#213145","error-container":"#ffdad6","primary-fixed-dim":"#a0c9ff","secondary-fixed-dim":"#b9c7e0","surface-bright":"#f8f9ff","outline":"#727780","on-primary-fixed-variant":"#07497d","surface-dim":"#cbdbf5","on-tertiary-fixed-variant":"#004b73","primary":"#00355f","on-surface":"#0b1c30","outline-variant":"#c2c7d1","surface-container":"#e5eeff","surface-container-high":"#dce9ff","on-primary-fixed":"#001c37","on-primary-container":"#8ebdf9","on-secondary":"#ffffff","surface-tint":"#2d6197","on-error":"#ffffff","on-secondary-container":"#57657b","tertiary":"#003756","primary-container":"#0f4c81","tertiary-container":"#004e78"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"space-xl":"1.5rem","space-xs":"0.25rem","margin":"1.5rem","gutter":"1rem","space-md":"0.75rem","margin-compact":"0.75rem","space-sm":"0.5rem","space-lg":"1rem","gutter-dense":"0.5rem"},"fontFamily":{"body-lg":["Inter"],"label-code-lg":["JetBrains Mono"],"body-sm":["Inter"],"label-code-sm":["JetBrains Mono"],"headline-lg":["Inter"],"headline-sm":["Inter"],"display-lg-mobile":["Inter"],"tabular-vitals":["Inter"],"label-code-md":["JetBrains Mono"],"display-lg":["Inter"],"body-md":["Inter"],"title-md":["Inter"],"headline-md":["Inter"]},"fontSize":{"body-lg":["15px",{"lineHeight":"22px","fontWeight":"400"}],"label-code-lg":["13px",{"lineHeight":"18px","fontWeight":"500"}],"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"label-code-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.04em","fontWeight":"600"}],"headline-lg":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"600"}],"headline-sm":["16px",{"lineHeight":"24px","letterSpacing":"-0.005em","fontWeight":"600"}],"display-lg-mobile":["26px",{"lineHeight":"34px","letterSpacing":"-0.01em","fontWeight":"700"}],"tabular-vitals":["14px",{"lineHeight":"20px","fontWeight":"600"}],"label-code-md":["12px",{"lineHeight":"16px","fontWeight":"500"}],"display-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-md":["13px",{"lineHeight":"18px","fontWeight":"400"}],"title-md":["15px",{"lineHeight":"22px","fontWeight":"600"}],"headline-md":["20px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}]}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-lowest border-r border-outline-variant/40 z-50 flex flex-col justify-between select-none shadow-[0_1px_8px_rgba(0,0,0,0.02)]"><div class="flex flex-col h-full overflow-hidden"><div class="h-14 px-4 flex items-center gap-3 border-b border-outline-variant/30 shrink-0 bg-surface-container-lowest"><div class="w-8 h-8 rounded-lg bg-primary-container flex items-center justify-center text-on-primary shadow-sm"><span class="material-symbols-outlined text-[20px]">local_hospital</span></div><div class="flex flex-col"><span class="font-title-md text-title-md text-primary tracking-tight">MedCore EHR</span><span class="font-label-code-sm text-label-code-sm text-secondary uppercase tracking-wider">Enterprise v4.8</span></div></div><div class="flex-1 overflow-y-auto px-3 py-4 space-y-5"><nav class="space-y-4" data-active-classes="bg-primary-container text-on-primary rounded-lg shadow-sm font-semibold"><div class="space-y-1"><div class="px-2.5 pb-1 font-label-code-sm text-label-code-sm text-secondary uppercase tracking-wider">1. Overview &amp; Command</div><a aria-current="page" class="flex items-center gap-3 px-2.5 py-1.5 transition-colors bg-primary-container text-on-primary rounded-lg shadow-sm font-semibold" data-path="admin-dashboard" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">monitoring</span><span class="font-body-md text-body-md truncate">Admin Dashboard</span></a><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="emergency-ed-board" href="#"><span class="material-symbols-outlined text-[19px] shrink-0 text-error">e911_emergency</span><span class="font-body-md text-body-md truncate">Emergency ED Board</span></a></div><div class="space-y-1"><div class="px-2.5 pb-1 font-label-code-sm text-label-code-sm text-secondary uppercase tracking-wider">2. Patient Management</div><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="master-patient-index" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">badge</span><span class="font-body-md text-body-md truncate">Master Patient Index</span></a><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="patient-registration" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">person_add</span><span class="font-body-md text-body-md truncate">Registration</span></a><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="admissions-and-beds" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">hotel</span><span class="font-body-md text-body-md truncate">Admissions &amp; Beds</span></a></div><div class="space-y-1"><div class="px-2.5 pb-1 font-label-code-sm text-label-code-sm text-secondary uppercase tracking-wider">3. Clinical Workstations</div><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="doctor-clinic" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">stethoscope</span><span class="font-body-md text-body-md truncate">Doctor Clinic</span></a><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="nursing-and-mar" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">medication</span><span class="font-body-md text-body-md truncate">Nursing &amp; MAR</span></a><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="operating-theaters" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">vital_signs</span><span class="font-body-md text-body-md truncate">Operating Theaters / OR</span></a></div><div class="space-y-1"><div class="px-2.5 pb-1 font-label-code-sm text-label-code-sm text-secondary uppercase tracking-wider">4. Diagnostics &amp; Logistics</div><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="pharmacy-and-fefo-stock" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">prescriptions</span><span class="font-body-md text-body-md truncate">Pharmacy &amp; FEFO Stock</span></a><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="laboratory" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">chips</span><span class="font-body-md text-body-md truncate">Laboratory</span></a><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="radiology" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">radiology</span><span class="font-body-md text-body-md truncate">Radiology</span></a></div><div class="space-y-1"><div class="px-2.5 pb-1 font-label-code-sm text-label-code-sm text-secondary uppercase tracking-wider">5. Finance &amp; Governance</div><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="billing-and-cashier" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">receipt_long</span><span class="font-body-md text-body-md truncate">Billing &amp; Cashier</span></a><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="payroll-and-commissions" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">payments</span><span class="font-body-md text-body-md truncate">Payroll &amp; Commissions</span></a><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="audit-trail" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">verified_user</span><span class="font-body-md text-body-md truncate">Audit Trail</span></a><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="hospital-settings" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">settings</span><span class="font-body-md text-body-md truncate">Settings</span></a></div></nav></div><div class="p-3 border-t border-outline-variant/30 shrink-0 bg-surface-container-low/40"><div class="flex items-center justify-between text-secondary px-1"><div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span><span class="font-label-code-sm text-label-code-sm text-on-surface-variant">SYSTEM ONLINE</span></div><span class="font-label-code-sm text-label-code-sm text-secondary">HL7/FHIR v4</span></div></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-14 bg-surface-container-lowest border-b border-outline-variant/40 z-40 flex items-center justify-between px-6 shadow-[0_1px_4px_rgba(0,0,0,0.03)]"><div class="flex items-center gap-4 flex-1 max-w-3xl"><button class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg border border-outline-variant/60 bg-surface-container-low/50 hover:bg-surface-container-low text-on-surface transition-colors shrink-0" type="button"><span class="material-symbols-outlined text-[18px] text-primary">domain</span><span class="font-title-md text-body-sm truncate max-w-[210px]">Metro Central - Main</span><span class="material-symbols-outlined text-[16px] text-secondary">expand_more</span></button><div class="relative flex-1 max-w-lg"><span class="material-symbols-outlined absolute left-2.5 top-1/2 -translate-y-1/2 text-secondary text-[18px]">search</span><input class="w-full pl-8 pr-12 py-1.5 text-body-sm font-body-sm rounded-lg border border-outline-variant/60 bg-surface focus:bg-surface-container-lowest focus:border-primary focus:outline-none placeholder:text-secondary/60 text-on-surface transition-all" placeholder="Search Patient by MRN, National ID, Name, Staff Code (Press '/' to focus)..." type="text"/><span class="absolute right-2 top-1/2 -translate-y-1/2 px-1.5 py-0.5 rounded border border-outline-variant/50 text-[10px] font-label-code-sm text-secondary bg-surface-container-low">⌘K</span></div></div><div class="flex items-center gap-3 shrink-0"><div class="flex items-center gap-1.5 px-2 py-1 rounded-lg bg-error-container text-on-error-container border border-error/20"><span class="material-symbols-outlined text-[16px] text-error">campaign</span><span class="font-label-code-sm text-label-code-sm font-bold uppercase">Trauma Code Red: OR-3</span></div><div class="hidden xl:flex items-center gap-2 px-2.5 py-1 rounded-lg bg-surface-container-low border border-outline-variant/40"><span class="material-symbols-outlined text-[16px] text-primary">badge</span><div class="flex flex-col text-left"><span class="font-title-md text-[11px] text-on-surface leading-tight">Dr. Sarah Vance, MD</span><span class="font-label-code-sm text-[10px] text-secondary leading-tight">Trauma Unit A • Shift 1</span></div><span class="w-1.5 h-1.5 rounded-full bg-emerald-600 ml-1"></span></div><button class="px-2 py-1 rounded-lg border border-outline-variant/60 hover:bg-surface-container-low text-on-surface-variant font-label-code-sm text-label-code-sm transition-colors" type="button">AR</button><button class="relative p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-error ring-2 ring-surface-container-lowest"></span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="w-full pt-14 px-gutter bg-surface min-h-screen"><div class="flex flex-col w-full space-y-4 pb-12">
+<!-- Sub-header & Clinical Compliance Banner -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-4 flex flex-col xl:flex-row xl:items-center justify-between gap-4">
+<div class="flex items-start gap-3.5">
+<div class="w-11 h-11 rounded-lg bg-primary-container text-on-primary flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[26px]">water_drop</span>
+</div>
+<div>
+<div class="flex flex-wrap items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-primary tracking-tight">Nephrology &amp; Renal Dialysis Unit</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-fixed text-label-code-sm font-label-code-sm">CMS ESRD QIP COMPLIANT</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-primary text-label-code-sm font-label-code-sm flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+            AAMI / ISO 23500-3 CERTIFIED
+          </span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary mt-0.5 flex items-center gap-2">
+<span>Central Reverse Osmosis (RO) Water Purification Loop &amp; Dialyzer Reprocessing ONLINE</span>
+<span class="text-outline-variant">•</span>
+<span class="font-label-code-sm text-label-code-sm text-on-surface-variant font-medium">Loop Circ: 3.2 ft/sec • Temp: 21.4°C</span>
+</p>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-2">
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary text-on-primary font-title-md text-body-sm shadow-sm hover:bg-primary-container transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+<span>+ Initiate Dialysis Run</span>
+</button>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-low text-on-surface font-title-md text-body-sm hover:bg-surface-container transition-all" type="button">
+<span class="material-symbols-outlined text-[18px] text-primary">scale</span>
+<span>Verify Dry Weight &amp; UF Target</span>
+</button>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-low text-on-surface font-title-md text-body-sm hover:bg-surface-container transition-all" type="button">
+<span class="material-symbols-outlined text-[18px] text-primary">labs</span>
+<span>RO Water Quality Log</span>
+</button>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-error-container text-on-error-container font-title-md text-body-sm hover:opacity-90 transition-all" type="button">
+<span class="material-symbols-outlined text-[18px] text-error">emergency_home</span>
+<span>Blood Leak / Air Detector Alarm</span>
+</button>
+</div>
+</div>
+<!-- Top KPI Telemetry Strip -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
+<!-- Metric 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-3.5 shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-code-sm text-label-code-sm text-secondary uppercase tracking-wider">Active Dialysis Stations</span>
+<span class="px-1.5 py-0.5 rounded bg-secondary-container text-on-secondary-fixed text-label-code-sm font-label-code-sm">90% CAP</span>
+</div>
+<div class="flex items-baseline gap-2 mt-2">
+<span class="font-display-lg text-display-lg text-primary tracking-tight">18 <span class="text-secondary font-headline-md text-headline-md">/ 20</span></span>
+<span class="font-body-sm text-body-sm text-secondary">Stations Running</span>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full mt-2 overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 90%"></div>
+</div>
+<div class="flex items-center justify-between mt-2 font-label-code-sm text-label-code-sm text-secondary">
+<span>2 In Post-Run Thermal Disinfection</span>
+<span class="text-emerald-700 font-semibold">0 Error</span>
+</div>
+</div>
+<!-- Metric 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-3.5 shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-code-sm text-label-code-sm text-secondary uppercase tracking-wider">Dialysis Adequacy (Kt/V)</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-primary text-label-code-sm font-label-code-sm">spKt/V ≥ 1.40</span>
+</div>
+<div class="flex items-baseline gap-2 mt-2">
+<span class="font-display-lg text-display-lg text-primary tracking-tight">97.4%</span>
+<span class="font-body-sm text-body-sm text-emerald-700 font-medium">On Target</span>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full mt-2 overflow-hidden">
+<div class="bg-emerald-600 h-full rounded-full" style="width: 97.4%"></div>
+</div>
+<div class="flex items-center justify-between mt-2 font-label-code-sm text-label-code-sm text-secondary">
+<span>Mean URR: 72.8% (Target &gt; 65%)</span>
+<span class="text-primary font-semibold">KDOQI Met</span>
+</div>
+</div>
+<!-- Metric 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-3.5 shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-code-sm text-label-code-sm text-secondary uppercase tracking-wider">RO Loop Water Purity</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-emerald-700 text-label-code-sm font-label-code-sm">STERILE</span>
+</div>
+<div class="flex items-baseline gap-2 mt-2">
+<span class="font-display-lg text-display-lg text-primary tracking-tight">0.01</span>
+<span class="font-body-sm text-body-sm text-secondary">CFU/mL (Lim &lt;50)</span>
+</div>
+<div class="flex items-center gap-1.5 mt-2">
+<span class="w-2 h-2 rounded-full bg-emerald-600"></span>
+<span class="font-label-code-sm text-label-code-sm text-on-surface font-semibold">Endotoxin: &lt;0.03 EU/mL</span>
+<span class="font-body-sm text-body-sm text-secondary">(LAL Pass)</span>
+</div>
+<div class="flex items-center justify-between mt-2 font-label-code-sm text-label-code-sm text-secondary">
+<span>Chloramine: &lt;0.01 mg/L</span>
+<span class="text-primary font-semibold">Membrane: 99.4%</span>
+</div>
+</div>
+<!-- Metric 4 -->
+<div class="bg-surface-container-lowest rounded-xl p-3.5 shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-code-sm text-label-code-sm text-secondary uppercase tracking-wider">Vascular Access Status</span>
+<span class="px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800 text-label-code-sm font-label-code-sm">0 THROMBOSED</span>
+</div>
+<div class="flex items-baseline gap-2 mt-2">
+<span class="font-display-lg text-display-lg text-primary tracking-tight">20 <span class="text-secondary font-headline-md text-headline-md">Total</span></span>
+<span class="font-body-sm text-body-sm text-secondary">Monitored</span>
+</div>
+<div class="flex items-center gap-1 mt-2 text-label-code-sm font-label-code-sm">
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface">14 AVF</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface">4 AVG</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface">2 CVC</span>
+</div>
+<div class="flex items-center justify-between mt-2 font-label-code-sm text-label-code-sm text-secondary">
+<span>Transonic Flow Surveillance</span>
+<span class="text-emerald-700 font-semibold">All Patency OK</span>
+</div>
+</div>
+</div>
+<!-- Station-by-Station Active Dialysis Run Matrix -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm flex flex-col overflow-hidden">
+<!-- Table Controls Header -->
+<div class="p-4 bg-surface-container-lowest flex flex-col lg:flex-row lg:items-center justify-between gap-3">
+<div class="flex items-center gap-1 bg-surface-container-low p-1 rounded-lg">
+<button class="px-3 py-1.5 rounded-lg bg-primary-container text-on-primary font-title-md text-body-sm shadow-sm" type="button">All Stations (20)</button>
+<button class="px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container font-title-md text-body-sm transition-colors" type="button">In-Session (18)</button>
+<button class="px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container font-title-md text-body-sm transition-colors" type="button">Pre-Treatment Assessment (2)</button>
+<button class="px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container font-title-md text-body-sm transition-colors" type="button">Disinfection / Thermal (2)</button>
+</div>
+<div class="flex items-center gap-2">
+<div class="flex items-center gap-2 px-2.5 py-1 rounded-lg bg-surface-container-low text-secondary text-body-sm">
+<span class="material-symbols-outlined text-[16px] text-primary">filter_alt</span>
+<span>Shift: Morning Slot A (07:30 - 11:30)</span>
+</div>
+<button class="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface text-body-sm font-medium transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">tune</span>
+<span>Columns</span>
+</button>
+</div>
+</div>
+<!-- Data Table Container -->
+<div class="overflow-x-auto">
+<table class="w-full text-left font-body-md text-body-sm">
+<thead class="bg-surface-container-low text-secondary font-label-code-sm text-label-code-sm uppercase tracking-wider">
+<tr>
+<th class="px-4 py-2.5 font-semibold">Station / Patient</th>
+<th class="px-3 py-2.5 font-semibold">Vascular Access</th>
+<th class="px-3 py-2.5 font-semibold">Ultrafiltration &amp; Weight</th>
+<th class="px-3 py-2.5 font-semibold">Dialyzer &amp; Bath Prescription</th>
+<th class="px-3 py-2.5 font-semibold">Telemetry Pressures &amp; Flows</th>
+<th class="px-3 py-2.5 font-semibold">Anticoagulation</th>
+<th class="px-3 py-2.5 font-semibold">Elapsed / Status</th>
+<th class="px-4 py-2.5 font-semibold text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-none">
+<!-- Row 1: Station 02 -->
+<tr class="bg-surface-container-lowest hover:bg-surface-container-low/60 transition-colors">
+<td class="px-4 py-3 align-top">
+<div class="flex items-start gap-2.5">
+<span class="px-2 py-1 rounded bg-primary-container text-on-primary font-label-code-sm text-label-code-sm font-bold shrink-0">ST-02</span>
+<div class="min-w-0">
+<div class="font-title-md text-title-md text-primary leading-snug">Arthur Pendelton</div>
+<div class="font-label-code-sm text-label-code-sm text-secondary">68M • MRN: 884029 • ESRD x3y</div>
+<div class="mt-1 flex items-center gap-1">
+<span class="px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800 text-[10px] font-label-code-sm font-bold uppercase">HD Routine</span>
+<span class="text-secondary text-[11px]">Fresenius 5008S</span>
+</div>
+</div>
+</div>
+</td>
+<td class="px-3 py-3 align-top">
+<div class="font-label-code-md text-label-code-md text-on-surface font-semibold">Left Forearm Radiocephalic AVF</div>
+<div class="text-body-sm text-secondary mt-0.5">Needle: 15G AVF Buttonhole Pair</div>
+<div class="text-emerald-700 font-label-code-sm text-label-code-sm mt-0.5 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+<span>Thrill: Strong • Bruit: High-pitch sys</span>
+</div>
+</td>
+<td class="px-3 py-3 align-top font-label-code-sm text-label-code-sm">
+<div class="text-on-surface font-semibold">Pre: <span class="tabular-nums">78.40 kg</span> • Dry: <span class="tabular-nums">75.20 kg</span></div>
+<div class="text-primary font-semibold mt-0.5">Target UF: 3.20 L • Rate: 800 mL/h</div>
+<div class="text-secondary mt-0.5">UF Removed so far: <span class="tabular-nums font-bold text-on-surface">2.20 L (68%)</span></div>
+</td>
+<td class="px-3 py-3 align-top text-body-sm">
+<div class="font-semibold text-on-surface font-label-code-md text-label-code-md">Optiflux F180NR (High-Flux)</div>
+<div class="text-secondary font-label-code-sm text-label-code-sm mt-0.5">K+ 2.0 • Ca2+ 2.5 • Bicarb 35 mEq/L</div>
+<div class="text-secondary font-label-code-sm text-label-code-sm mt-0.5">Dialysate Temp: 36.5°C • Cond: 13.9 mS/cm</div>
+</td>
+<td class="px-3 py-3 align-top font-label-code-sm text-label-code-sm">
+<div class="grid grid-cols-2 gap-x-2 text-on-surface font-tabular-vitals">
+<span>Qb: <strong class="text-primary">400 mL/m</strong></span>
+<span>Qd: <strong class="text-primary">600 mL/m</strong></span>
+<span>Art: <strong class="text-secondary">-160 mmHg</strong></span>
+<span>Ven: <strong class="text-secondary">+145 mmHg</strong></span>
+</div>
+<div class="text-secondary mt-1">TMP: <span class="font-tabular-vitals text-on-surface font-bold">95 mmHg</span> • Kt/V: <span class="text-emerald-700 font-bold">1.52 (Proj)</span></div>
+</td>
+<td class="px-3 py-3 align-top text-body-sm">
+<div class="font-label-code-sm text-label-code-sm font-semibold text-on-surface">Heparin 2,000 U Bolus</div>
+<div class="font-label-code-sm text-label-code-sm text-secondary">Infusion: 1,000 U/hr</div>
+<div class="text-secondary font-label-code-sm text-label-code-sm mt-0.5">Auto-stop: 30m prior rinse</div>
+</td>
+<td class="px-3 py-3 align-top">
+<div class="flex items-center gap-1.5 font-label-code-sm text-label-code-sm font-bold text-on-surface">
+<span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
+<span>02h 45m / 04h 00m</span>
+</div>
+<div class="text-secondary font-label-code-sm text-label-code-sm mt-0.5">Rem: 01h 15m</div>
+<div class="mt-1 px-1.5 py-0.5 rounded bg-surface-container font-label-code-sm text-label-code-sm text-on-surface flex items-center justify-between">
+<span>BP 128/82</span>
+<span>SpO2 98%</span>
+</div>
+</td>
+<td class="px-4 py-3 align-top text-right">
+<div class="flex flex-col items-end gap-1">
+<button class="px-2.5 py-1 rounded bg-primary-container text-on-primary font-label-code-sm text-label-code-sm hover:bg-primary transition-colors" type="button">Vitals Check</button>
+<button class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-code-sm text-label-code-sm transition-colors" type="button">Telemetry</button>
+</div>
+</td>
+</tr>
+<!-- Row 2: Station 05 -->
+<tr class="bg-surface-container-low/30 hover:bg-surface-container-low/80 transition-colors">
+<td class="px-4 py-3 align-top">
+<div class="flex items-start gap-2.5">
+<span class="px-2 py-1 rounded bg-primary-container text-on-primary font-label-code-sm text-label-code-sm font-bold shrink-0">ST-05</span>
+<div class="min-w-0">
+<div class="font-title-md text-title-md text-primary leading-snug">Eleanor Vance</div>
+<div class="font-label-code-sm text-label-code-sm text-secondary">58F • MRN: 883921 • AKI Stg 3</div>
+<div class="mt-1 flex items-center gap-1">
+<span class="px-1.5 py-0.5 rounded bg-surface-variant text-on-primary-fixed font-label-code-sm text-[10px] font-bold uppercase">SLED Session</span>
+<span class="text-secondary text-[11px]">Gambro AK200</span>
+</div>
+</div>
+</div>
+</td>
+<td class="px-3 py-3 align-top">
+<div class="font-label-code-md text-label-code-md text-on-surface font-semibold">Right IJ Tunneled CVC (Split-Stream)</div>
+<div class="text-body-sm text-secondary mt-0.5">Site clean, dry, chlorhexidine locked</div>
+<div class="text-emerald-700 font-label-code-sm text-label-code-sm mt-0.5 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+<span>Aspiration: Brisk return bilaterally</span>
+</div>
+</td>
+<td class="px-3 py-3 align-top font-label-code-sm text-label-code-sm">
+<div class="text-on-surface font-semibold">Pre: <span class="tabular-nums">63.10 kg</span> • Dry: <span class="tabular-nums">61.50 kg</span></div>
+<div class="text-primary font-semibold mt-0.5">Target UF: 1.50 L • Rate: 250 mL/h</div>
+<div class="text-secondary mt-0.5">UF Removed so far: <span class="tabular-nums font-bold text-on-surface">1.05 L (70%)</span></div>
+</td>
+<td class="px-3 py-3 align-top text-body-sm">
+<div class="font-semibold text-on-surface font-label-code-md text-label-code-md">Revaclear 300 (Medium Flux)</div>
+<div class="text-secondary font-label-code-sm text-label-code-sm mt-0.5">K+ 3.0 • Ca2+ 2.5 • Bicarb 32 mEq/L</div>
+<div class="text-secondary font-label-code-sm text-label-code-sm mt-0.5">Dialysate Temp: 36.0°C (Hypothermic protect)</div>
+</td>
+<td class="px-3 py-3 align-top font-label-code-sm text-label-code-sm">
+<div class="grid grid-cols-2 gap-x-2 text-on-surface font-tabular-vitals">
+<span>Qb: <strong class="text-primary">250 mL/m</strong></span>
+<span>Qd: <strong class="text-primary">300 mL/m</strong></span>
+<span>Art: <strong class="text-secondary">-110 mmHg</strong></span>
+<span>Ven: <strong class="text-secondary">+120 mmHg</strong></span>
+</div>
+<div class="text-secondary mt-1">TMP: <span class="font-tabular-vitals text-on-surface font-bold">60 mmHg</span> • Kt/V: <span class="text-emerald-700 font-bold">1.28 (SLED)</span></div>
+</td>
+<td class="px-3 py-3 align-top text-body-sm">
+<div class="font-label-code-sm text-label-code-sm font-semibold text-on-surface">Heparin-Free Protocol</div>
+<div class="font-label-code-sm text-label-code-sm text-secondary">Saline Flush 100mL q30min</div>
+<div class="text-secondary font-label-code-sm text-label-code-sm mt-0.5">Post-STEMI bleeding precaution</div>
+</td>
+<td class="px-3 py-3 align-top">
+<div class="flex items-center gap-1.5 font-label-code-sm text-label-code-sm font-bold text-on-surface">
+<span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
+<span>04h 10m / 06h 00m</span>
+</div>
+<div class="text-secondary font-label-code-sm text-label-code-sm mt-0.5">Rem: 01h 50m</div>
+<div class="mt-1 px-1.5 py-0.5 rounded bg-surface-container font-label-code-sm text-label-code-sm text-on-surface flex items-center justify-between">
+<span>BP 112/68</span>
+<span>SpO2 99%</span>
+</div>
+</td>
+<td class="px-4 py-3 align-top text-right">
+<div class="flex flex-col items-end gap-1">
+<button class="px-2.5 py-1 rounded bg-primary-container text-on-primary font-label-code-sm text-label-code-sm hover:bg-primary transition-colors" type="button">Vitals Check</button>
+<button class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-code-sm text-label-code-sm transition-colors" type="button">Telemetry</button>
+</div>
+</td>
+</tr>
+<!-- Row 3: Station 09 -->
+<tr class="bg-surface-container-lowest hover:bg-surface-container-low/60 transition-colors">
+<td class="px-4 py-3 align-top">
+<div class="flex items-start gap-2.5">
+<span class="px-2 py-1 rounded bg-primary-container text-on-primary font-label-code-sm text-label-code-sm font-bold shrink-0">ST-09</span>
+<div class="min-w-0">
+<div class="font-title-md text-title-md text-primary leading-snug">Julian Morales</div>
+<div class="font-label-code-sm text-label-code-sm text-secondary">41M • MRN: 663810 • FSGS</div>
+<div class="mt-1 flex items-center gap-1">
+<span class="px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800 text-[10px] font-label-code-sm font-bold uppercase">Crit-Line Active</span>
+<span class="text-secondary text-[11px]">Fresenius 5008S</span>
+</div>
+</div>
+</div>
+</td>
+<td class="px-3 py-3 align-top">
+<div class="font-label-code-md text-label-code-md text-on-surface font-semibold">Right Upper Brachiobasilic Fistula</div>
+<div class="text-body-sm text-secondary mt-0.5">Transposed Deep Vessel • 15G UltraSafe</div>
+<div class="text-emerald-700 font-label-code-sm text-label-code-sm mt-0.5 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+<span>Thrill: Palpable throughout route</span>
+</div>
+</td>
+<td class="px-3 py-3 align-top font-label-code-sm text-label-code-sm">
+<div class="text-on-surface font-semibold">Pre: <span class="tabular-nums">71.80 kg</span> • Dry: <span class="tabular-nums">68.00 kg</span></div>
+<div class="text-primary font-semibold mt-0.5">Target UF: 3.80 L • Rate: 950 mL/h</div>
+<div class="text-secondary mt-0.5">UF Removed so far: <span class="tabular-nums font-bold text-on-surface">3.10 L (81%)</span></div>
+</td>
+<td class="px-3 py-3 align-top text-body-sm">
+<div class="font-semibold text-on-surface font-label-code-md text-label-code-md">Optiflux F200NR (High-Flux)</div>
+<div class="text-secondary font-label-code-sm text-label-code-sm mt-0.5">K+ 1.5 • Ca2+ 2.25 • Bicarb 38 mEq/L</div>
+<div class="text-secondary font-label-code-sm text-label-code-sm mt-0.5">Dialysate Temp: 36.5°C • Sodium Profile 1</div>
+</td>
+<td class="px-3 py-3 align-top font-label-code-sm text-label-code-sm">
+<div class="grid grid-cols-2 gap-x-2 text-on-surface font-tabular-vitals">
+<span>Qb: <strong class="text-primary">450 mL/m</strong></span>
+<span>Qd: <strong class="text-primary">800 mL/m</strong></span>
+<span>Art: <strong class="text-secondary">-185 mmHg</strong></span>
+<span>Ven: <strong class="text-secondary">+170 mmHg</strong></span>
+</div>
+<div class="text-secondary mt-1">TMP: <span class="font-tabular-vitals text-on-surface font-bold">110 mmHg</span> • Crit-Line: <span class="text-primary font-bold">-6.2% RBV</span></div>
+</td>
+<td class="px-3 py-3 align-top text-body-sm">
+<div class="font-label-code-sm text-label-code-sm font-semibold text-on-surface">Heparin 3,000 U Bolus</div>
+<div class="font-label-code-sm text-label-code-sm text-secondary">Infusion: 1,200 U/hr</div>
+<div class="text-secondary font-label-code-sm text-label-code-sm mt-0.5">Standard stop window (30m)</div>
+</td>
+<td class="px-3 py-3 align-top">
+<div class="flex items-center gap-1.5 font-label-code-sm text-label-code-sm font-bold text-on-surface">
+<span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
+<span>03h 15m / 04h 00m</span>
+</div>
+<div class="text-secondary font-label-code-sm text-label-code-sm mt-0.5">Rem: 00h 45m</div>
+<div class="mt-1 px-1.5 py-0.5 rounded bg-surface-container font-label-code-sm text-label-code-sm text-on-surface flex items-center justify-between">
+<span>BP 132/86</span>
+<span>SpO2 97%</span>
+</div>
+</td>
+<td class="px-4 py-3 align-top text-right">
+<div class="flex flex-col items-end gap-1">
+<button class="px-2.5 py-1 rounded bg-primary-container text-on-primary font-label-code-sm text-label-code-sm hover:bg-primary transition-colors" type="button">Vitals Check</button>
+<button class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-code-sm text-label-code-sm transition-colors" type="button">Telemetry</button>
+</div>
+</td>
+</tr>
+<!-- Row 4: Station 14 (Pediatric / CRRT Bedside) -->
+<tr class="bg-surface-container-low/30 hover:bg-surface-container-low/80 transition-colors">
+<td class="px-4 py-3 align-top">
+<div class="flex items-start gap-2.5">
+<span class="px-2 py-1 rounded bg-tertiary-container text-on-tertiary font-label-code-sm text-label-code-sm font-bold shrink-0">ST-14</span>
+<div class="min-w-0">
+<div class="font-title-md text-title-md text-primary leading-snug">Baby Girl Noor</div>
+<div class="font-label-code-sm text-label-code-sm text-secondary">3F (11.8 kg) • MRN: 994012 • HUS</div>
+<div class="mt-1 flex items-center gap-1">
+<span class="px-1.5 py-0.5 rounded bg-secondary-container text-on-secondary-fixed text-[10px] font-label-code-sm font-bold uppercase">Pediatric CRRT</span>
+<span class="text-secondary text-[11px]">Prismaflex CVVHDF</span>
+</div>
+</div>
+</div>
+</td>
+<td class="px-3 py-3 align-top">
+<div class="font-label-code-md text-label-code-md text-on-surface font-semibold">Right Femoral Dual Lumen 7Fr CVC</div>
+<div class="text-body-sm text-secondary mt-0.5">Surgical placement confirmed via X-Ray</div>
+<div class="text-emerald-700 font-label-code-sm text-label-code-sm mt-0.5 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+<span>Flow: Resistance-free aspiration</span>
+</div>
+</td>
+<td class="px-3 py-3 align-top font-label-code-sm text-label-code-sm">
+<div class="text-on-surface font-semibold">Target Net UF: <span class="tabular-nums">50 mL/h</span></div>
+<div class="text-primary font-semibold mt-0.5">Effluent Dose: 2,200 mL/1.73m²/h</div>
+<div class="text-secondary mt-0.5">Cumulative Removed: <span class="tabular-nums font-bold text-on-surface">540 mL (11h)</span></div>
+</td>
+<td class="px-3 py-3 align-top text-body-sm">
+<div class="font-semibold text-on-surface font-label-code-md text-label-code-md">M60 Set (AN69 ST Membrane)</div>
+<div class="text-secondary font-label-code-sm text-label-code-sm mt-0.5">PrismaSギャL B22 Solution • Ca-free Dial</div>
+<div class="text-secondary font-label-code-sm text-label-code-sm mt-0.5">Blood warmer: 37.0°C inline set</div>
+</td>
+<td class="px-3 py-3 align-top font-label-code-sm text-label-code-sm">
+<div class="grid grid-cols-2 gap-x-2 text-on-surface font-tabular-vitals">
+<span>Qb: <strong class="text-primary">60 mL/m</strong></span>
+<span>PBP: <strong class="text-primary">300 mL/h</strong></span>
+<span>Art: <strong class="text-secondary">-55 mmHg</strong></span>
+<span>Ven: <strong class="text-secondary">+60 mmHg</strong></span>
+</div>
+<div class="text-secondary mt-1">Filter Drop: <span class="font-tabular-vitals text-on-surface font-bold">25 mmHg</span> • TMP: <span class="text-primary font-bold">38 mmHg</span></div>
+</td>
+<td class="px-3 py-3 align-top text-body-sm">
+<div class="font-label-code-sm text-label-code-sm font-semibold text-on-surface">Regional Citrate Anticoagulation</div>
+<div class="font-label-code-sm text-label-code-sm text-secondary">Pre-filter ACD-A: 75 mL/h</div>
+<div class="text-emerald-700 font-label-code-sm text-label-code-sm mt-0.5">Sys iCa: 1.12 mmol/L (Normal)</div>
+</td>
+<td class="px-3 py-3 align-top">
+<div class="flex items-center gap-1.5 font-label-code-sm text-label-code-sm font-bold text-on-surface">
+<span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
+<span>11h 20m Continuous</span>
+</div>
+<div class="text-secondary font-label-code-sm text-label-code-sm mt-0.5">Filter Life: 68h left</div>
+<div class="mt-1 px-1.5 py-0.5 rounded bg-surface-container font-label-code-sm text-label-code-sm text-on-surface flex items-center justify-between">
+<span>BP 88/54</span>
+<span>HR 118 bpm</span>
+</div>
+</td>
+<td class="px-4 py-3 align-top text-right">
+<div class="flex flex-col items-end gap-1">
+<button class="px-2.5 py-1 rounded bg-primary-container text-on-primary font-label-code-sm text-label-code-sm hover:bg-primary transition-colors" type="button">Vitals Check</button>
+<button class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-code-sm text-label-code-sm transition-colors" type="button">Telemetry</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Split Detailed Telemetry & Water Treatment Surveillance Panels -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
+<!-- Left Panel (7 cols): Live Dialysis Session Telemetry & Crit-Line Hematocrit Arc -->
+<div class="lg:col-span-7 bg-surface-container-lowest rounded-xl shadow-sm p-4 flex flex-col justify-between">
+<div>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between pb-3 gap-2">
+<div>
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-primary">Live Session Telemetry &amp; Crit-Line Arc</span>
+<span class="px-2 py-0.5 rounded bg-primary-container text-on-primary font-label-code-sm text-label-code-sm">STATION 02</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary">Patient: Arthur Pendelton (MRN: 884029) • Continuous Relative Blood Volume (% RBV)</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-code-sm text-label-code-sm px-2 py-1 rounded bg-surface-container text-on-surface font-semibold">Vascular Refill: 0.72 L/h</span>
+<span class="font-label-code-sm text-label-code-sm px-2 py-1 rounded bg-emerald-100 text-emerald-800 font-semibold">Hypotension Risk: LOW</span>
+</div>
+</div>
+<!-- Crit-Line SVG Graph Visualization -->
+<div class="bg-surface-container-low rounded-lg p-3 relative mt-2">
+<div class="flex items-center justify-between text-label-code-sm font-label-code-sm text-secondary mb-1">
+<span>RELATIVE BLOOD VOLUME (% RBV) vs. TIME (HOURS)</span>
+<span class="text-primary font-semibold">Current Slope: -3.8% / hr (Target Safe Corridor: -2.5% to -5.0%)</span>
+</div>
+<div class="h-44 w-full relative">
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 500 160">
+<defs>
+<lineargradient id="rbvGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#00355f" stop-opacity="0.25"></stop>
+<stop offset="100%" stop-color="#00355f" stop-opacity="0.0"></stop>
+</lineargradient>
+<!-- Safe corridor zone -->
+<lineargradient id="safeZoneGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#eff4ff" stop-opacity="0.8"></stop>
+<stop offset="100%" stop-color="#eff4ff" stop-opacity="0.2"></stop>
+</lineargradient>
+</defs>
+<!-- Safe corridor shading -->
+<polygon fill="url(#safeZoneGradient)" points="0,20 500,80 500,120 0,40"></polygon>
+<!-- Grid lines -->
+<line stroke="#d5e3fd" stroke-dasharray="3 3" x1="0" x2="500" y1="20" y2="20"></line>
+<line stroke="#d5e3fd" stroke-dasharray="3 3" x1="0" x2="500" y1="60" y2="60"></line>
+<line stroke="#d5e3fd" stroke-dasharray="3 3" x1="0" x2="500" y1="100" y2="100"></line>
+<line stroke="#d5e3fd" stroke-dasharray="3 3" x1="0" x2="500" y1="140" y2="140"></line>
+<!-- Safe corridor threshold reference dotted line -->
+<line stroke="#ba1a1a" stroke-dasharray="4 4" stroke-width="1.5" x1="0" x2="500" y1="130" y2="130"></line>
+<text fill="#ba1a1a" font-family="JetBrains Mono" font-size="9" x="360" y="126">Crash Line: -14% RBV</text>
+<!-- Area Fill -->
+<path d="M 0,25 Q 120,40 250,70 T 350,92 L 350,160 L 0,160 Z" fill="url(#rbvGradient)"></path>
+<!-- Primary Curve -->
+<path d="M 0,25 Q 120,40 250,70 T 350,92" fill="none" stroke="#00355f" stroke-width="2.5"></path>
+<!-- Projected dashed curve -->
+<path d="M 350,92 Q 420,105 500,118" fill="none" stroke="#515f74" stroke-dasharray="4 4" stroke-width="2"></path>
+<!-- Current Live Point -->
+<circle cx="350" cy="92" fill="#00355f" r="5"></circle>
+<circle class="animate-ping" cx="350" cy="92" fill="#00355f" opacity="0.2" r="9"></circle>
+<!-- Axis Labels -->
+<text fill="#515f74" font-family="JetBrains Mono" font-size="9" x="5" y="16">100% RBV (0h)</text>
+<text fill="#515f74" font-family="JetBrains Mono" font-size="9" x="120" y="155">01:00h</text>
+<text fill="#515f74" font-family="JetBrains Mono" font-size="9" x="240" y="155">02:00h</text>
+<text fill="#00355f" font-family="JetBrains Mono" font-size="9" font-weight="bold" x="340" y="155">NOW (02:45h)</text>
+<text fill="#515f74" font-family="JetBrains Mono" font-size="9" x="450" y="155">04:00h Target</text>
+</svg>
+</div>
+</div>
+<!-- Intra-Dialytic Hourly Blood Pressure Tracker & Adequacy Stats -->
+<div class="grid grid-cols-1 sm:grid-cols-4 gap-2 mt-3">
+<div class="p-2.5 rounded-lg bg-surface-container-low flex flex-col">
+<span class="font-label-code-sm text-label-code-sm text-secondary">08:00 (Pre-Run)</span>
+<span class="font-tabular-vitals text-title-md text-on-surface mt-0.5">134 / 84</span>
+<span class="font-label-code-sm text-label-code-sm text-secondary">MAP 100 • HR 74</span>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container-low flex flex-col">
+<span class="font-label-code-sm text-label-code-sm text-secondary">09:00 (Hr 1)</span>
+<span class="font-tabular-vitals text-title-md text-on-surface mt-0.5">130 / 80</span>
+<span class="font-label-code-sm text-label-code-sm text-secondary">MAP 96 • HR 72</span>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container-low flex flex-col">
+<span class="font-label-code-sm text-label-code-sm text-secondary">10:00 (Hr 2)</span>
+<span class="font-tabular-vitals text-title-md text-on-surface mt-0.5">126 / 78</span>
+<span class="font-label-code-sm text-label-code-sm text-secondary">MAP 94 • HR 76</span>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container-high flex flex-col">
+<div class="flex items-center justify-between">
+<span class="font-label-code-sm text-label-code-sm text-primary font-bold">10:45 (Live)</span>
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+</div>
+<span class="font-tabular-vitals text-title-md text-primary font-bold mt-0.5">122 / 76</span>
+<span class="font-label-code-sm text-label-code-sm text-secondary">MAP 91 • Stable</span>
+</div>
+</div>
+</div>
+<!-- Footer Adequacy & Warning Thresholds -->
+<div class="mt-4 pt-3 flex flex-wrap items-center justify-between gap-3 text-label-code-sm font-label-code-sm bg-surface-container-low p-2.5 rounded-lg">
+<div class="flex items-center gap-4">
+<div>
+<span class="text-secondary uppercase">Projected Single-Pool Kt/V:</span>
+<span class="text-emerald-700 font-bold ml-1">1.52 (Target ≥ 1.40)</span>
+</div>
+<div>
+<span class="text-secondary uppercase">Projected URR:</span>
+<span class="text-primary font-bold ml-1">71.4% (Target ≥ 65%)</span>
+</div>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-primary">verified</span>
+<span>Ultrafiltration Target on schedule for 75.20 kg discharge dry weight</span>
+</div>
+</div>
+</div>
+<!-- Right Panel (5 cols): Central Dialysis Water Treatment & RO Loop Purity Console -->
+<div class="lg:col-span-5 bg-surface-container-lowest rounded-xl shadow-sm p-4 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between pb-3">
+<div>
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-primary">Water Treatment &amp; RO Console</span>
+<span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-label-code-sm text-label-code-sm font-bold">PASS</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary">AAMI ST58 / ISO 23500 Central Distribution System</p>
+</div>
+<span class="material-symbols-outlined text-[24px] text-primary">filter_alt</span>
+</div>
+<!-- Linear Process Chain Schematic -->
+<div class="space-y-2 mt-2">
+<!-- Step 1: City Feed & Carbon Beds -->
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-2.5">
+<div class="w-7 h-7 rounded bg-surface-container-high text-primary flex items-center justify-center font-label-code-sm font-bold text-label-code-sm">01</div>
+<div>
+<div class="font-title-md text-body-sm text-on-surface leading-tight">Dual Carbon Beds (Worker &amp; Polisher)</div>
+<div class="font-label-code-sm text-label-code-sm text-secondary">Chloramine: &lt;0.02 mg/L (Limit &lt;0.10 mg/L)</div>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 text-label-code-sm font-label-code-sm font-bold">NORMAL</span>
+</div>
+<!-- Step 2: Softener & Hardness -->
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-2.5">
+<div class="w-7 h-7 rounded bg-surface-container-high text-primary flex items-center justify-center font-label-code-sm font-bold text-label-code-sm">02</div>
+<div>
+<div class="font-title-md text-body-sm text-on-surface leading-tight">Water Softener Unit A/B</div>
+<div class="font-label-code-sm text-label-code-sm text-secondary">Total Hardness: &lt;0.1 grains/gal (Passed)</div>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 text-label-code-sm font-label-code-sm font-bold">REGEN OK</span>
+</div>
+<!-- Step 3: Primary RO Membrane -->
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-2.5">
+<div class="w-7 h-7 rounded bg-surface-container-high text-primary flex items-center justify-center font-label-code-sm font-bold text-label-code-sm">03</div>
+<div>
+<div class="font-title-md text-body-sm text-on-surface leading-tight">Primary Reverse Osmosis Membrane</div>
+<div class="font-label-code-sm text-label-code-sm text-secondary">Salt Rejection: 99.4% • Permeate: 18.2 L/min</div>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 text-label-code-sm font-label-code-sm font-bold">99.4% REJ</span>
+</div>
+<!-- Step 4: Endotoxin Ultrafilter & Loop -->
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-2.5">
+<div class="w-7 h-7 rounded bg-surface-container-high text-primary flex items-center justify-center font-label-code-sm font-bold text-label-code-sm">04</div>
+<div>
+<div class="font-title-md text-body-sm text-on-surface leading-tight">0.05 Micron Endotoxin Retention Filter</div>
+<div class="font-label-code-sm text-label-code-sm text-secondary">LAL Assay: &lt;0.03 EU/mL • Bacterial Count: 0.01 CFU</div>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 text-label-code-sm font-label-code-sm font-bold">PYROGEN FREE</span>
+</div>
+</div>
+<!-- Loop Hydrodynamics & Reprocessing Stats -->
+<div class="grid grid-cols-3 gap-2 mt-3 pt-2">
+<div class="p-2 rounded-lg bg-surface-container-low text-center">
+<div class="font-label-code-sm text-label-code-sm text-secondary">Return Velocity</div>
+<div class="font-tabular-vitals text-title-md text-primary font-bold mt-0.5">3.2 ft/sec</div>
+<div class="text-[10px] text-emerald-700 font-label-code-sm">&gt; 3.0 ft/s (Turbulent)</div>
+</div>
+<div class="p-2 rounded-lg bg-surface-container-low text-center">
+<div class="font-label-code-sm text-label-code-sm text-secondary">Resistivity</div>
+<div class="font-tabular-vitals text-title-md text-primary font-bold mt-0.5">18.2 MΩ</div>
+<div class="text-[10px] text-secondary font-label-code-sm">25°C Standard</div>
+</div>
+<div class="p-2 rounded-lg bg-surface-container-low text-center">
+<div class="font-label-code-sm text-label-code-sm text-secondary">Reprocessing Policy</div>
+<div class="font-tabular-vitals text-title-md text-primary font-bold mt-0.5">0 Reuse</div>
+<div class="text-[10px] text-emerald-700 font-label-code-sm">100% Single-Use</div>
+</div>
+</div>
+</div>
+<!-- RO Loop Action Footer -->
+<div class="mt-4 pt-3 flex items-center justify-between font-label-code-sm text-label-code-sm">
+<span class="text-secondary flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-emerald-600"></span>
+<span>Next Scheduled Chemical Loop Flush: 23:00 tonight</span>
+</span>
+<button class="px-2.5 py-1 rounded bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors font-medium" type="button">Download Daily AAMI Log</button>
+</div>
+</div>
+</div>
+</div></main></div></body></html>

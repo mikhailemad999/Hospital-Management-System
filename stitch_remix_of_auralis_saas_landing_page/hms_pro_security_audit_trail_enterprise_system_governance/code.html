@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-primary":"#ffffff","on-tertiary":"#ffffff","tertiary-fixed":"#cce5ff","error":"#ba1a1a","on-error-container":"#93000a","secondary":"#515f74","secondary-fixed":"#d5e3fd","on-tertiary-container":"#74c1ff","primary-fixed":"#d2e4ff","background":"#f8f9ff","on-secondary-fixed-variant":"#3a485c","on-surface-variant":"#42474f","surface-container-lowest":"#ffffff","surface":"#f8f9ff","surface-variant":"#d3e4fe","surface-container-low":"#eff4ff","on-tertiary-fixed":"#001d31","on-secondary-fixed":"#0d1c2f","inverse-primary":"#a0c9ff","secondary-container":"#d5e3fd","surface-container-highest":"#d3e4fe","inverse-on-surface":"#eaf1ff","tertiary-fixed-dim":"#93ccff","on-background":"#0b1c30","inverse-surface":"#213145","error-container":"#ffdad6","primary-fixed-dim":"#a0c9ff","secondary-fixed-dim":"#b9c7e0","surface-bright":"#f8f9ff","outline":"#727780","on-primary-fixed-variant":"#07497d","surface-dim":"#cbdbf5","on-tertiary-fixed-variant":"#004b73","primary":"#00355f","on-surface":"#0b1c30","outline-variant":"#c2c7d1","surface-container":"#e5eeff","surface-container-high":"#dce9ff","on-primary-fixed":"#001c37","on-primary-container":"#8ebdf9","on-secondary":"#ffffff","surface-tint":"#2d6197","on-error":"#ffffff","on-secondary-container":"#57657b","tertiary":"#003756","primary-container":"#0f4c81","tertiary-container":"#004e78"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"space-xl":"1.5rem","space-xs":"0.25rem","margin":"1.5rem","gutter":"1rem","space-md":"0.75rem","margin-compact":"0.75rem","space-sm":"0.5rem","space-lg":"1rem","gutter-dense":"0.5rem"},"fontFamily":{"body-lg":["Inter"],"label-code-lg":["JetBrains Mono"],"body-sm":["Inter"],"label-code-sm":["JetBrains Mono"],"headline-lg":["Inter"],"headline-sm":["Inter"],"display-lg-mobile":["Inter"],"tabular-vitals":["Inter"],"label-code-md":["JetBrains Mono"],"display-lg":["Inter"],"body-md":["Inter"],"title-md":["Inter"],"headline-md":["Inter"]},"fontSize":{"body-lg":["15px",{"lineHeight":"22px","fontWeight":"400"}],"label-code-lg":["13px",{"lineHeight":"18px","fontWeight":"500"}],"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"label-code-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.04em","fontWeight":"600"}],"headline-lg":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"600"}],"headline-sm":["16px",{"lineHeight":"24px","letterSpacing":"-0.005em","fontWeight":"600"}],"display-lg-mobile":["26px",{"lineHeight":"34px","letterSpacing":"-0.01em","fontWeight":"700"}],"tabular-vitals":["14px",{"lineHeight":"20px","fontWeight":"600"}],"label-code-md":["12px",{"lineHeight":"16px","fontWeight":"500"}],"display-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-md":["13px",{"lineHeight":"18px","fontWeight":"400"}],"title-md":["15px",{"lineHeight":"22px","fontWeight":"600"}],"headline-md":["20px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}]}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-lowest border-r border-outline-variant/40 z-50 flex flex-col justify-between select-none shadow-[0_1px_8px_rgba(0,0,0,0.02)]"><div class="flex flex-col h-full overflow-hidden"><div class="h-14 px-4 flex items-center gap-3 border-b border-outline-variant/30 shrink-0 bg-surface-container-lowest"><div class="w-8 h-8 rounded-lg bg-primary-container flex items-center justify-center text-on-primary shadow-sm"><span class="material-symbols-outlined text-[20px]">local_hospital</span></div><div class="flex flex-col"><span class="font-title-md text-title-md text-primary tracking-tight">MedCore EHR</span><span class="font-label-code-sm text-label-code-sm text-secondary uppercase tracking-wider">Enterprise v4.8</span></div></div><div class="flex-1 overflow-y-auto px-3 py-4 space-y-5"><nav class="space-y-4" data-active-classes="bg-primary-container text-on-primary rounded-lg shadow-sm font-semibold"><div class="space-y-1"><div class="px-2.5 pb-1 font-label-code-sm text-label-code-sm text-secondary uppercase tracking-wider">1. Overview &amp; Command</div><a aria-current="page" class="flex items-center gap-3 px-2.5 py-1.5 transition-colors bg-primary-container text-on-primary rounded-lg shadow-sm font-semibold" data-path="admin-dashboard" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">monitoring</span><span class="font-body-md text-body-md truncate">Admin Dashboard</span></a><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="emergency-ed-board" href="#"><span class="material-symbols-outlined text-[19px] shrink-0 text-error">e911_emergency</span><span class="font-body-md text-body-md truncate">Emergency ED Board</span></a></div><div class="space-y-1"><div class="px-2.5 pb-1 font-label-code-sm text-label-code-sm text-secondary uppercase tracking-wider">2. Patient Management</div><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="master-patient-index" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">badge</span><span class="font-body-md text-body-md truncate">Master Patient Index</span></a><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="patient-registration" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">person_add</span><span class="font-body-md text-body-md truncate">Registration</span></a><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="admissions-and-beds" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">hotel</span><span class="font-body-md text-body-md truncate">Admissions &amp; Beds</span></a></div><div class="space-y-1"><div class="px-2.5 pb-1 font-label-code-sm text-label-code-sm text-secondary uppercase tracking-wider">3. Clinical Workstations</div><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="doctor-clinic" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">stethoscope</span><span class="font-body-md text-body-md truncate">Doctor Clinic</span></a><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="nursing-and-mar" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">medication</span><span class="font-body-md text-body-md truncate">Nursing &amp; MAR</span></a><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="operating-theaters" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">vital_signs</span><span class="font-body-md text-body-md truncate">Operating Theaters / OR</span></a></div><div class="space-y-1"><div class="px-2.5 pb-1 font-label-code-sm text-label-code-sm text-secondary uppercase tracking-wider">4. Diagnostics &amp; Logistics</div><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="pharmacy-and-fefo-stock" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">prescriptions</span><span class="font-body-md text-body-md truncate">Pharmacy &amp; FEFO Stock</span></a><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="laboratory" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">chips</span><span class="font-body-md text-body-md truncate">Laboratory</span></a><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="radiology" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">radiology</span><span class="font-body-md text-body-md truncate">Radiology</span></a></div><div class="space-y-1"><div class="px-2.5 pb-1 font-label-code-sm text-label-code-sm text-secondary uppercase tracking-wider">5. Finance &amp; Governance</div><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="billing-and-cashier" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">receipt_long</span><span class="font-body-md text-body-md truncate">Billing &amp; Cashier</span></a><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="payroll-and-commissions" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">payments</span><span class="font-body-md text-body-md truncate">Payroll &amp; Commissions</span></a><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="audit-trail" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">verified_user</span><span class="font-body-md text-body-md truncate">Audit Trail</span></a><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="hospital-settings" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">settings</span><span class="font-body-md text-body-md truncate">Settings</span></a></div></nav></div><div class="p-3 border-t border-outline-variant/30 shrink-0 bg-surface-container-low/40"><div class="flex items-center justify-between text-secondary px-1"><div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span><span class="font-label-code-sm text-label-code-sm text-on-surface-variant">SYSTEM ONLINE</span></div><span class="font-label-code-sm text-label-code-sm text-secondary">HL7/FHIR v4</span></div></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-14 bg-surface-container-lowest border-b border-outline-variant/40 z-40 flex items-center justify-between px-6 shadow-[0_1px_4px_rgba(0,0,0,0.03)]"><div class="flex items-center gap-4 flex-1 max-w-3xl"><button class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg border border-outline-variant/60 bg-surface-container-low/50 hover:bg-surface-container-low text-on-surface transition-colors shrink-0" type="button"><span class="material-symbols-outlined text-[18px] text-primary">domain</span><span class="font-title-md text-body-sm truncate max-w-[210px]">Metro Central - Main</span><span class="material-symbols-outlined text-[16px] text-secondary">expand_more</span></button><div class="relative flex-1 max-w-lg"><span class="material-symbols-outlined absolute left-2.5 top-1/2 -translate-y-1/2 text-secondary text-[18px]">search</span><input class="w-full pl-8 pr-12 py-1.5 text-body-sm font-body-sm rounded-lg border border-outline-variant/60 bg-surface focus:bg-surface-container-lowest focus:border-primary focus:outline-none placeholder:text-secondary/60 text-on-surface transition-all" placeholder="Search Patient by MRN, National ID, Name, Staff Code (Press '/' to focus)..." type="text"/><span class="absolute right-2 top-1/2 -translate-y-1/2 px-1.5 py-0.5 rounded border border-outline-variant/50 text-[10px] font-label-code-sm text-secondary bg-surface-container-low">⌘K</span></div></div><div class="flex items-center gap-3 shrink-0"><div class="flex items-center gap-1.5 px-2 py-1 rounded-lg bg-error-container text-on-error-container border border-error/20"><span class="material-symbols-outlined text-[16px] text-error">campaign</span><span class="font-label-code-sm text-label-code-sm font-bold uppercase">Trauma Code Red: OR-3</span></div><div class="hidden xl:flex items-center gap-2 px-2.5 py-1 rounded-lg bg-surface-container-low border border-outline-variant/40"><span class="material-symbols-outlined text-[16px] text-primary">badge</span><div class="flex flex-col text-left"><span class="font-title-md text-[11px] text-on-surface leading-tight">Dr. Sarah Vance, MD</span><span class="font-label-code-sm text-[10px] text-secondary leading-tight">Trauma Unit A • Shift 1</span></div><span class="w-1.5 h-1.5 rounded-full bg-emerald-600 ml-1"></span></div><button class="px-2 py-1 rounded-lg border border-outline-variant/60 hover:bg-surface-container-low text-on-surface-variant font-label-code-sm text-label-code-sm transition-colors" type="button">AR</button><button class="relative p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-error ring-2 ring-surface-container-lowest"></span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="w-full pt-14 px-gutter bg-surface min-h-screen"><div class="flex flex-col w-full">
+<div class="py-space-md flex flex-col gap-space-md">
+<div class="flex flex-col xl:flex-row xl:items-center justify-between gap-space-md bg-surface-container-lowest p-space-lg rounded-xl shadow-sm">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-primary flex items-center justify-center text-on-primary shadow-md">
+<span class="material-symbols-outlined text-[26px]">policy</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-headline-md text-headline-md text-on-surface">Security Audit Trail &amp; Governance</span>
+<span class="px-2 py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-label-code-sm text-label-code-sm uppercase font-bold">WORM Ledger</span>
+<span class="flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container text-secondary font-label-code-sm text-label-code-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-ping"></span>
+              LIVE FEED
+            </span>
+</div>
+<span class="font-body-md text-body-md text-secondary">ISO 27799 / HIPAA §164.312(b) Cryptographic Event Log • Node: <span class="font-label-code-md text-primary">sec-node-ord-04.internal</span></span>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-space-sm">
+<div class="flex items-center gap-2 px-space-md py-1.5 bg-surface-container-low rounded-lg text-secondary">
+<span class="material-symbols-outlined text-primary text-[18px]">verified</span>
+<div class="flex flex-col text-left">
+<span class="font-label-code-sm text-[10px] uppercase text-secondary">Merkle Root Verified</span>
+<span class="font-label-code-md text-label-code-md text-on-surface font-semibold">#a8f9-9021-fe88</span>
+</div>
+</div>
+<button class="flex items-center gap-2 px-space-md py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface transition-all font-body-md text-body-md font-medium" type="button">
+<span class="material-symbols-outlined text-[18px] text-error">lock_reset</span>
+          Break-Glass Rules
+        </button>
+<button class="flex items-center gap-2 px-space-md py-2 rounded-lg bg-primary-container hover:bg-primary text-on-primary shadow-sm transition-all font-body-md text-body-md font-medium" type="button">
+<span class="material-symbols-outlined text-[18px]">download</span>
+          Export Manifest (.SHA256)
+        </button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-gutter">
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="absolute -right-4 -bottom-4 w-24 h-24 rounded-full bg-primary-fixed/20 blur-xl pointer-events-none"></div>
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-code-sm text-label-code-sm text-secondary uppercase tracking-wider">Compliance Index</span>
+<span class="font-display-lg text-display-lg text-on-surface mt-1">99.8%</span>
+</div>
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">gavel</span>
+</div>
+</div>
+<div class="mt-space-md flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-secondary">ISO 27799 / HIPAA / GDPR</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-primary font-label-code-sm text-label-code-sm font-semibold">Tier-1 Tier</span>
+</div>
+</div>
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-code-sm text-label-code-sm text-secondary uppercase tracking-wider">24H Audited Events</span>
+<span class="font-display-lg text-display-lg text-on-surface mt-1">842,910</span>
+</div>
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">link</span>
+</div>
+</div>
+<div class="mt-space-md flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-secondary">Append-only WORM chain</span>
+<span class="font-label-code-sm text-label-code-sm text-emerald-700 font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">done_all</span> 0 Syncdelay
+          </span>
+</div>
+</div>
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-code-sm text-label-code-sm text-secondary uppercase tracking-wider">Active Break-Glass</span>
+<span class="font-display-lg text-display-lg text-on-surface mt-1">14</span>
+</div>
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[22px]">emergency</span>
+</div>
+</div>
+<div class="mt-space-md flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-secondary">11 ORs • 3 Super-Admin</span>
+<span class="px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container font-label-code-sm text-label-code-sm font-semibold">Dual-Sign Req</span>
+</div>
+</div>
+<div class="p-space-lg rounded-xl bg-error-container/30 shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-code-sm text-label-code-sm text-error uppercase tracking-wider font-bold">Threat &amp; Anomaly Alerts</span>
+<span class="font-display-lg text-display-lg text-error mt-1">2 Flagged</span>
+</div>
+<div class="w-10 h-10 rounded-lg bg-error-container flex items-center justify-center text-on-error-container">
+<span class="material-symbols-outlined text-[22px]">warning</span>
+</div>
+</div>
+<div class="mt-space-md flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-error-container font-medium">Bulk EMR Dump &amp; Off-Hours Query</span>
+<span class="px-2 py-0.5 rounded bg-error text-on-error font-label-code-sm text-label-code-sm font-semibold">Investigate</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-gutter">
+<div class="xl:col-span-8 flex flex-col gap-space-md">
+<div class="p-space-md bg-surface-container-lowest rounded-xl shadow-sm flex flex-col gap-space-md">
+<div class="flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm flex-1 min-w-[280px]">
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-secondary text-[18px]">filter_alt</span>
+<input class="w-full pl-9 pr-4 py-1.5 rounded-lg bg-surface-container-low text-body-sm text-on-surface placeholder:text-secondary focus:outline-none focus:bg-surface-container transition-all" placeholder="Filter Actor User ID, MRN, IP, Station Code, or ECDSA Hash..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="px-3 py-1.5 rounded-lg bg-primary text-on-primary font-label-code-sm text-label-code-sm font-semibold">ALL (842K)</button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container text-error font-label-code-sm text-label-code-sm font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span> CRITICAL (2)
+              </button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface-variant font-label-code-sm text-label-code-sm font-semibold">BREAK-GLASS (14)</button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface-variant font-label-code-sm text-label-code-sm font-semibold">FINANCE (89)</button>
+</div>
+</div>
+<div class="overflow-x-auto rounded-lg bg-surface-container-low/30">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low text-secondary font-label-code-sm text-label-code-sm uppercase tracking-wider">
+<th class="py-2.5 px-3">Timestamp / Node</th>
+<th class="py-2.5 px-3">Actor &amp; Credential</th>
+<th class="py-2.5 px-3">Access Action</th>
+<th class="py-2.5 px-3">Target Resource</th>
+<th class="py-2.5 px-3">Crypto Hash / 2FA</th>
+<th class="py-2.5 px-3 text-right">Risk Score</th>
+</tr>
+</thead>
+<tbody class="divide-y-0 text-body-sm">
+<tr class="bg-error-container/20 hover:bg-error-container/30 transition-colors">
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-tabular-vitals text-tabular-vitals font-semibold text-error">10:48:12.402</span>
+<span class="font-label-code-sm text-[10px] text-secondary">WS-BILL-09 (10.24.1.88)</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-title-md text-body-sm font-semibold text-on-surface">M. Santos (ID: HIM-904)</span>
+<span class="font-label-code-sm text-[10px] text-secondary">Billing &amp; Revenue Officer</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col gap-1">
+<span class="px-2 py-0.5 rounded bg-error text-on-error font-label-code-sm text-[10px] font-bold w-fit">BULK EXPORT</span>
+<span class="font-label-code-sm text-[10px] text-error font-medium">Unusual 4,200 records query</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-label-code-md text-label-code-md text-on-surface font-semibold">Form 1099 Doc Commissions</span>
+<span class="font-body-sm text-[11px] text-secondary">Table: `tbl_physician_payouts_2024`</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-label-code-sm text-label-code-sm text-primary truncate max-w-[140px]">sha256:88fb39...11ef</span>
+<span class="font-label-code-sm text-[10px] text-emerald-700">FIDO2 WebAuthn • VALID</span>
+</div>
+</td>
+<td class="py-3 px-3 text-right">
+<span class="px-2 py-1 rounded bg-error text-on-error font-label-code-sm text-label-code-sm font-bold animate-pulse">CRITICAL (94)</span>
+</td>
+</tr>
+<tr class="bg-surface-container-lowest hover:bg-surface-container-low transition-colors">
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-tabular-vitals text-tabular-vitals font-semibold text-on-surface">10:44:02.110</span>
+<span class="font-label-code-sm text-[10px] text-secondary">OR-03-CONSOLE (10.10.3.14)</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-title-md text-body-sm font-semibold text-primary">Dr. Sarah Vance, MD</span>
+<span class="font-label-code-sm text-[10px] text-secondary">Chief Attending - Trauma Cardio</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col gap-1">
+<span class="px-2 py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-label-code-sm text-[10px] font-bold w-fit">BREAK-GLASS VIP OVERRIDE</span>
+<span class="font-label-code-sm text-[10px] text-secondary">Aortic Dissection Emergency</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-label-code-md text-label-code-md text-on-surface font-semibold">Eleanor R. Vance (MRN-883921)</span>
+<span class="font-body-sm text-[11px] text-secondary">Restricted VIP Clinical File</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-label-code-sm text-label-code-sm text-primary truncate max-w-[140px]">ecdsa:99d2c1...0a22</span>
+<span class="font-label-code-sm text-[10px] text-emerald-700">Dual-Sign Badge + Bio • VALID</span>
+</div>
+</td>
+<td class="py-3 px-3 text-right">
+<span class="px-2 py-1 rounded bg-secondary-container text-on-secondary-container font-label-code-sm text-label-code-sm font-bold">ELEVATED (65)</span>
+</td>
+</tr>
+<tr class="bg-surface-container-lowest hover:bg-surface-container-low transition-colors">
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-tabular-vitals text-tabular-vitals font-semibold text-on-surface">10:41:19.829</span>
+<span class="font-label-code-sm text-[10px] text-secondary">PYXIS-GW-04 (192.168.4.12)</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-title-md text-body-sm font-semibold text-on-surface">Pharm. Tech D. Albright</span>
+<span class="font-label-code-sm text-[10px] text-secondary">Central Pharmacy Logistics</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col gap-1">
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-code-sm text-[10px] font-bold w-fit">VAULT SAFE ACCESS</span>
+<span class="font-label-code-sm text-[10px] text-secondary">Fentanyl 50mcg Dispense</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-label-code-md text-label-code-md text-on-surface font-semibold">Narcotic Safe Vault B - Bin 4</span>
+<span class="font-body-sm text-[11px] text-secondary">Batch FEFO: #LOT-99201-B</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-label-code-sm text-label-code-sm text-primary truncate max-w-[140px]">sha256:714a1e...bb49</span>
+<span class="font-label-code-sm text-[10px] text-emerald-700">RFID Touch + PIN • VALID</span>
+</div>
+</td>
+<td class="py-3 px-3 text-right">
+<span class="px-2 py-1 rounded bg-surface-container text-secondary font-label-code-sm text-label-code-sm font-bold">ROUTINE (12)</span>
+</td>
+</tr>
+<tr class="bg-surface-container-lowest hover:bg-surface-container-low transition-colors">
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-tabular-vitals text-tabular-vitals font-semibold text-on-surface">10:39:55.301</span>
+<span class="font-label-code-sm text-[10px] text-secondary">RAD-WS-02 (10.12.8.201)</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-title-md text-body-sm font-semibold text-on-surface">Dr. Kevin Zhao, MD</span>
+<span class="font-label-code-sm text-[10px] text-secondary">Diagnostic Radiology</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col gap-1">
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-code-sm text-[10px] font-bold w-fit">DICOM PACS DECRYPT</span>
+<span class="font-label-code-sm text-[10px] text-secondary">Thoracic Angio CT Scan</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-label-code-md text-label-code-md text-on-surface font-semibold">Patient: Marcus Thorne (MRN-109283)</span>
+<span class="font-body-sm text-[11px] text-secondary">Study UID: 1.2.840.10008...</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-label-code-sm text-label-code-sm text-primary truncate max-w-[140px]">sha256:301ee8...ff39</span>
+<span class="font-label-code-sm text-[10px] text-emerald-700">Kerberos SAML 2.0 • VALID</span>
+</div>
+</td>
+<td class="py-3 px-3 text-right">
+<span class="px-2 py-1 rounded bg-surface-container text-secondary font-label-code-sm text-label-code-sm font-bold">ROUTINE (08)</span>
+</td>
+</tr>
+<tr class="bg-surface-container-lowest hover:bg-surface-container-low transition-colors">
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-tabular-vitals text-tabular-vitals font-semibold text-on-surface">10:35:10.040</span>
+<span class="font-label-code-sm text-[10px] text-secondary">FHIR-API-GW (172.16.0.4)</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-title-md text-body-sm font-semibold text-on-surface">System Service Agent #02</span>
+<span class="font-label-code-sm text-[10px] text-secondary">Cerner Bridge Interface</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col gap-1">
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-code-sm text-[10px] font-bold w-fit">SYNC OBSERVATIONS</span>
+<span class="font-label-code-sm text-[10px] text-secondary">Inbound Lab Results (HL7 v2.5)</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-label-code-md text-label-code-md text-on-surface font-semibold">32 Inpatient Telemetry Bundles</span>
+<span class="font-body-sm text-[11px] text-secondary">Pathology Panel: CBC &amp; Troponin</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-label-code-sm text-label-code-sm text-primary truncate max-w-[140px]">mTLS:cert-cerner-prod</span>
+<span class="font-label-code-sm text-[10px] text-emerald-700">TLS 1.3 Mutual Cert • VALID</span>
+</div>
+</td>
+<td class="py-3 px-3 text-right">
+<span class="px-2 py-1 rounded bg-surface-container text-secondary font-label-code-sm text-label-code-sm font-bold">ROUTINE (02)</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="flex items-center justify-between pt-2">
+<span class="font-body-sm text-body-sm text-secondary">Displaying latest 5 of 842,910 cryptographic entries • 0.04s query latency</span>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1 rounded bg-surface-container text-secondary font-label-code-sm text-label-code-sm hover:text-on-surface">Previous Block</button>
+<button class="px-3 py-1 rounded bg-surface-container-high text-on-surface font-label-code-sm text-label-code-sm font-bold hover:bg-primary hover:text-on-primary transition-colors">Next Block</button>
+</div>
+</div>
+</div>
+<div class="p-space-lg bg-surface-container-lowest rounded-xl shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[22px]">hub</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">FHIR / HL7 Interface Engine &amp; Health Matrix</span>
+</div>
+<span class="font-label-code-sm text-label-code-sm text-emerald-700 font-semibold flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-emerald-600"></span> All 4 Gateways Nominal
+            </span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-sm">
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-1">
+<span class="font-label-code-sm text-[10px] uppercase text-secondary">Epic/Cerner Bridge</span>
+<div class="flex items-center justify-between mt-1">
+<span class="font-title-md text-title-md text-on-surface">Syncing</span>
+<span class="font-label-code-sm text-label-code-sm text-emerald-700 font-bold">0 Drop</span>
+</div>
+<span class="font-label-code-sm text-[10px] text-secondary">HL7 v2.5 / FHIR R4 Bundle</span>
+</div>
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-1">
+<span class="font-label-code-sm text-[10px] uppercase text-secondary">PACS DICOM Link</span>
+<div class="flex items-center justify-between mt-1">
+<span class="font-title-md text-title-md text-on-surface">120 Mbps</span>
+<span class="font-label-code-sm text-label-code-sm text-primary font-bold">Steady</span>
+</div>
+<span class="font-label-code-sm text-[10px] text-secondary">Fiber Channel 16G SAN</span>
+</div>
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-1">
+<span class="font-label-code-sm text-[10px] uppercase text-secondary">Pyxis MedStation GW</span>
+<div class="flex items-center justify-between mt-1">
+<span class="font-title-md text-title-md text-on-surface">100%</span>
+<span class="font-label-code-sm text-label-code-sm text-emerald-700 font-bold">Heartbeat</span>
+</div>
+<span class="font-label-code-sm text-[10px] text-secondary">Latency: 2.1ms (LAN)</span>
+</div>
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-1">
+<span class="font-label-code-sm text-[10px] uppercase text-secondary">Cold Backup Snapshot</span>
+<div class="flex items-center justify-between mt-1">
+<span class="font-title-md text-title-md text-on-surface">03:00 EST</span>
+<span class="font-label-code-sm text-label-code-sm text-primary font-bold">Encrypted</span>
+</div>
+<span class="font-label-code-sm text-[10px] text-secondary">AWS S3 Glacier WORM (AES-256)</span>
+</div>
+</div>
+</div>
+</div>
+<div class="xl:col-span-4 flex flex-col gap-space-md">
+<div class="p-space-lg bg-surface-container-lowest rounded-xl shadow-sm flex flex-col gap-space-md">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-error text-[24px]">emergency_home</span>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-on-surface">Break-Glass Live Override</span>
+<span class="font-label-code-sm text-[11px] text-secondary">Incident #BG-2024-098</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-error text-on-error font-label-code-sm text-label-code-sm font-bold animate-pulse">ACTIVE OR-03</span>
+</div>
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-label-code-sm text-[10px] text-secondary uppercase">Target Subject</span>
+<span class="font-label-code-md text-label-code-md font-semibold text-primary">Eleanor R. Vance (MRN-883921)</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-label-code-sm text-[10px] text-secondary uppercase">Initiating Physician</span>
+<span class="font-title-md text-body-sm font-semibold text-on-surface">Dr. Sarah Vance, MD</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-label-code-sm text-[10px] text-secondary uppercase">Secondary Sign-off</span>
+<span class="font-title-md text-body-sm text-on-surface">Dr. Mark Ruiz, MD (Anesthesia)</span>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-code-sm text-label-code-sm text-secondary uppercase">Mandatory Clinical Justification Logged:</span>
+<div class="p-space-md rounded-lg bg-surface-container text-body-sm text-on-surface italic font-serif">
+              “Patient unconscious upon arrival from Trauma Unit A. Suspected aortic dissection, urgent emergency thoracotomy &amp; cardiac bypass preparation required. Restriction bypassed under Section 4.2 emergency protocol.”
+            </div>
+</div>
+<div class="p-space-md rounded-lg bg-surface-container-high/60 flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-code-sm text-[10px] uppercase text-secondary">HIM Mandatory Audit Timer</span>
+<span class="font-label-code-lg text-label-code-lg font-bold text-on-surface">71h : 56m : 42s left</span>
+</div>
+<span class="material-symbols-outlined text-primary text-[24px]">timer</span>
+</div>
+<div class="flex flex-col gap-2 pt-2">
+<button class="w-full py-2 px-3 rounded-lg bg-primary-container hover:bg-primary text-on-primary font-body-md text-body-md font-medium transition-colors flex items-center justify-center gap-2 shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+              Authorize Emergency 4-Hour Extension
+            </button>
+<button class="w-full py-2 px-3 rounded-lg bg-error-container hover:bg-error text-on-error-container hover:text-on-error font-body-md text-body-md font-medium transition-colors flex items-center justify-center gap-2" type="button">
+<span class="material-symbols-outlined text-[18px]">block</span>
+              Revoke Override &amp; Lock Session
+            </button>
+</div>
+</div>
+<div class="p-space-lg bg-surface-container-lowest rounded-xl shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<span class="font-title-md text-title-md text-on-surface">High-Privilege Active Sessions</span>
+<span class="font-label-code-sm text-label-code-sm text-secondary">14 Active</span>
+</div>
+<div class="flex flex-col gap-space-sm">
+<div class="p-space-sm rounded-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded bg-primary text-on-primary flex items-center justify-center text-label-code-sm font-bold">SV</div>
+<div class="flex flex-col">
+<span class="font-title-md text-body-sm font-semibold text-on-surface">Dr. Sarah Vance</span>
+<span class="font-label-code-sm text-[10px] text-secondary">OR-03 Station • Cardio Lead</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-label-code-sm text-[10px] font-bold">VIP READ</span>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded bg-secondary text-on-secondary flex items-center justify-center text-label-code-sm font-bold">MS</div>
+<div class="flex flex-col">
+<span class="font-title-md text-body-sm font-semibold text-on-surface">M. Santos</span>
+<span class="font-label-code-sm text-[10px] text-secondary">Billing WS-09 • HIM Clerk</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-error-container text-on-error-container font-label-code-sm text-[10px] font-bold">FLAGGED</span>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded bg-surface-tint text-on-primary flex items-center justify-center text-label-code-sm font-bold">DA</div>
+<div class="flex flex-col">
+<span class="font-title-md text-body-sm font-semibold text-on-surface">D. Albright</span>
+<span class="font-label-code-sm text-[10px] text-secondary">Central Pharmacy • Tech Lead</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-container text-secondary font-label-code-sm text-[10px] font-bold">NARCOTIC SAFE</span>
+</div>
+</div>
+<button class="w-full py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-secondary text-body-sm font-medium transition-colors text-center" type="button">
+            View All 14 Super-Admin Tokens
+          </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  (function() {
+    const navItems = document.querySelectorAll('aside nav a');
+    navItems.forEach(item => {
+      if (item.getAttribute('data-path') === 'audit-trail') {
+        item.className = 'flex items-center gap-3 px-2.5 py-1.5 rounded-lg bg-primary-container text-on-primary shadow-sm font-semibold transition-colors';
+      }
+    });
+  })();
+</script></main></div></body></html>

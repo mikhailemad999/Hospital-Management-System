@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-primary":"#ffffff","on-tertiary":"#ffffff","tertiary-fixed":"#cce5ff","error":"#ba1a1a","on-error-container":"#93000a","secondary":"#515f74","secondary-fixed":"#d5e3fd","on-tertiary-container":"#74c1ff","primary-fixed":"#d2e4ff","background":"#f8f9ff","on-secondary-fixed-variant":"#3a485c","on-surface-variant":"#42474f","surface-container-lowest":"#ffffff","surface":"#f8f9ff","surface-variant":"#d3e4fe","surface-container-low":"#eff4ff","on-tertiary-fixed":"#001d31","on-secondary-fixed":"#0d1c2f","inverse-primary":"#a0c9ff","secondary-container":"#d5e3fd","surface-container-highest":"#d3e4fe","inverse-on-surface":"#eaf1ff","tertiary-fixed-dim":"#93ccff","on-background":"#0b1c30","inverse-surface":"#213145","error-container":"#ffdad6","primary-fixed-dim":"#a0c9ff","secondary-fixed-dim":"#b9c7e0","surface-bright":"#f8f9ff","outline":"#727780","on-primary-fixed-variant":"#07497d","surface-dim":"#cbdbf5","on-tertiary-fixed-variant":"#004b73","primary":"#00355f","on-surface":"#0b1c30","outline-variant":"#c2c7d1","surface-container":"#e5eeff","surface-container-high":"#dce9ff","on-primary-fixed":"#001c37","on-primary-container":"#8ebdf9","on-secondary":"#ffffff","surface-tint":"#2d6197","on-error":"#ffffff","on-secondary-container":"#57657b","tertiary":"#003756","primary-container":"#0f4c81","tertiary-container":"#004e78"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"space-xl":"1.5rem","space-xs":"0.25rem","margin":"1.5rem","gutter":"1rem","space-md":"0.75rem","margin-compact":"0.75rem","space-sm":"0.5rem","space-lg":"1rem","gutter-dense":"0.5rem"},"fontFamily":{"body-lg":["Inter"],"label-code-lg":["JetBrains Mono"],"body-sm":["Inter"],"label-code-sm":["JetBrains Mono"],"headline-lg":["Inter"],"headline-sm":["Inter"],"display-lg-mobile":["Inter"],"tabular-vitals":["Inter"],"label-code-md":["JetBrains Mono"],"display-lg":["Inter"],"body-md":["Inter"],"title-md":["Inter"],"headline-md":["Inter"]},"fontSize":{"body-lg":["15px",{"lineHeight":"22px","fontWeight":"400"}],"label-code-lg":["13px",{"lineHeight":"18px","fontWeight":"500"}],"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"label-code-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.04em","fontWeight":"600"}],"headline-lg":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"600"}],"headline-sm":["16px",{"lineHeight":"24px","letterSpacing":"-0.005em","fontWeight":"600"}],"display-lg-mobile":["26px",{"lineHeight":"34px","letterSpacing":"-0.01em","fontWeight":"700"}],"tabular-vitals":["14px",{"lineHeight":"20px","fontWeight":"600"}],"label-code-md":["12px",{"lineHeight":"16px","fontWeight":"500"}],"display-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-md":["13px",{"lineHeight":"18px","fontWeight":"400"}],"title-md":["15px",{"lineHeight":"22px","fontWeight":"600"}],"headline-md":["20px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}]}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-lowest border-r border-outline-variant/40 z-50 flex flex-col justify-between select-none shadow-[0_1px_8px_rgba(0,0,0,0.02)]"><div class="flex flex-col h-full overflow-hidden"><div class="h-14 px-4 flex items-center gap-3 border-b border-outline-variant/30 shrink-0 bg-surface-container-lowest"><div class="w-8 h-8 rounded-lg bg-primary-container flex items-center justify-center text-on-primary shadow-sm"><span class="material-symbols-outlined text-[20px]">local_hospital</span></div><div class="flex flex-col"><span class="font-title-md text-title-md text-primary tracking-tight">MedCore EHR</span><span class="font-label-code-sm text-label-code-sm text-secondary uppercase tracking-wider">Enterprise v4.8</span></div></div><div class="flex-1 overflow-y-auto px-3 py-4 space-y-5"><nav class="space-y-4" data-active-classes="bg-primary-container text-on-primary rounded-lg shadow-sm font-semibold"><div class="space-y-1"><div class="px-2.5 pb-1 font-label-code-sm text-label-code-sm text-secondary uppercase tracking-wider">1. Overview &amp; Command</div><a aria-current="page" class="flex items-center gap-3 px-2.5 py-1.5 transition-colors bg-primary-container text-on-primary rounded-lg shadow-sm font-semibold" data-path="admin-dashboard" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">monitoring</span><span class="font-body-md text-body-md truncate">Admin Dashboard</span></a><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="emergency-ed-board" href="#"><span class="material-symbols-outlined text-[19px] shrink-0 text-error">e911_emergency</span><span class="font-body-md text-body-md truncate">Emergency ED Board</span></a></div><div class="space-y-1"><div class="px-2.5 pb-1 font-label-code-sm text-label-code-sm text-secondary uppercase tracking-wider">2. Patient Management</div><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="master-patient-index" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">badge</span><span class="font-body-md text-body-md truncate">Master Patient Index</span></a><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="patient-registration" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">person_add</span><span class="font-body-md text-body-md truncate">Registration</span></a><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="admissions-and-beds" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">hotel</span><span class="font-body-md text-body-md truncate">Admissions &amp; Beds</span></a></div><div class="space-y-1"><div class="px-2.5 pb-1 font-label-code-sm text-label-code-sm text-secondary uppercase tracking-wider">3. Clinical Workstations</div><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="doctor-clinic" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">stethoscope</span><span class="font-body-md text-body-md truncate">Doctor Clinic</span></a><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="nursing-and-mar" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">medication</span><span class="font-body-md text-body-md truncate">Nursing &amp; MAR</span></a><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="operating-theaters" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">vital_signs</span><span class="font-body-md text-body-md truncate">Operating Theaters / OR</span></a></div><div class="space-y-1"><div class="px-2.5 pb-1 font-label-code-sm text-label-code-sm text-secondary uppercase tracking-wider">4. Diagnostics &amp; Logistics</div><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="pharmacy-and-fefo-stock" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">prescriptions</span><span class="font-body-md text-body-md truncate">Pharmacy &amp; FEFO Stock</span></a><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="laboratory" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">chips</span><span class="font-body-md text-body-md truncate">Laboratory</span></a><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="radiology" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">radiology</span><span class="font-body-md text-body-md truncate">Radiology</span></a></div><div class="space-y-1"><div class="px-2.5 pb-1 font-label-code-sm text-label-code-sm text-secondary uppercase tracking-wider">5. Finance &amp; Governance</div><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="billing-and-cashier" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">receipt_long</span><span class="font-body-md text-body-md truncate">Billing &amp; Cashier</span></a><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="payroll-and-commissions" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">payments</span><span class="font-body-md text-body-md truncate">Payroll &amp; Commissions</span></a><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="audit-trail" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">verified_user</span><span class="font-body-md text-body-md truncate">Audit Trail</span></a><a class="flex items-center gap-3 px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="hospital-settings" href="#"><span class="material-symbols-outlined text-[19px] shrink-0">settings</span><span class="font-body-md text-body-md truncate">Settings</span></a></div></nav></div><div class="p-3 border-t border-outline-variant/30 shrink-0 bg-surface-container-low/40"><div class="flex items-center justify-between text-secondary px-1"><div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span><span class="font-label-code-sm text-label-code-sm text-on-surface-variant">SYSTEM ONLINE</span></div><span class="font-label-code-sm text-label-code-sm text-secondary">HL7/FHIR v4</span></div></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-14 bg-surface-container-lowest border-b border-outline-variant/40 z-40 flex items-center justify-between px-6 shadow-[0_1px_4px_rgba(0,0,0,0.03)]"><div class="flex items-center gap-4 flex-1 max-w-3xl"><button class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg border border-outline-variant/60 bg-surface-container-low/50 hover:bg-surface-container-low text-on-surface transition-colors shrink-0" type="button"><span class="material-symbols-outlined text-[18px] text-primary">domain</span><span class="font-title-md text-body-sm truncate max-w-[210px]">Metro Central - Main</span><span class="material-symbols-outlined text-[16px] text-secondary">expand_more</span></button><div class="relative flex-1 max-w-lg"><span class="material-symbols-outlined absolute left-2.5 top-1/2 -translate-y-1/2 text-secondary text-[18px]">search</span><input class="w-full pl-8 pr-12 py-1.5 text-body-sm font-body-sm rounded-lg border border-outline-variant/60 bg-surface focus:bg-surface-container-lowest focus:border-primary focus:outline-none placeholder:text-secondary/60 text-on-surface transition-all" placeholder="Search Patient by MRN, National ID, Name, Staff Code (Press '/' to focus)..." type="text"/><span class="absolute right-2 top-1/2 -translate-y-1/2 px-1.5 py-0.5 rounded border border-outline-variant/50 text-[10px] font-label-code-sm text-secondary bg-surface-container-low">⌘K</span></div></div><div class="flex items-center gap-3 shrink-0"><div class="flex items-center gap-1.5 px-2 py-1 rounded-lg bg-error-container text-on-error-container border border-error/20"><span class="material-symbols-outlined text-[16px] text-error">campaign</span><span class="font-label-code-sm text-label-code-sm font-bold uppercase">Trauma Code Red: OR-3</span></div><div class="hidden xl:flex items-center gap-2 px-2.5 py-1 rounded-lg bg-surface-container-low border border-outline-variant/40"><span class="material-symbols-outlined text-[16px] text-primary">badge</span><div class="flex flex-col text-left"><span class="font-title-md text-[11px] text-on-surface leading-tight">Dr. Sarah Vance, MD</span><span class="font-label-code-sm text-[10px] text-secondary leading-tight">Trauma Unit A • Shift 1</span></div><span class="w-1.5 h-1.5 rounded-full bg-emerald-600 ml-1"></span></div><button class="px-2 py-1 rounded-lg border border-outline-variant/60 hover:bg-surface-container-low text-on-surface-variant font-label-code-sm text-label-code-sm transition-colors" type="button">AR</button><button class="relative p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-error ring-2 ring-surface-container-lowest"></span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="w-full pt-14 px-gutter bg-surface min-h-screen"><div class="flex flex-col w-full space-y-space-lg pb-12">
+<!-- TOP COMMAND & CENSUS STRIP -->
+<section class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm">
+<div class="flex flex-col xl:flex-row xl:items-center justify-between gap-space-lg">
+<!-- High-Level Theater Census -->
+<div class="flex flex-wrap items-center gap-space-lg">
+<div class="flex items-center gap-3 pr-space-lg">
+<div class="w-10 h-10 rounded-lg bg-primary-container text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">vital_signs</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface">Operating Theaters</span>
+<span class="font-label-code-sm text-label-code-sm px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-fixed">8 SUITES TOTAL</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary">Surgical Command &amp; Live Telemetry Matrix</p>
+</div>
+</div>
+<div class="grid grid-cols-3 sm:grid-cols-6 gap-3">
+<div class="bg-surface-container-low px-3 py-2 rounded-lg">
+<span class="font-label-code-sm text-label-code-sm text-secondary block uppercase">Active Cases</span>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
+<span class="font-tabular-vitals text-tabular-vitals text-on-surface">6 Suites</span>
+</div>
+</div>
+<div class="bg-surface-container-low px-3 py-2 rounded-lg">
+<span class="font-label-code-sm text-label-code-sm text-secondary block uppercase">Turnover</span>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="w-2 h-2 rounded-full bg-amber-500"></span>
+<span class="font-tabular-vitals text-tabular-vitals text-on-surface">1 Suite</span>
+</div>
+</div>
+<div class="bg-surface-container-low px-3 py-2 rounded-lg">
+<span class="font-label-code-sm text-label-code-sm text-secondary block uppercase">Trauma Standby</span>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="w-2 h-2 rounded-full bg-error animate-ping"></span>
+<span class="font-tabular-vitals text-tabular-vitals text-error">1 Ready</span>
+</div>
+</div>
+<div class="bg-surface-container-low px-3 py-2 rounded-lg">
+<span class="font-label-code-sm text-label-code-sm text-secondary block uppercase">Daily Slate</span>
+<span class="font-tabular-vitals text-tabular-vitals text-on-surface mt-0.5 block">14 Sched</span>
+</div>
+<div class="bg-surface-container-low px-3 py-2 rounded-lg">
+<span class="font-label-code-sm text-label-code-sm text-secondary block uppercase">Closed</span>
+<span class="font-tabular-vitals text-tabular-vitals text-primary mt-0.5 block">9 Done</span>
+</div>
+<div class="bg-surface-container-low px-3 py-2 rounded-lg">
+<span class="font-label-code-sm text-label-code-sm text-secondary block uppercase">Hold / Delays</span>
+<span class="font-tabular-vitals text-tabular-vitals text-amber-600 mt-0.5 block">2 Delayed</span>
+</div>
+</div>
+</div>
+<!-- Action Button Group -->
+<div class="flex flex-wrap items-center gap-2">
+<button class="flex items-center gap-2 px-3 py-2 rounded-lg bg-error text-on-error font-title-md text-body-sm shadow-sm hover:opacity-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">emergency</span>
+<span>+ Book Emergency Case</span>
+</button>
+<button class="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-surface-container text-on-surface font-title-md text-body-sm hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px] text-primary">inventory_2</span>
+<span>Sterile Supply</span>
+</button>
+<button class="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-surface-container text-on-surface font-title-md text-body-sm hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px] text-amber-600">cleaning_services</span>
+<span>Turnover Call</span>
+</button>
+<button class="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-surface-container text-on-surface font-title-md text-body-sm hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px] text-secondary">file_download</span>
+<span>Export Log</span>
+</button>
+</div>
+</div>
+<!-- On-Duty Surgical Personnel Band -->
+<div class="mt-space-md pt-space-md bg-surface-container-low/60 rounded-lg px-space-md py-2 flex flex-wrap items-center justify-between gap-2">
+<div class="flex items-center gap-2 text-secondary">
+<span class="material-symbols-outlined text-[18px]">groups</span>
+<span class="font-label-code-sm text-label-code-sm uppercase tracking-wider text-on-surface">Floor Roster:</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant"><strong class="text-on-surface font-semibold">4</strong> Attending Surgeons</span>
+<span class="text-outline-variant">•</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant"><strong class="text-on-surface font-semibold">6</strong> Anesthesiologists</span>
+<span class="text-outline-variant">•</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant"><strong class="text-on-surface font-semibold">12</strong> Scrub &amp; Circulating RNs</span>
+<span class="text-outline-variant">•</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant"><strong class="text-on-surface font-semibold">2</strong> Perfusionists</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-code-sm text-label-code-sm text-secondary">HVAC / HEPA Laminar:</span>
+<span class="font-label-code-sm text-label-code-sm px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-bold">POS-PRESS 0.05" WG OK</span>
+</div>
+</div>
+</section>
+<!-- LIVE THEATER TELEMETRY MATRIX (GRID OF OR CARDS) -->
+<section class="grid grid-cols-1 xl:grid-cols-2 gap-space-lg">
+<!-- OR-01: CARDIAC / HYBRID SUITE -->
+<article class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between space-y-space-md">
+<div>
+<!-- Room Header & Timer -->
+<div class="flex items-start justify-between pb-space-sm">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary text-on-primary flex items-center justify-center font-label-code-lg text-label-code-lg font-bold">
+              01
+            </div>
+<div>
+<div class="flex items-center gap-2">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">OR-01 • Hybrid Cardiac Suite</h3>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-900 font-label-code-sm text-label-code-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span>ACTIVE SURGERY
+                </span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary">Coronary Artery Bypass Graft (CABG x3) + Mitral Valve Repair</p>
+</div>
+</div>
+<div class="text-right bg-surface-container-low px-3 py-1.5 rounded-lg">
+<span class="font-label-code-sm text-label-code-sm text-secondary block uppercase">Elapsed Time</span>
+<span class="font-label-code-lg text-label-code-lg text-primary font-bold">02:44:18</span>
+</div>
+</div>
+<!-- Patient Demographics & Risk Strip -->
+<div class="bg-surface-container-low rounded-lg p-3 grid grid-cols-2 md:grid-cols-4 gap-2 text-left">
+<div>
+<span class="font-label-code-sm text-label-code-sm text-secondary uppercase block">Patient</span>
+<span class="font-title-md text-title-md text-on-surface">Arthur Pendelton</span>
+<span class="font-label-code-sm text-label-code-sm text-secondary block">68y M • MRN-884219</span>
+</div>
+<div>
+<span class="font-label-code-sm text-label-code-sm text-secondary uppercase block">Blood Type</span>
+<span class="font-title-md text-title-md text-error font-bold">A Neg (Rh-)</span>
+<span class="font-label-code-sm text-label-code-sm text-secondary block">Crossmatch: 4u PRBC</span>
+</div>
+<div>
+<span class="font-label-code-sm text-label-code-sm text-secondary uppercase block">Allergies</span>
+<span class="font-label-code-sm text-label-code-sm text-error bg-error-container/60 px-1.5 py-0.5 rounded inline-block font-semibold">LATEX, PENICILLIN</span>
+</div>
+<div>
+<span class="font-label-code-sm text-label-code-sm text-secondary uppercase block">Safety / Counts</span>
+<span class="font-label-code-sm text-label-code-sm text-emerald-800 bg-emerald-100 px-1.5 py-0.5 rounded inline-block font-bold">TIME-OUT DONE</span>
+</div>
+</div>
+<!-- Surgical Staff Roster -->
+<div class="mt-space-sm grid grid-cols-2 sm:grid-cols-4 gap-2 text-left">
+<div class="bg-surface px-2.5 py-1.5 rounded">
+<span class="font-label-code-sm text-label-code-sm text-secondary block">Lead Surgeon</span>
+<span class="font-body-sm text-body-sm text-on-surface font-semibold truncate block">Dr. S. Vance, MD</span>
+<span class="font-label-code-sm text-[10px] text-secondary">Cardiothoracic</span>
+</div>
+<div class="bg-surface px-2.5 py-1.5 rounded">
+<span class="font-label-code-sm text-label-code-sm text-secondary block">1st Assistant</span>
+<span class="font-body-sm text-body-sm text-on-surface font-semibold truncate block">Dr. T. Aris, DO</span>
+<span class="font-label-code-sm text-[10px] text-secondary">Surgical Fellow</span>
+</div>
+<div class="bg-surface px-2.5 py-1.5 rounded">
+<span class="font-label-code-sm text-label-code-sm text-secondary block">Lead Anesthetist</span>
+<span class="font-body-sm text-body-sm text-on-surface font-semibold truncate block">Dr. H. Zhao, MD</span>
+<span class="font-label-code-sm text-[10px] text-secondary">Cardiac Anesth.</span>
+</div>
+<div class="bg-surface px-2.5 py-1.5 rounded">
+<span class="font-label-code-sm text-label-code-sm text-secondary block">Scrub / Circulator</span>
+<span class="font-body-sm text-body-sm text-on-surface font-semibold truncate block">K. Miller, RN</span>
+<span class="font-label-code-sm text-[10px] text-secondary">Lead Scrub</span>
+</div>
+</div>
+<!-- Live Hemodynamic Telemetry -->
+<div class="mt-space-md bg-inverse-surface text-inverse-on-surface p-space-md rounded-xl">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+<span class="font-label-code-sm text-label-code-sm text-inverse-on-surface font-semibold">HEART-LUNG CONSOLE #4 • LIVE CPB TELEMETRY</span>
+</div>
+<span class="font-label-code-sm text-label-code-sm text-primary-fixed-dim">INVASIVE ART-LINE ACTIVE</span>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-5 gap-3">
+<div class="bg-inverse-on-surface/10 p-2 rounded">
+<span class="font-label-code-sm text-[10px] text-inverse-on-surface/70 block uppercase">Invasive BP (MAP)</span>
+<div class="font-tabular-vitals text-headline-sm font-bold text-inverse-on-surface">108/68 <span class="text-body-sm text-primary-fixed-dim font-normal">(81)</span></div>
+</div>
+<div class="bg-inverse-on-surface/10 p-2 rounded">
+<span class="font-label-code-sm text-[10px] text-inverse-on-surface/70 block uppercase">Heart Rate</span>
+<div class="font-tabular-vitals text-headline-sm font-bold text-emerald-300">72 <span class="text-body-sm text-inverse-on-surface/60 font-normal">PACED</span></div>
+</div>
+<div class="bg-inverse-on-surface/10 p-2 rounded">
+<span class="font-label-code-sm text-[10px] text-inverse-on-surface/70 block uppercase">SpO2 / ETCO2</span>
+<div class="font-tabular-vitals text-headline-sm font-bold text-inverse-on-surface">99% <span class="text-body-sm text-inverse-on-surface/60 font-normal">36</span></div>
+</div>
+<div class="bg-inverse-on-surface/10 p-2 rounded">
+<span class="font-label-code-sm text-[10px] text-inverse-on-surface/70 block uppercase">Core Temp</span>
+<div class="font-tabular-vitals text-headline-sm font-bold text-amber-300">34.8°C <span class="text-[10px] text-inverse-on-surface/60 block font-normal">Hypothermia Proto</span></div>
+</div>
+<div class="bg-inverse-on-surface/10 p-2 rounded">
+<span class="font-label-code-sm text-[10px] text-inverse-on-surface/70 block uppercase">Cardiac Output</span>
+<div class="font-tabular-vitals text-headline-sm font-bold text-inverse-on-surface">4.8 <span class="text-body-sm text-inverse-on-surface/60 font-normal">L/min</span></div>
+</div>
+</div>
+<!-- Mini Live ECG Sparkline representation -->
+<div class="mt-3 pt-2 flex items-center justify-between text-secondary">
+<span class="font-label-code-sm text-[10px] text-inverse-on-surface/60">ECG Lead II</span>
+<svg class="h-6 w-48 text-emerald-400" fill="none" stroke="currentColor" stroke-width="1.75" viewbox="0 0 200 24">
+<path d="M0,12 L30,12 L35,12 L40,4 L45,22 L50,8 L55,14 L60,12 L90,12 L95,12 L100,4 L105,22 L110,8 L115,14 L120,12 L160,12 L165,4 L170,22 L175,8 L180,14 L200,12"></path>
+</svg>
+<span class="font-label-code-sm text-[10px] text-emerald-400">Sinus Rhythm</span>
+</div>
+</div>
+<!-- Live Consumption & Implant Ledger Pill list -->
+<div class="mt-space-sm bg-surface-container-low p-2.5 rounded-lg space-y-1">
+<span class="font-label-code-sm text-label-code-sm text-secondary uppercase block">Implanted Hardware &amp; Critical Blood Products:</span>
+<div class="flex flex-wrap gap-1.5 font-label-code-sm text-label-code-sm">
+<span class="bg-surface-container-lowest text-on-surface px-2 py-0.5 rounded shadow-sm">Heart-Lung Unit 4 (Perfusion active)</span>
+<span class="bg-primary-container text-on-primary px-2 py-0.5 rounded">Edwards Valve Lot #EV-9921</span>
+<span class="bg-error-container text-on-error-container px-2 py-0.5 rounded font-bold">4x Units PRBC transfused</span>
+<span class="bg-surface-container-lowest text-secondary px-2 py-0.5 rounded">8x Surgicel packs</span>
+</div>
+</div>
+</div>
+<!-- Card Action Footer -->
+<div class="pt-space-sm flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-label-code-sm text-label-code-sm text-secondary">Next Sched: Valve Annuloplasty @ 15:30</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-2.5 py-1 rounded bg-surface-container-high text-on-surface hover:bg-surface-variant font-label-code-sm text-label-code-sm" type="button">Telemetry Feed</button>
+<button class="px-2.5 py-1 rounded bg-primary text-on-primary hover:bg-primary-container font-label-code-sm text-label-code-sm" type="button">Open Intra-Op Chart</button>
+</div>
+</div>
+</article>
+<!-- OR-02: NEURO / STEALTH NAVIGATION SUITE -->
+<article class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between space-y-space-md">
+<div>
+<!-- Room Header & Timer -->
+<div class="flex items-start justify-between pb-space-sm">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary-container text-on-primary flex items-center justify-center font-label-code-lg text-label-code-lg font-bold">
+              02
+            </div>
+<div>
+<div class="flex items-center gap-2">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">OR-02 • Neuro Stealth Suite</h3>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-900 font-label-code-sm text-label-code-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span>ACTIVE SURGERY
+                </span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary">Left Frontal Craniotomy for Glioblastoma Resection (StealthStation)</p>
+</div>
+</div>
+<div class="text-right bg-surface-container-low px-3 py-1.5 rounded-lg">
+<span class="font-label-code-sm text-label-code-sm text-secondary block uppercase">Elapsed Time</span>
+<span class="font-label-code-lg text-label-code-lg text-primary font-bold">01:15:30</span>
+</div>
+</div>
+<!-- Patient Demographics -->
+<div class="bg-surface-container-low rounded-lg p-3 grid grid-cols-2 md:grid-cols-4 gap-2 text-left">
+<div>
+<span class="font-label-code-sm text-label-code-sm text-secondary uppercase block">Patient</span>
+<span class="font-title-md text-title-md text-on-surface">Elena Rostova</span>
+<span class="font-label-code-sm text-label-code-sm text-secondary block">44y F • MRN-902114</span>
+</div>
+<div>
+<span class="font-label-code-sm text-label-code-sm text-secondary uppercase block">Blood Type</span>
+<span class="font-title-md text-title-md text-on-surface font-bold">O Pos (Rh+)</span>
+<span class="font-label-code-sm text-label-code-sm text-secondary block">Antibody Screen: Neg</span>
+</div>
+<div>
+<span class="font-label-code-sm text-label-code-sm text-secondary uppercase block">Resuscitation</span>
+<span class="font-label-code-sm text-label-code-sm text-emerald-800 bg-emerald-100 px-1.5 py-0.5 rounded inline-block font-semibold">FULL CODE</span>
+</div>
+<div>
+<span class="font-label-code-sm text-label-code-sm text-secondary uppercase block">Microscope Link</span>
+<span class="font-label-code-sm text-label-code-sm text-primary bg-primary-fixed px-1.5 py-0.5 rounded inline-block font-bold">KINEVO 900 ON</span>
+</div>
+</div>
+<!-- Surgical Staff -->
+<div class="mt-space-sm grid grid-cols-2 sm:grid-cols-4 gap-2 text-left">
+<div class="bg-surface px-2.5 py-1.5 rounded">
+<span class="font-label-code-sm text-label-code-sm text-secondary block">Lead Surgeon</span>
+<span class="font-body-sm text-body-sm text-on-surface font-semibold truncate block">Dr. Jennifer Sterling</span>
+<span class="font-label-code-sm text-[10px] text-secondary">Neurosurgery</span>
+</div>
+<div class="bg-surface px-2.5 py-1.5 rounded">
+<span class="font-label-code-sm text-label-code-sm text-secondary block">Neuro-Physiologist</span>
+<span class="font-body-sm text-body-sm text-on-surface font-semibold truncate block">Dr. C. Wu, PhD</span>
+<span class="font-label-code-sm text-[10px] text-secondary">IONM Monitoring</span>
+</div>
+<div class="bg-surface px-2.5 py-1.5 rounded">
+<span class="font-label-code-sm text-label-code-sm text-secondary block">Anesthetist</span>
+<span class="font-body-sm text-body-sm text-on-surface font-semibold truncate block">Dr. P. Jansen, MD</span>
+<span class="font-label-code-sm text-[10px] text-secondary">Neuro-Anesthesia</span>
+</div>
+<div class="bg-surface px-2.5 py-1.5 rounded">
+<span class="font-label-code-sm text-label-code-sm text-secondary block">Navigation Specialist</span>
+<span class="font-body-sm text-body-sm text-on-surface font-semibold truncate block">M. Alvarez, CST</span>
+<span class="font-label-code-sm text-[10px] text-secondary">Medtronic Stealth</span>
+</div>
+</div>
+<!-- Live Metrics: Neuro & ICP -->
+<div class="mt-space-md bg-inverse-surface text-inverse-on-surface p-space-md rounded-xl">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+<span class="font-label-code-sm text-label-code-sm text-inverse-on-surface font-semibold">INTRACRANIAL &amp; EVOKED POTENTIAL METRICS</span>
+</div>
+<span class="font-label-code-sm text-label-code-sm text-primary-fixed-dim">IONM MEP/SSEP STABLE</span>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+<div class="bg-inverse-on-surface/10 p-2 rounded">
+<span class="font-label-code-sm text-[10px] text-inverse-on-surface/70 block uppercase">ICP (Intracranial)</span>
+<div class="font-tabular-vitals text-headline-sm font-bold text-inverse-on-surface">12 <span class="text-body-sm text-inverse-on-surface/60 font-normal">mmHg</span></div>
+</div>
+<div class="bg-inverse-on-surface/10 p-2 rounded">
+<span class="font-label-code-sm text-[10px] text-inverse-on-surface/70 block uppercase">MAP (Mean Arterial)</span>
+<div class="font-tabular-vitals text-headline-sm font-bold text-inverse-on-surface">88 <span class="text-body-sm text-inverse-on-surface/60 font-normal">mmHg</span></div>
+</div>
+<div class="bg-inverse-on-surface/10 p-2 rounded">
+<span class="font-label-code-sm text-[10px] text-inverse-on-surface/70 block uppercase">BIS Index (Sedation)</span>
+<div class="font-tabular-vitals text-headline-sm font-bold text-cyan-300">42 <span class="text-[10px] text-inverse-on-surface/60 block font-normal">Deep Hypnosis</span></div>
+</div>
+<div class="bg-inverse-on-surface/10 p-2 rounded">
+<span class="font-label-code-sm text-[10px] text-inverse-on-surface/70 block uppercase">Estimated Blood Loss</span>
+<div class="font-tabular-vitals text-headline-sm font-bold text-inverse-on-surface">220 <span class="text-body-sm text-inverse-on-surface/60 font-normal">mL</span></div>
+</div>
+</div>
+<!-- Evoked Potentials status -->
+<div class="mt-3 pt-2 flex items-center justify-between text-secondary">
+<span class="font-label-code-sm text-[10px] text-inverse-on-surface/60">Motor Evoked Potential</span>
+<div class="flex items-center gap-2">
+<span class="font-label-code-sm text-[10px] text-cyan-300">Left Thumb MEP: 100% Baseline</span>
+<span class="font-label-code-sm text-[10px] text-cyan-300">• Cortical Mapping Tracked</span>
+</div>
+</div>
+</div>
+<!-- Consumables and Implants -->
+<div class="mt-space-sm bg-surface-container-low p-2.5 rounded-lg space-y-1">
+<span class="font-label-code-sm text-label-code-sm text-secondary uppercase block">Live Supplies Scanned:</span>
+<div class="flex flex-wrap gap-1.5 font-label-code-sm text-label-code-sm">
+<span class="bg-surface-container-lowest text-on-surface px-2 py-0.5 rounded shadow-sm">DuraGen Matrix 4x4 (Lot #DG-4410)</span>
+<span class="bg-surface-container-lowest text-on-surface px-2 py-0.5 rounded shadow-sm">Surgiflo Hemostatic Matrix</span>
+<span class="bg-surface-container-lowest text-secondary px-2 py-0.5 rounded shadow-sm">Bipolar Electrocautery #3</span>
+<span class="bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded font-bold">Frozen Section Lab Paged</span>
+</div>
+</div>
+</div>
+<!-- Card Action Footer -->
+<div class="pt-space-sm flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-label-code-sm text-label-code-sm text-secondary">Fluoroscopy Dwell: 01.4 min</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-2.5 py-1 rounded bg-surface-container-high text-on-surface hover:bg-surface-variant font-label-code-sm text-label-code-sm" type="button">Navigation Feed</button>
+<button class="px-2.5 py-1 rounded bg-primary text-on-primary hover:bg-primary-container font-label-code-sm text-label-code-sm" type="button">Open Intra-Op Chart</button>
+</div>
+</div>
+</article>
+<!-- OR-03: ORTHOPEDIC / ROBOT-ASSISTED -->
+<article class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between space-y-space-md">
+<div>
+<!-- Room Header & Timer -->
+<div class="flex items-start justify-between pb-space-sm">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest text-on-surface flex items-center justify-center font-label-code-lg text-label-code-lg font-bold">
+              03
+            </div>
+<div>
+<div class="flex items-center gap-2">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">OR-03 • Robotic Ortho Suite</h3>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-amber-100 text-amber-900 font-label-code-sm text-label-code-sm font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>CLOSING / POST-OP
+                </span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary">Robotic Total Knee Arthroplasty (Right TKA) • Mako Arm Guided</p>
+</div>
+</div>
+<div class="text-right bg-surface-container-low px-3 py-1.5 rounded-lg">
+<span class="font-label-code-sm text-label-code-sm text-secondary block uppercase">Elapsed Time</span>
+<span class="font-label-code-lg text-label-code-lg text-on-surface font-bold">00:58:12</span>
+</div>
+</div>
+<!-- Procedure Highlights -->
+<div class="bg-surface-container-low rounded-lg p-3 grid grid-cols-2 md:grid-cols-4 gap-2 text-left">
+<div>
+<span class="font-label-code-sm text-label-code-sm text-secondary uppercase block">Attending</span>
+<span class="font-title-md text-title-md text-on-surface truncate block">Dr. Brian Price, FACS</span>
+<span class="font-label-code-sm text-label-code-sm text-secondary block">Joint Reconstruction</span>
+</div>
+<div>
+<span class="font-label-code-sm text-label-code-sm text-secondary uppercase block">Robot Status</span>
+<span class="font-label-code-sm text-label-code-sm text-emerald-800 bg-emerald-100 px-1.5 py-0.5 rounded inline-block font-bold">MAKO ARM DOCKED</span>
+<span class="font-label-code-sm text-label-code-sm text-secondary block">Cuts Verified 0.5mm</span>
+</div>
+<div>
+<span class="font-label-code-sm text-label-code-sm text-secondary uppercase block">Tourniquet Time</span>
+<span class="font-tabular-vitals text-body-lg text-on-surface font-bold">48 min</span>
+<span class="font-label-code-sm text-label-code-sm text-secondary block">Pressure: 250 mmHg</span>
+</div>
+<div>
+<span class="font-label-code-sm text-label-code-sm text-secondary uppercase block">PACU Transfer</span>
+<span class="font-label-code-sm text-label-code-sm text-primary font-bold">BED #04 REQUESTED</span>
+</div>
+</div>
+<!-- Mandatory Instrument & Sponge Count Verification Panel -->
+<div class="mt-space-md bg-surface-container p-space-md rounded-xl space-y-2">
+<div class="flex items-center justify-between">
+<span class="font-label-code-sm text-label-code-sm font-bold text-on-surface uppercase flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-emerald-700">verified</span>
+              Surgical Sponge, Needle &amp; Instrument Closing Count
+            </span>
+<span class="font-label-code-sm text-label-code-sm text-emerald-900 bg-emerald-100 px-2 py-0.5 rounded font-bold uppercase">100% Reconciled</span>
+</div>
+<div class="grid grid-cols-3 gap-2">
+<div class="bg-surface-container-lowest p-2 rounded">
+<span class="font-label-code-sm text-[11px] text-secondary block">Surgical Sponges</span>
+<span class="font-label-code-md text-label-code-md text-emerald-800 font-bold">40 / 40 Verified</span>
+</div>
+<div class="bg-surface-container-lowest p-2 rounded">
+<span class="font-label-code-sm text-[11px] text-secondary block">Lap Sponges</span>
+<span class="font-label-code-md text-label-code-md text-emerald-800 font-bold">20 / 20 Verified</span>
+</div>
+<div class="bg-surface-container-lowest p-2 rounded">
+<span class="font-label-code-sm text-[11px] text-secondary block">Suture Needles</span>
+<span class="font-label-code-md text-label-code-md text-emerald-800 font-bold">15 / 15 Verified</span>
+</div>
+</div>
+<div class="flex items-center justify-between text-secondary pt-1 font-label-code-sm text-[11px]">
+<span>Dual electronic sign-off: J. Patel, RN (Circulator) &amp; T. Moore, CST (Scrub)</span>
+<span class="text-primary font-semibold">RFID Wand Swept: CLEAR</span>
+</div>
+</div>
+</div>
+<!-- Action Footer -->
+<div class="pt-space-sm flex items-center justify-between">
+<span class="font-label-code-sm text-label-code-sm text-secondary">Turnover Team: Auto-notified on skin closure</span>
+<button class="px-3 py-1.5 rounded bg-primary text-on-primary hover:bg-primary-container font-label-code-sm text-label-code-sm font-semibold" type="button">
+          Finalize &amp; Push to PACU
+        </button>
+</div>
+</article>
+<!-- OR-04: EMERGENCY TRAUMA THEATER -->
+<article class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between space-y-space-md border-2 border-dashed border-error/40">
+<div>
+<!-- Room Header & Timer -->
+<div class="flex items-start justify-between pb-space-sm">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-error text-on-error flex items-center justify-center font-label-code-lg text-label-code-lg font-bold">
+              04
+            </div>
+<div>
+<div class="flex items-center gap-2">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">OR-04 • Level-1 Emergency Trauma</h3>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-error text-on-error font-label-code-sm text-label-code-sm font-bold animate-pulse">
+                  EMERGENCY STANDBY
+                </span>
+</div>
+<p class="font-body-sm text-body-sm text-error font-semibold">Rapid Setup Prepared for Penetrating Torso Trauma / Code Crimson</p>
+</div>
+</div>
+<div class="text-right bg-error-container/40 px-3 py-1.5 rounded-lg">
+<span class="font-label-code-sm text-label-code-sm text-error block uppercase font-bold">Readiness Status</span>
+<span class="font-label-code-lg text-label-code-lg text-error font-bold">100% PRIMED</span>
+</div>
+</div>
+<!-- Standby Equipment Readiness Checklist -->
+<div class="space-y-2 mt-2">
+<div class="bg-surface-container-low p-3 rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-emerald-700">check_circle</span>
+<span class="font-title-md text-title-md text-on-surface">Belmont Rapid Infuser</span>
+</div>
+<span class="font-label-code-sm text-label-code-sm text-emerald-900 bg-emerald-100 px-2 py-0.5 rounded font-bold">Primed with Warm Saline</span>
+</div>
+<div class="bg-surface-container-low p-3 rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-emerald-700">check_circle</span>
+<span class="font-title-md text-title-md text-on-surface">Level 1 Blood Warmer</span>
+</div>
+<span class="font-label-code-sm text-label-code-sm text-emerald-900 bg-emerald-100 px-2 py-0.5 rounded font-bold">Ready @ 38.5°C</span>
+</div>
+<div class="bg-surface-container-low p-3 rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-emerald-700">check_circle</span>
+<span class="font-title-md text-title-md text-on-surface">Massive Transfusion Protocol (MTP) Cooler</span>
+</div>
+<span class="font-label-code-sm text-label-code-sm text-error bg-error-container px-2 py-0.5 rounded font-bold">6 PRBC / 6 FFP / 1 Platelet Docked</span>
+</div>
+<div class="bg-surface-container-low p-3 rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-emerald-700">check_circle</span>
+<span class="font-title-md text-title-md text-on-surface">Laparotomy &amp; Sternotomy Trays</span>
+</div>
+<span class="font-label-code-sm text-label-code-sm text-emerald-900 bg-emerald-100 px-2 py-0.5 rounded font-bold">Sterile Indicators Verified</span>
+</div>
+</div>
+</div>
+<!-- Emergency Standby Action Footer -->
+<div class="pt-space-sm flex items-center justify-between bg-error-container/30 p-2.5 rounded-lg">
+<span class="font-label-code-sm text-label-code-sm text-on-error-container font-semibold">Trauma Attending On-Call: Dr. H. Henderson (ETA 3 mins)</span>
+<button class="px-3 py-1.5 rounded bg-error text-on-error hover:opacity-95 font-title-md text-body-sm shadow-sm flex items-center gap-1.5 font-bold" type="button">
+<span class="material-symbols-outlined text-[16px]">flash_on</span>
+          Activate Emergency Inflow
+        </button>
+</div>
+</article>
+</section>
+<!-- BOTTOM CLINICAL WORKSTATION TABS & PANELS -->
+<section class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+<!-- Tab Controls Header -->
+<div class="px-space-lg pt-space-md bg-surface-container-low flex flex-wrap items-center justify-between gap-2">
+<div class="flex items-center gap-2" role="tablist">
+<button class="px-4 py-2.5 font-title-md text-title-md rounded-t-lg bg-surface-container-lowest text-primary flex items-center gap-2 shadow-sm font-semibold transition-all" id="tab-consumables" onclick="switchORTab('consumables')" type="button">
+<span class="material-symbols-outlined text-[18px]">barcode_scanner</span>
+<span>Intra-Op Consumables &amp; FEFO Deductions</span>
+<span class="font-label-code-sm text-label-code-sm px-1.5 py-0.2 rounded bg-primary-fixed text-on-primary-fixed">OR-01 Live</span>
+</button>
+<button class="px-4 py-2.5 font-title-md text-title-md rounded-t-lg text-secondary hover:text-on-surface hover:bg-surface-container-lowest/60 flex items-center gap-2 transition-all" id="tab-engine" onclick="switchORTab('engine')" type="button">
+<span class="material-symbols-outlined text-[18px]">calculate</span>
+<span>Surgeon Profit &amp; Commission Engine</span>
+<span class="font-label-code-sm text-label-code-sm px-1.5 py-0.2 rounded bg-secondary-container text-on-secondary">Rule SRG-CARD-04</span>
+</button>
+</div>
+<div class="flex items-center gap-2 pb-2">
+<div class="relative">
+<input class="pl-8 pr-3 py-1 bg-surface rounded text-body-sm font-body-sm focus:outline-none focus:ring-1 focus:ring-primary w-56 text-on-surface" placeholder="Scan Barcode / Lot #..." type="text"/>
+<span class="material-symbols-outlined absolute left-2 top-1.5 text-secondary text-[18px]">qr_code_scanner</span>
+</div>
+<button class="px-2.5 py-1 bg-primary text-on-primary rounded font-label-code-sm text-label-code-sm font-semibold" type="button">
+          + Scan Item
+        </button>
+</div>
+</div>
+<!-- PANEL A: INTRA-OP CONSUMABLES & FEFO DEDUCTIONS -->
+<div class="p-space-lg space-y-space-md block" id="panel-consumables">
+<div class="overflow-x-auto">
+<table class="w-full text-left font-body-sm text-body-sm">
+<thead class="bg-surface-container-low font-label-code-sm text-label-code-sm text-secondary uppercase tracking-wider">
+<tr>
+<th class="py-2.5 px-3">Item Description / SKU</th>
+<th class="py-2.5 px-3">Batch / Lot #</th>
+<th class="py-2.5 px-3">Expiry (FEFO)</th>
+<th class="py-2.5 px-3 text-right">Unit Cost</th>
+<th class="py-2.5 px-3 text-center">Qty Scanned</th>
+<th class="py-2.5 px-3 text-center">Wasted</th>
+<th class="py-2.5 px-3 text-right">Charged To Patient</th>
+<th class="py-2.5 px-3 text-center">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-low">
+<!-- Item 1 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-2.5 px-3">
+<span class="font-title-md text-body-md text-on-surface block">Edwards Lifesciences Perimount Magna Mitral Valve</span>
+<span class="font-label-code-sm text-label-code-sm text-secondary">SKU: IMP-VLV-29M • Size 29mm</span>
+</td>
+<td class="py-2.5 px-3 font-label-code-md text-label-code-md">EV-9921</td>
+<td class="py-2.5 px-3 font-label-code-md text-label-code-md text-emerald-800">2027-11-30</td>
+<td class="py-2.5 px-3 text-right font-tabular-vitals">$3,200.00</td>
+<td class="py-2.5 px-3 text-center font-tabular-vitals font-semibold">1</td>
+<td class="py-2.5 px-3 text-center font-tabular-vitals text-secondary">0</td>
+<td class="py-2.5 px-3 text-right font-tabular-vitals font-bold text-on-surface">$3,200.00</td>
+<td class="py-2.5 px-3 text-center">
+<button class="px-2 py-0.5 text-[11px] rounded bg-surface-container text-secondary hover:text-on-surface" type="button">Details</button>
+</td>
+</tr>
+<!-- Item 2 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-2.5 px-3">
+<span class="font-title-md text-body-md text-on-surface block">Ethicon Surgicel Fibrillar Absorbable Hemostat</span>
+<span class="font-label-code-sm text-label-code-sm text-secondary">SKU: HEM-ETH-821 • 4in x 4in</span>
+</td>
+<td class="py-2.5 px-3 font-label-code-md text-label-code-md">LOT-2940A</td>
+<td class="py-2.5 px-3 font-label-code-md text-label-code-md text-amber-700 font-semibold">2025-04-15 (Priority)</td>
+<td class="py-2.5 px-3 text-right font-tabular-vitals">$85.00</td>
+<td class="py-2.5 px-3 text-center font-tabular-vitals font-semibold">8</td>
+<td class="py-2.5 px-3 text-center font-tabular-vitals text-error">1</td>
+<td class="py-2.5 px-3 text-right font-tabular-vitals font-bold text-on-surface">$680.00</td>
+<td class="py-2.5 px-3 text-center space-x-1">
+<button class="px-2 py-0.5 text-[11px] rounded bg-error-container text-on-error-container" type="button">Waste</button>
+<button class="px-2 py-0.5 text-[11px] rounded bg-surface-container text-secondary" type="button">Return</button>
+</td>
+</tr>
+<!-- Item 3 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-2.5 px-3">
+<span class="font-title-md text-body-md text-on-surface block">CPB Oxygenator &amp; Tubing Pack (Adult Heart-Lung)</span>
+<span class="font-label-code-sm text-label-code-sm text-secondary">SKU: PERF-OXY-881 • Terumo Capiox FX</span>
+</td>
+<td class="py-2.5 px-3 font-label-code-md text-label-code-md">TX-7741</td>
+<td class="py-2.5 px-3 font-label-code-md text-label-code-md text-emerald-800">2026-08-20</td>
+<td class="py-2.5 px-3 text-right font-tabular-vitals">$650.00</td>
+<td class="py-2.5 px-3 text-center font-tabular-vitals font-semibold">1</td>
+<td class="py-2.5 px-3 text-center font-tabular-vitals text-secondary">0</td>
+<td class="py-2.5 px-3 text-right font-tabular-vitals font-bold text-on-surface">$650.00</td>
+<td class="py-2.5 px-3 text-center">
+<button class="px-2 py-0.5 text-[11px] rounded bg-surface-container text-secondary hover:text-on-surface" type="button">Details</button>
+</td>
+</tr>
+<!-- Item 4 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-2.5 px-3">
+<span class="font-title-md text-body-md text-on-surface block">Prolene Cardiovascular Suture 4-0 RB-1 (Pack of 12)</span>
+<span class="font-label-code-sm text-label-code-sm text-secondary">SKU: SUT-PRL-40 • Double-armed</span>
+</td>
+<td class="py-2.5 px-3 font-label-code-md text-label-code-md">PR-8102</td>
+<td class="py-2.5 px-3 font-label-code-md text-label-code-md text-emerald-800">2028-01-10</td>
+<td class="py-2.5 px-3 text-right font-tabular-vitals">$180.00</td>
+<td class="py-2.5 px-3 text-center font-tabular-vitals font-semibold">2</td>
+<td class="py-2.5 px-3 text-center font-tabular-vitals text-secondary">0</td>
+<td class="py-2.5 px-3 text-right font-tabular-vitals font-bold text-on-surface">$360.00</td>
+<td class="py-2.5 px-3 text-center">
+<button class="px-2 py-0.5 text-[11px] rounded bg-surface-container text-secondary hover:text-on-surface" type="button">Details</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Real-Time Gross Financial Tally for OR-01 -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-wrap items-center justify-between gap-space-md">
+<div class="flex items-center gap-6">
+<div>
+<span class="font-label-code-sm text-label-code-sm text-secondary uppercase block">Consumables Subtotal</span>
+<span class="font-tabular-vitals text-title-md text-on-surface font-bold">$4,890.00</span>
+</div>
+<div>
+<span class="font-label-code-sm text-label-code-sm text-secondary uppercase block">OR Suite Facility Fee (Tier 4)</span>
+<span class="font-tabular-vitals text-title-md text-on-surface font-bold">$2,400.00</span>
+</div>
+<div>
+<span class="font-label-code-sm text-label-code-sm text-secondary uppercase block">Anesthesia General (Base + Units)</span>
+<span class="font-tabular-vitals text-title-md text-on-surface font-bold">$1,800.00</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest px-4 py-2 rounded-lg shadow-sm text-right">
+<span class="font-label-code-sm text-label-code-sm text-secondary uppercase block">Running Case Total Charge</span>
+<span class="font-tabular-vitals text-headline-sm text-primary font-bold">$9,090.00</span>
+</div>
+</div>
+</div>
+<!-- PANEL B: SURGEON PROFIT & COMMISSION ENGINE -->
+<div class="p-space-lg space-y-space-md hidden" id="panel-engine">
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-space-md">
+<!-- Rule Specification Card -->
+<div class="bg-surface-container-low p-space-md rounded-xl space-y-2">
+<div class="flex items-center justify-between">
+<span class="font-label-code-sm text-label-code-sm text-secondary uppercase font-bold">Rule Engine Spec</span>
+<span class="font-label-code-sm text-label-code-sm bg-primary text-on-primary px-2 py-0.5 rounded font-bold">SRG-CARD-04</span>
+</div>
+<h4 class="font-title-md text-title-md text-on-surface">Cardiothoracic Tier 1 Hybrid Model</h4>
+<p class="font-body-sm text-body-sm text-secondary">Base compensation structured with performance margin share per approved CMS/DRG code set 215.</p>
+<div class="pt-2 space-y-1 font-label-code-sm text-label-code-sm">
+<div class="flex justify-between py-1 border-b border-surface-container">
+<span class="text-secondary">Fixed Case Honorarium:</span>
+<span class="font-bold text-on-surface">$1,200.00</span>
+</div>
+<div class="flex justify-between py-1 border-b border-surface-container">
+<span class="text-secondary">Net Revenue Percentage:</span>
+<span class="font-bold text-on-surface">24.0%</span>
+</div>
+<div class="flex justify-between py-1">
+<span class="text-secondary">Deduction Exclusions:</span>
+<span class="text-on-surface">Blood Products, Valvular Hardware</span>
+</div>
+</div>
+</div>
+<!-- Live Accrual Calculation Card -->
+<div class="bg-surface-container p-space-md rounded-xl space-y-3">
+<span class="font-label-code-sm text-label-code-sm text-primary font-bold uppercase block">Current Procedure Real-Time Yield</span>
+<div class="space-y-2">
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-secondary">Eligible Base Revenue:</span>
+<span class="font-tabular-vitals font-semibold text-on-surface">$9,375.00</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-secondary">Surgeon Variable Accrual (24%):</span>
+<span class="font-tabular-vitals font-semibold text-on-surface">$2,250.00</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-secondary">Fixed Case Fee:</span>
+<span class="font-tabular-vitals font-semibold text-on-surface">$1,200.00</span>
+</div>
+<div class="pt-2 border-t border-surface-container-high flex items-center justify-between">
+<span class="font-title-md text-title-md text-on-surface font-bold">Surgeon Total Live Accrual:</span>
+<span class="font-tabular-vitals text-headline-sm text-emerald-800 font-bold">$3,450.00</span>
+</div>
+</div>
+</div>
+<!-- Hospital Margin Breakdown -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm space-y-3">
+<span class="font-label-code-sm text-label-code-sm text-secondary font-bold uppercase block">Hospital Net Margin Performance</span>
+<div class="space-y-2">
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-secondary">Total Case Revenue:</span>
+<span class="font-tabular-vitals font-semibold text-on-surface">$14,280.00</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-secondary">Consumables &amp; Perfusion Overhead:</span>
+<span class="font-tabular-vitals font-semibold text-error">-$4,010.00</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-secondary">Surgeon &amp; Anesthesia Payouts:</span>
+<span class="font-tabular-vitals font-semibold text-error">-$3,450.00</span>
+</div>
+<div class="pt-2 border-t border-surface-container-low flex items-center justify-between">
+<span class="font-title-md text-title-md text-on-surface font-bold">Net Hospital Margin:</span>
+<span class="font-tabular-vitals text-headline-sm text-primary font-bold">$6,820.00</span>
+</div>
+<div class="text-right">
+<span class="font-label-code-sm text-label-code-sm text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded font-bold">47.7% Net Contribution</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<script>
+  function switchORTab(tabKey) {
+    var tabConsumables = document.getElementById('tab-consumables');
+    var tabEngine = document.getElementById('tab-engine');
+    var panelConsumables = document.getElementById('panel-consumables');
+    var panelEngine = document.getElementById('panel-engine');
+
+    if (tabKey === 'consumables') {
+      tabConsumables.className = 'px-4 py-2.5 font-title-md text-title-md rounded-t-lg bg-surface-container-lowest text-primary flex items-center gap-2 shadow-sm font-semibold transition-all';
+      tabEngine.className = 'px-4 py-2.5 font-title-md text-title-md rounded-t-lg text-secondary hover:text-on-surface hover:bg-surface-container-lowest/60 flex items-center gap-2 transition-all';
+      panelConsumables.classList.remove('hidden');
+      panelConsumables.classList.add('block');
+      panelEngine.classList.remove('block');
+      panelEngine.classList.add('hidden');
+    } else {
+      tabEngine.className = 'px-4 py-2.5 font-title-md text-title-md rounded-t-lg bg-surface-container-lowest text-primary flex items-center gap-2 shadow-sm font-semibold transition-all';
+      tabConsumables.className = 'px-4 py-2.5 font-title-md text-title-md rounded-t-lg text-secondary hover:text-on-surface hover:bg-surface-container-lowest/60 flex items-center gap-2 transition-all';
+      panelEngine.classList.remove('hidden');
+      panelEngine.classList.add('block');
+      panelConsumables.classList.remove('block');
+      panelConsumables.classList.add('hidden');
+    }
+  }
+</script></main></div></body></html>
