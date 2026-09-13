@@ -128,47 +128,58 @@ export const Header: React.FC = () => {
           </button>
 
           {roleDropdownOpen && (
-            <div className="absolute top-12 right-0 w-72 bg-surface-container-lowest border border-outline-variant/50 rounded-lg shadow-xl py-1.5 z-50">
-              <div className="px-3 py-1 text-[10px] font-mono uppercase text-secondary border-b border-outline-variant/30">
-                Switch Operational Persona
+            <div className="absolute top-12 right-0 w-72 bg-surface-container-lowest border border-outline-variant/50 rounded-lg shadow-xl py-2 z-50">
+              <div className="px-3 pb-2 border-b border-outline-variant/30">
+                <p className="text-xs font-bold text-on-surface">{currentUser.fullName}</p>
+                <p className="text-[11px] text-secondary font-mono">{currentUser.department}</p>
+                <div className="mt-1 flex items-center gap-1.5">
+                  <span className="px-1.5 py-0.5 rounded text-[9px] font-mono font-bold uppercase bg-primary/10 text-primary">
+                    {currentUser.role.replace(/_/g, ' ')}
+                  </span>
+                  <span className="text-[10px] text-secondary font-mono">{currentUser.badge}</span>
+                </div>
               </div>
-              {availableRoles.map((item) => (
-                <button
-                  key={item.role}
-                  onClick={() => {
-                    switchRole(item.role);
-                    setRoleDropdownOpen(false);
-                  }}
-                  className={`w-full text-left px-3 py-1.5 text-xs hover:bg-surface-container-low flex items-center justify-between ${
-                    currentUser.role === item.role ? 'bg-primary-container/10 font-bold text-primary' : 'text-on-surface'
-                  }`}
-                >
-                  <span>{item.title}</span>
-                  {currentUser.role === item.role && (
-                    <span className="material-symbols-outlined text-[16px] text-primary">check</span>
-                  )}
-                </button>
-              ))}
-              <div className="pt-1.5 mt-1 border-t border-outline-variant/30 px-2 space-y-1">
-                <button
-                  onClick={() => {
-                    setRoleDropdownOpen(false);
-                    setLoginModalOpen(true);
-                  }}
-                  className="w-full text-center py-1.5 text-xs font-bold rounded bg-primary/10 text-primary hover:bg-primary/20 flex items-center justify-center gap-1.5"
-                >
-                  <span className="material-symbols-outlined text-[16px]">vpn_key</span>
-                  <span>Switch Station Persona</span>
-                </button>
+
+              {(currentUser.role === 'super_admin' || currentUser.role === 'hospital_admin') ? (
+                <>
+                  <div className="px-3 py-1 text-[10px] font-mono uppercase text-secondary border-b border-outline-variant/30">
+                    Administrator Persona Switcher
+                  </div>
+                  {availableRoles.map((item) => (
+                    <button
+                      key={item.role}
+                      onClick={() => {
+                        switchRole(item.role);
+                        setRoleDropdownOpen(false);
+                      }}
+                      className={`w-full text-left px-3 py-1.5 text-xs hover:bg-surface-container-low flex items-center justify-between ${
+                        currentUser.role === item.role ? 'bg-primary-container/10 font-bold text-primary' : 'text-on-surface'
+                      }`}
+                    >
+                      <span>{item.title}</span>
+                      {currentUser.role === item.role && (
+                        <span className="material-symbols-outlined text-[16px] text-primary">check</span>
+                      )}
+                    </button>
+                  ))}
+                </>
+              ) : (
+                <div className="p-3 bg-surface-container-low/40 my-1 mx-2 rounded border border-outline-variant/30 text-[11px] text-secondary">
+                  <p className="font-semibold text-on-surface mb-0.5">Specialist Access Enforced</p>
+                  <p>Your navigation is restricted to your clinical specialty. To change roles, sign out and authenticate.</p>
+                </div>
+              )}
+
+              <div className="pt-2 mt-1 border-t border-outline-variant/30 px-2">
                 <button
                   onClick={() => {
                     setRoleDropdownOpen(false);
                     logout();
                   }}
-                  className="w-full text-center py-1.5 text-xs font-bold rounded bg-error-container/20 text-error hover:bg-error-container/40 flex items-center justify-center gap-1.5"
+                  className="w-full text-center py-1.5 text-xs font-bold rounded bg-error-container/20 text-error hover:bg-error-container/40 flex items-center justify-center gap-1.5 transition-colors"
                 >
                   <span className="material-symbols-outlined text-[16px]">logout</span>
-                  <span>Sign Out / Lock</span>
+                  <span>Sign Out / Lock Station</span>
                 </button>
               </div>
             </div>

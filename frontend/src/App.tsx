@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useHospitalStore } from './store/useHospitalStore';
+import { useHospitalStore, ROLE_ALLOWED_WORKSTATIONS, ROLE_DEFAULT_WORKSTATION } from './store/useHospitalStore';
 import { Sidebar } from './components/layout/Sidebar';
 import { Header } from './components/layout/Header';
 import { SearchModal } from './components/common/SearchModal';
@@ -28,12 +28,25 @@ export const App: React.FC = () => {
   const {
     isAuthenticated,
     activeWorkstation,
+    setActiveWorkstation,
+    currentUser,
     activeLanguage,
     setSearchModalOpen,
     fetchInitialData,
     authNotification,
     setAuthNotification,
   } = useHospitalStore();
+
+  // Role Access Guard: Ensure the user's active workstation is permitted for their clinical role
+  useEffect(() => {
+    if (isAuthenticated) {
+      const allowed = ROLE_ALLOWED_WORKSTATIONS[currentUser.role] || ['admin-dashboard'];
+      if (!allowed.includes(activeWorkstation)) {
+        const defaultWs = ROLE_DEFAULT_WORKSTATION[currentUser.role] || 'admin-dashboard';
+        setActiveWorkstation(defaultWs);
+      }
+    }
+  }, [isAuthenticated, currentUser.role, activeWorkstation]);
 
   useEffect(() => {
     fetchInitialData();

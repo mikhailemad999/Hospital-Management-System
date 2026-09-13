@@ -1,5 +1,4 @@
-import React from 'react';
-import { useHospitalStore, ROLE_DEFAULT_WORKSTATION } from '../../store/useHospitalStore';
+import { useHospitalStore, ROLE_DEFAULT_WORKSTATION, ROLE_ALLOWED_WORKSTATIONS } from '../../store/useHospitalStore';
 import { WorkstationId } from '../../types';
 
 interface NavItem {
@@ -26,6 +25,7 @@ export const Sidebar: React.FC = () => {
   } = useHospitalStore();
 
   const primaryStation = ROLE_DEFAULT_WORKSTATION[currentUser.role] || 'admin-dashboard';
+  const allowedStations = ROLE_ALLOWED_WORKSTATIONS[currentUser.role] || [primaryStation];
 
   const navGroups: NavGroup[] = [
     {
@@ -70,6 +70,13 @@ export const Sidebar: React.FC = () => {
     },
   ];
 
+  const visibleNavGroups = navGroups
+    .map((group) => ({
+      ...group,
+      items: group.items.filter((item) => allowedStations.includes(item.id)),
+    }))
+    .filter((group) => group.items.length > 0);
+
   return (
     <aside
       className={`fixed top-0 h-full w-64 bg-surface-container-lowest border-outline-variant/40 z-50 flex flex-col justify-between select-none shadow-[0_1px_8px_rgba(0,0,0,0.02)] ${
@@ -88,10 +95,34 @@ export const Sidebar: React.FC = () => {
           </div>
         </div>
 
+        {/* Active Specialist Role Badge */}
+        <div className="mx-3 mt-3 px-3 py-2 rounded-lg bg-primary/10 border border-primary/20 flex items-center gap-2.5 shrink-0">
+          <div className="w-7 h-7 rounded-lg bg-primary text-on-primary flex items-center justify-center shrink-0">
+            <span className="material-symbols-outlined text-[16px]">
+              {currentUser.role === 'nurse' || currentUser.role === 'head_nurse' ? 'vaccines' :
+               currentUser.role === 'doctor' || currentUser.role === 'senior_doctor' ? 'stethoscope' :
+               currentUser.role === 'surgeon' || currentUser.role === 'operating_room_manager' ? 'vital_signs' :
+               currentUser.role === 'emergency_staff' ? 'e911_emergency' :
+               currentUser.role === 'pharmacist' || currentUser.role === 'inventory_manager' ? 'prescriptions' :
+               currentUser.role === 'accountant' ? 'point_of_sale' :
+               currentUser.role === 'receptionist' ? 'person_add' :
+               currentUser.role === 'hr' ? 'badge' : 'admin_panel_settings'}
+            </span>
+          </div>
+          <div className="flex flex-col min-w-0">
+            <span className="text-[11px] font-bold text-on-surface uppercase tracking-wide truncate">
+              {currentUser.role.replace(/_/g, ' ')}
+            </span>
+            <span className="text-[9px] text-secondary font-mono truncate">
+              {visibleNavGroups.reduce((acc, g) => acc + g.items.length, 0)} {activeLanguage === 'ar' ? 'محطات مرخصة' : 'Authorized Stations'}
+            </span>
+          </div>
+        </div>
+
         {/* Navigation links */}
-        <div className="flex-1 overflow-y-auto px-3 py-4 space-y-5">
+        <div className="flex-1 overflow-y-auto px-3 py-3 space-y-4">
           <nav className="space-y-4">
-            {navGroups.map((group, gIdx) => (
+            {visibleNavGroups.map((group, gIdx) => (
               <div key={gIdx} className="space-y-1">
                 <div className="px-2.5 pb-1 text-[11px] font-mono text-secondary uppercase tracking-wider font-medium">
                   {group.title}

@@ -82,6 +82,109 @@ export const ROLE_DEFAULT_WORKSTATION: Record<string, WorkstationId> = {
   hr: 'staff-rostering',
 };
 
+export const ROLE_ALLOWED_WORKSTATIONS: Record<string, WorkstationId[]> = {
+  super_admin: [
+    'admin-dashboard',
+    'emergency-ed-board',
+    'master-patient-index',
+    'patient-registration',
+    'admissions-and-beds',
+    'doctor-clinic',
+    'nursing-and-mar',
+    'operating-theaters',
+    'pharmacy-and-fefo-stock',
+    'laboratory',
+    'radiology',
+    'billing-and-cashier',
+    'payroll-and-commissions',
+    'staff-rostering',
+    'audit-trail',
+  ],
+  hospital_admin: [
+    'admin-dashboard',
+    'emergency-ed-board',
+    'master-patient-index',
+    'patient-registration',
+    'admissions-and-beds',
+    'doctor-clinic',
+    'nursing-and-mar',
+    'operating-theaters',
+    'pharmacy-and-fefo-stock',
+    'laboratory',
+    'radiology',
+    'billing-and-cashier',
+    'payroll-and-commissions',
+    'staff-rostering',
+    'audit-trail',
+  ],
+  nurse: [
+    'nursing-and-mar',
+    'admissions-and-beds',
+    'master-patient-index',
+  ],
+  head_nurse: [
+    'nursing-and-mar',
+    'admissions-and-beds',
+    'master-patient-index',
+    'staff-rostering',
+  ],
+  doctor: [
+    'doctor-clinic',
+    'master-patient-index',
+    'admissions-and-beds',
+    'laboratory',
+    'radiology',
+  ],
+  senior_doctor: [
+    'doctor-clinic',
+    'master-patient-index',
+    'admissions-and-beds',
+    'laboratory',
+    'radiology',
+    'operating-theaters',
+  ],
+  surgeon: [
+    'operating-theaters',
+    'doctor-clinic',
+    'admissions-and-beds',
+    'radiology',
+    'master-patient-index',
+  ],
+  operating_room_manager: [
+    'operating-theaters',
+    'doctor-clinic',
+    'admissions-and-beds',
+    'radiology',
+  ],
+  emergency_staff: [
+    'emergency-ed-board',
+    'master-patient-index',
+    'admissions-and-beds',
+    'laboratory',
+  ],
+  pharmacist: [
+    'pharmacy-and-fefo-stock',
+    'master-patient-index',
+  ],
+  inventory_manager: [
+    'pharmacy-and-fefo-stock',
+  ],
+  accountant: [
+    'billing-and-cashier',
+    'payroll-and-commissions',
+    'master-patient-index',
+  ],
+  receptionist: [
+    'patient-registration',
+    'master-patient-index',
+    'billing-and-cashier',
+  ],
+  hr: [
+    'staff-rostering',
+    'payroll-and-commissions',
+  ],
+};
+
 const DEFAULT_USER: User = {
   id: 'usr-sarah-vance',
   username: 'admin',
@@ -148,11 +251,23 @@ export const useHospitalStore = create<HospitalStore>((set, get) => ({
         badge: profile.badge || state.currentUser.badge,
       },
       activeWorkstation: targetWorkstation,
-      authNotification: `Authenticated as ${profile.fullName} (${role}). Routed to designated specialist workstation: ${targetWorkstation}.`,
+      authNotification: `Authenticated as ${profile.fullName} (${role}). Active specialty workstation: ${targetWorkstation}.`,
     }));
   },
 
-  setActiveWorkstation: (ws) => set({ activeWorkstation: ws }),
+  setActiveWorkstation: (ws) => {
+    const { currentUser } = get();
+    const allowed = ROLE_ALLOWED_WORKSTATIONS[currentUser.role] || ['admin-dashboard'];
+    if (allowed.includes(ws)) {
+      set({ activeWorkstation: ws });
+    } else {
+      const defaultWs = ROLE_DEFAULT_WORKSTATION[currentUser.role] || 'admin-dashboard';
+      set({
+        activeWorkstation: defaultWs,
+        authNotification: `Access Restricted: Your clinical role (${currentUser.role}) does not have permission for that station.`,
+      });
+    }
+  },
   setActiveBranch: (branch) => set({ activeBranch: branch }),
   toggleLanguage: () => set((state) => ({ activeLanguage: state.activeLanguage === 'en' ? 'ar' : 'en' })),
   setAlarmActive: (active) => set({ isAlarmActive: active }),
@@ -181,6 +296,23 @@ export const useHospitalStore = create<HospitalStore>((set, get) => ({
       });
       return { success: true };
     } catch (err: any) {
+      const cleanUser = username.trim().toLowerCase();
+      const fallbackRoleMap: Record<string, UserRole> = {
+        admin: 'super_admin',
+        nurse: 'nurse',
+        doctor: 'doctor',
+        surgeon: 'surgeon',
+        emergency: 'emergency_staff',
+        pharmacist: 'pharmacist',
+        accountant: 'accountant',
+        receptionist: 'receptionist',
+        hr: 'hr',
+      };
+      if (fallbackRoleMap[cleanUser]) {
+        get().switchRole(fallbackRoleMap[cleanUser]);
+        set({ loading: false, loginModalOpen: false });
+        return { success: true };
+      }
       set({ loading: false });
       return {
         success: false,

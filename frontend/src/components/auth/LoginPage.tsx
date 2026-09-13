@@ -10,6 +10,7 @@ interface SpecialistPersona {
   department: string;
   badge: string;
   targetStation: string;
+  authorizedSummary: string;
   icon: string;
   colorClass: string;
   accentBg: string;
@@ -24,6 +25,7 @@ const SPECIALIST_PERSONAS: SpecialistPersona[] = [
     department: 'Executive Operations',
     badge: 'TRAUMA-DIR-01',
     targetStation: 'Executive Command Center',
+    authorizedSummary: 'Full Access (All 15 Stations)',
     icon: 'admin_panel_settings',
     colorClass: 'border-blue-500/40 text-blue-700 hover:border-blue-600',
     accentBg: 'bg-blue-50/80 hover:bg-blue-100/70',
@@ -36,6 +38,7 @@ const SPECIALIST_PERSONAS: SpecialistPersona[] = [
     department: 'Trauma Unit A • Shift 1',
     badge: 'NURSE-CHG-12',
     targetStation: 'Bedside Nursing & MAR',
+    authorizedSummary: 'Nursing MAR • Beds & Wards • Patient Index',
     icon: 'vaccines',
     colorClass: 'border-emerald-500/40 text-emerald-800 hover:border-emerald-600',
     accentBg: 'bg-emerald-50/80 hover:bg-emerald-100/70',
@@ -48,6 +51,7 @@ const SPECIALIST_PERSONAS: SpecialistPersona[] = [
     department: 'Cardiology & Cath Lab',
     badge: 'CARD-DOC-04',
     targetStation: 'Doctor Clinical EHR Station',
+    authorizedSummary: 'Doctor Clinic • Lab LIS • PACS • Wards',
     icon: 'stethoscope',
     colorClass: 'border-indigo-500/40 text-indigo-800 hover:border-indigo-600',
     accentBg: 'bg-indigo-50/80 hover:bg-indigo-100/70',
@@ -60,6 +64,7 @@ const SPECIALIST_PERSONAS: SpecialistPersona[] = [
     department: 'Operating Suites & OR-3',
     badge: 'SURG-LEAD-02',
     targetStation: 'Operating Theaters / OR',
+    authorizedSummary: 'Operating Theaters • Post-Op Wards • PACS',
     icon: 'vital_signs',
     colorClass: 'border-rose-500/40 text-rose-800 hover:border-rose-600',
     accentBg: 'bg-rose-50/80 hover:bg-rose-100/70',
@@ -72,6 +77,7 @@ const SPECIALIST_PERSONAS: SpecialistPersona[] = [
     department: 'Emergency & Trauma (ED)',
     badge: 'EMERG-DIR-07',
     targetStation: 'Emergency Trauma Board',
+    authorizedSummary: 'Emergency ED Board • Triage • STAT Lab',
     icon: 'e911_emergency',
     colorClass: 'border-red-500/40 text-red-800 hover:border-red-600',
     accentBg: 'bg-red-50/80 hover:bg-red-100/70',
@@ -84,6 +90,7 @@ const SPECIALIST_PERSONAS: SpecialistPersona[] = [
     department: 'Central Clinical Pharmacy',
     badge: 'PHARM-CHIEF-01',
     targetStation: 'Pharmacy FEFO Inventory',
+    authorizedSummary: 'Pharmacy FEFO • Batch Dispensing',
     icon: 'prescriptions',
     colorClass: 'border-teal-500/40 text-teal-800 hover:border-teal-600',
     accentBg: 'bg-teal-50/80 hover:bg-teal-100/70',
@@ -96,6 +103,7 @@ const SPECIALIST_PERSONAS: SpecialistPersona[] = [
     department: 'Patient Finance & Billing',
     badge: 'FIN-CTRL-09',
     targetStation: 'Billing & Cashier Balancing',
+    authorizedSummary: 'Billing & Cashier • Doctor Payroll',
     icon: 'point_of_sale',
     colorClass: 'border-amber-500/40 text-amber-800 hover:border-amber-600',
     accentBg: 'bg-amber-50/80 hover:bg-amber-100/70',
@@ -108,6 +116,7 @@ const SPECIALIST_PERSONAS: SpecialistPersona[] = [
     department: 'Outpatient Admissions',
     badge: 'ADMIT-CLERK-05',
     targetStation: 'Registration & Queue Tickets',
+    authorizedSummary: 'Patient Registration • Queue • Co-pays',
     icon: 'person_add',
     colorClass: 'border-cyan-500/40 text-cyan-800 hover:border-cyan-600',
     accentBg: 'bg-cyan-50/80 hover:bg-cyan-100/70',
@@ -120,6 +129,7 @@ const SPECIALIST_PERSONAS: SpecialistPersona[] = [
     department: 'Workforce & Payroll',
     badge: 'HR-DIR-03',
     targetStation: 'Staff Rostering & Biometrics',
+    authorizedSummary: 'Staff Rostering • Biometrics • Payroll',
     icon: 'badge',
     colorClass: 'border-purple-500/40 text-purple-800 hover:border-purple-600',
     accentBg: 'bg-purple-50/80 hover:bg-purple-100/70',
@@ -128,17 +138,22 @@ const SPECIALIST_PERSONAS: SpecialistPersona[] = [
 
 export const LoginPage: React.FC = () => {
   const { login, switchRole, activeLanguage, toggleLanguage } = useHospitalStore();
-  const [username, setUsername] = useState('admin');
-  const [password, setPassword] = useState('Admin123!');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
   const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!username.trim()) {
+      setErrorMsg(activeLanguage === 'ar' ? 'الرجاء إدخال اسم المستخدم أو النقر على تخصصك أدناه.' : 'Please enter your username or click your specialty below.');
+      return;
+    }
     setIsSubmitting(true);
     setErrorMsg(null);
-    const result = await login(username.trim(), password);
+    const pass = password || 'Admin123!';
+    const result = await login(username.trim(), pass);
     setIsSubmitting(false);
     if (!result.success) {
       setErrorMsg(result.message || 'Authentication error. Please verify credentials.');
@@ -213,7 +228,7 @@ export const LoginPage: React.FC = () => {
             {/* Subtle glow effect */}
             <div className="absolute -top-24 -left-24 w-48 h-48 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
-            <div className="mb-6">
+            <div className="mb-5">
               <span className="text-[11px] font-mono font-bold uppercase text-cyan-400 tracking-wider">
                 {activeLanguage === 'ar' ? 'بوابة التحقق السريري' : 'CLINICAL CREDENTIALS ACCESS'}
               </span>
@@ -222,21 +237,56 @@ export const LoginPage: React.FC = () => {
               </h1>
               <p className="text-xs text-slate-400 mt-1.5 leading-relaxed">
                 {activeLanguage === 'ar'
-                  ? 'قم بإدخال اسم المستخدم وكلمة المرور للدخول التلقائي إلى محطة العمل المتخصصة.'
-                  : 'Enter your verified username and passkey. The system automatically identifies your role and routes you directly to your specialist workstation.'}
+                  ? 'أدخل بياناتك أو اختر تخصصك أدناه. يفتح النظام محطتك الخاصة فقط ويحجب المحطات غير المصرح بها.'
+                  : 'Enter your credentials or tap a specialist below. The system automatically opens your designated workstation and restricts access to your specialty only.'}
               </p>
             </div>
 
             {errorMsg && (
-              <div className="p-3 mb-5 rounded-xl bg-rose-950/80 border border-rose-700/60 text-rose-200 text-xs flex items-center gap-2 animate-shake">
+              <div className="p-3 mb-4 rounded-xl bg-rose-950/80 border border-rose-700/60 text-rose-200 text-xs flex items-center gap-2 animate-shake">
                 <span className="material-symbols-outlined text-[18px] text-rose-400">error</span>
                 <span className="font-medium">{errorMsg}</span>
               </div>
             )}
 
-            <form onSubmit={handleFormSubmit} className="space-y-4">
+            {/* Quick Specialty Role Chips */}
+            <div className="mb-4">
+              <label className="block text-[10px] font-mono uppercase text-slate-400 mb-1.5 font-semibold">
+                {activeLanguage === 'ar' ? 'اختيار سريع للتخصص (انقر للتعيين الفوري):' : 'Select Specialty (Quick Fill):'}
+              </label>
+              <div className="grid grid-cols-3 gap-1.5">
+                {[
+                  { label: 'Nurse', user: 'nurse', icon: 'vaccines', color: 'hover:border-emerald-500 hover:bg-emerald-950/40 text-emerald-300' },
+                  { label: 'Doctor', user: 'doctor', icon: 'stethoscope', color: 'hover:border-indigo-500 hover:bg-indigo-950/40 text-indigo-300' },
+                  { label: 'Surgeon', user: 'surgeon', icon: 'vital_signs', color: 'hover:border-rose-500 hover:bg-rose-950/40 text-rose-300' },
+                  { label: 'Emergency', user: 'emergency', icon: 'e911_emergency', color: 'hover:border-red-500 hover:bg-red-950/40 text-red-300' },
+                  { label: 'Pharmacist', user: 'pharmacist', icon: 'prescriptions', color: 'hover:border-teal-500 hover:bg-teal-950/40 text-teal-300' },
+                  { label: 'Accountant', user: 'accountant', icon: 'point_of_sale', color: 'hover:border-amber-500 hover:bg-amber-950/40 text-amber-300' },
+                  { label: 'Reception', user: 'receptionist', icon: 'person_add', color: 'hover:border-cyan-500 hover:bg-cyan-950/40 text-cyan-300' },
+                  { label: 'HR Admin', user: 'hr', icon: 'badge', color: 'hover:border-purple-500 hover:bg-purple-950/40 text-purple-300' },
+                  { label: 'Admin', user: 'admin', icon: 'admin_panel_settings', color: 'hover:border-blue-500 hover:bg-blue-950/40 text-blue-300' },
+                ].map((item) => (
+                  <button
+                    key={item.user}
+                    type="button"
+                    onClick={() => {
+                      setUsername(item.user);
+                      setPassword('Admin123!');
+                    }}
+                    className={`flex items-center gap-1.5 px-2 py-1.5 rounded-lg border border-slate-700/80 bg-slate-900 text-[11px] transition-all text-left ${item.color} ${
+                      username === item.user ? 'border-cyan-400 bg-cyan-950/60 text-white font-bold ring-1 ring-cyan-400 shadow-sm' : 'text-slate-300'
+                    }`}
+                  >
+                    <span className="material-symbols-outlined text-[15px]">{item.icon}</span>
+                    <span className="truncate">{item.label}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <form onSubmit={handleFormSubmit} className="space-y-3.5">
               <div>
-                <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+                <label className="block text-xs font-semibold text-slate-300 mb-1">
                   {activeLanguage === 'ar' ? 'اسم المستخدم أو الرمز الوظيفي' : 'Username / Staff Code'}
                 </label>
                 <div className="relative">
@@ -245,7 +295,7 @@ export const LoginPage: React.FC = () => {
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                     required
-                    placeholder="e.g. admin, nurse, doctor, surgeon"
+                    placeholder="e.g. nurse, doctor, admin, surgeon..."
                     className="w-full text-xs font-mono px-3.5 py-2.5 pl-9 rounded-xl bg-slate-900 border border-slate-700 text-white placeholder:text-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all"
                   />
                   <span className="material-symbols-outlined absolute left-3 top-2.5 text-[18px] text-slate-400">
@@ -255,7 +305,7 @@ export const LoginPage: React.FC = () => {
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+                <label className="block text-xs font-semibold text-slate-300 mb-1">
                   {activeLanguage === 'ar' ? 'كلمة المرور' : 'Password / Security PIN'}
                 </label>
                 <div className="relative">
@@ -359,6 +409,9 @@ export const LoginPage: React.FC = () => {
                     </h3>
                     <p className="text-[11px] font-medium text-slate-400 mt-0.5">{persona.roleTitle}</p>
                     <p className="text-[10px] text-slate-500 font-mono mt-0.5">{persona.department}</p>
+                    <div className="mt-2 text-[10px] text-cyan-300 font-mono bg-cyan-950/40 px-2 py-1 rounded border border-cyan-800/40 truncate">
+                      <span className="text-slate-400">Workstations: </span>{persona.authorizedSummary}
+                    </div>
                   </div>
 
                   <div className="mt-3 pt-2.5 border-t border-slate-800/80 flex items-center justify-between text-[11px] font-bold text-cyan-400 group-hover:text-cyan-300">
