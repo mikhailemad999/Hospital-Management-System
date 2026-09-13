@@ -21,11 +21,20 @@ export class AppointmentService {
     });
   }
 
-  async createTicket(data: Partial<Appointment>) {
+  async createTicket(data: Partial<Appointment> & Record<string, any>) {
     const count = await this.apptRepo.count();
-    data.ticketNumber = `T-${100 + count + 1}`;
-    data.queuePosition = count + 1;
-    data.status = 'WAITING';
+    data.ticketNumber = data.ticketNumber || `T-${100 + count + 1 + Math.floor(Math.random() * 500)}`;
+    data.queuePosition = data.queuePosition || (count + 1);
+    data.status = data.status || 'WAITING';
+    data.patientId = data.patientId || `pat-${Date.now().toString().slice(-6)}`;
+    data.patientName = data.patientName || 'Walk-in Patient';
+    data.mrn = data.mrn || `MRN-${90000 + count + 1}`;
+    data.doctorName = data.doctorName || 'Dr. Marcus Brody, MD';
+    data.departmentName = data.departmentName || data.department || 'General Practice';
+    data.appointmentDate = data.appointmentDate || new Date().toISOString().substring(0, 10);
+    data.timeSlot = data.timeSlot || '14:30 - 15:00';
+    data.fee = data.fee !== undefined ? data.fee : 150.00;
+
     const appt = this.apptRepo.create(data);
     return this.apptRepo.save(appt);
   }

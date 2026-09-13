@@ -8,7 +8,8 @@
     "start": "ts-node src/main.ts",
     "start:dev": "ts-node-dev --respawn --transpile-only src/main.ts",
     "start:prod": "node dist/main.js",
-    "seed": "ts-node src/database/seed/run-seed.ts"
+    "seed": "ts-node src/database/seed/run-seed.ts",
+    "test": "ts-node test/e2e-api.spec.ts"
   },
   "dependencies": {
     "@nestjs/common": "^10.3.3",
