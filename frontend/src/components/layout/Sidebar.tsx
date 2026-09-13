@@ -150,13 +150,22 @@ export const Sidebar: React.FC = () => {
                 <p className="text-[10px] text-secondary font-mono truncate">{currentUser.badge}</p>
               </div>
             </div>
-            <button
-              onClick={() => setLoginModalOpen(true)}
-              className="p-1 rounded hover:bg-surface-container text-primary transition-colors"
-              title="Switch Staff Persona / Login"
-            >
-              <span className="material-symbols-outlined text-[18px]">sync_alt</span>
-            </button>
+            <div className="flex items-center gap-1 shrink-0">
+              <button
+                onClick={() => setLoginModalOpen(true)}
+                className="p-1 rounded hover:bg-surface-container text-primary transition-colors"
+                title="Switch Staff Persona / Workstation"
+              >
+                <span className="material-symbols-outlined text-[17px]">sync_alt</span>
+              </button>
+              <button
+                onClick={logout}
+                className="p-1 rounded hover:bg-error-container/30 text-error transition-colors"
+                title="Lock Workstation & Sign Out"
+              >
+                <span className="material-symbols-outlined text-[17px]">logout</span>
+              </button>
+            </div>
           </div>
 
           <div className="flex items-center justify-between text-secondary pt-1 border-t border-outline-variant/20 text-[10px] font-mono">

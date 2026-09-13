@@ -5,6 +5,7 @@ import { Header } from './components/layout/Header';
 import { SearchModal } from './components/common/SearchModal';
 import { TraumaAlarmModal } from './components/common/TraumaAlarmModal';
 import { LoginModal } from './components/common/LoginModal';
+import { LoginPage } from './components/auth/LoginPage';
 
 // Workstations
 import { ExecutiveCommandCenter } from './workstations/ExecutiveCommandCenter';
@@ -25,6 +26,7 @@ import { SecurityAuditTrail } from './workstations/SecurityAuditTrail';
 
 export const App: React.FC = () => {
   const {
+    isAuthenticated,
     activeWorkstation,
     activeLanguage,
     setSearchModalOpen,
@@ -92,6 +94,10 @@ export const App: React.FC = () => {
         return <ExecutiveCommandCenter />;
     }
   };
+
+  if (!isAuthenticated) {
+    return <LoginPage />;
+  }
 
   return (
     <div

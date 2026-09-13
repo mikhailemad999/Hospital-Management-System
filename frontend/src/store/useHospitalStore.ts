@@ -15,6 +15,7 @@ import {
 } from '../types';
 
 interface HospitalStore {
+  isAuthenticated: boolean;
   currentUser: User;
   activeWorkstation: WorkstationId;
   activeBranch: string;
@@ -68,7 +69,7 @@ export const ROLE_DEFAULT_WORKSTATION: Record<string, WorkstationId> = {
   super_admin: 'admin-dashboard',
   hospital_admin: 'admin-dashboard',
   doctor: 'doctor-clinic',
-  senior_doctor: 'operating-theaters',
+  senior_doctor: 'doctor-clinic',
   surgeon: 'operating-theaters',
   nurse: 'nursing-and-mar',
   head_nurse: 'nursing-and-mar',
@@ -78,7 +79,7 @@ export const ROLE_DEFAULT_WORKSTATION: Record<string, WorkstationId> = {
   operating_room_manager: 'operating-theaters',
   accountant: 'billing-and-cashier',
   receptionist: 'patient-registration',
-  hr: 'payroll-and-commissions',
+  hr: 'staff-rostering',
 };
 
 const DEFAULT_USER: User = {
@@ -92,6 +93,7 @@ const DEFAULT_USER: User = {
 };
 
 export const useHospitalStore = create<HospitalStore>((set, get) => ({
+  isAuthenticated: false,
   currentUser: DEFAULT_USER,
   activeWorkstation: 'admin-dashboard',
   activeBranch: 'Metro Central - Main',
@@ -121,7 +123,7 @@ export const useHospitalStore = create<HospitalStore>((set, get) => ({
       super_admin: { fullName: 'Dr. Sarah Vance, MD', department: 'Executive Command Suite', badge: 'TRAUMA-DIR-01', username: 'admin' },
       hospital_admin: { fullName: 'Arthur Pendelton, MHA', department: 'Hospital Administration', badge: 'HOSP-ADM-01', username: 'admin' },
       doctor: { fullName: 'Dr. Marcus Brody, MD', department: 'Cardiology & Cath Lab', badge: 'CARD-DOC-04', username: 'doctor' },
-      senior_doctor: { fullName: 'Dr. Elena Rostova, MD', department: 'Chief of Trauma Surgery', badge: 'SURG-LEAD-02', username: 'surgeon' },
+      senior_doctor: { fullName: 'Dr. Marcus Brody, MD', department: 'Cardiology & Cath Lab', badge: 'CARD-DOC-04', username: 'doctor' },
       surgeon: { fullName: 'Dr. Elena Rostova, MD', department: 'Chief of Trauma Surgery', badge: 'SURG-LEAD-02', username: 'surgeon' },
       nurse: { fullName: 'Nurse Emily Chen, BSN, RN', department: 'Trauma Unit A • Shift 1', badge: 'NURSE-CHG-12', username: 'nurse' },
       head_nurse: { fullName: 'Nurse Lisa Adams, MSN, RN', department: 'Inpatient Nursing Super.', badge: 'NURSE-HEAD-01', username: 'nurse' },
@@ -136,6 +138,7 @@ export const useHospitalStore = create<HospitalStore>((set, get) => ({
     const profile = roleProfiles[role] || roleProfiles.super_admin;
     const targetWorkstation = ROLE_DEFAULT_WORKSTATION[role] || 'admin-dashboard';
     set((state) => ({
+      isAuthenticated: true,
       currentUser: {
         ...state.currentUser,
         role,
@@ -145,7 +148,7 @@ export const useHospitalStore = create<HospitalStore>((set, get) => ({
         badge: profile.badge || state.currentUser.badge,
       },
       activeWorkstation: targetWorkstation,
-      authNotification: `Persona switched to ${profile.fullName}. Automatically routed to designated workstation: ${targetWorkstation}.`,
+      authNotification: `Authenticated as ${profile.fullName} (${role}). Routed to designated specialist workstation: ${targetWorkstation}.`,
     }));
   },
 
@@ -169,11 +172,12 @@ export const useHospitalStore = create<HospitalStore>((set, get) => ({
       }
       const targetWs = ROLE_DEFAULT_WORKSTATION[user.role] || 'admin-dashboard';
       set({
+        isAuthenticated: true,
         currentUser: user,
         activeWorkstation: targetWs,
         loading: false,
         loginModalOpen: false,
-        authNotification: `Authenticated as ${user.fullName} (${user.role}). Routed to primary duty workstation.`,
+        authNotification: `Welcome ${user.fullName}. Automatically routed to your specialist workstation: ${targetWs}.`,
       });
       return { success: true };
     } catch (err: any) {
@@ -188,10 +192,10 @@ export const useHospitalStore = create<HospitalStore>((set, get) => ({
   logout: () => {
     localStorage.removeItem('hospital_pro_token');
     set({
+      isAuthenticated: false,
       currentUser: DEFAULT_USER,
       activeWorkstation: 'admin-dashboard',
-      loginModalOpen: true,
-      authNotification: 'Session closed. Please authenticate with staff badge.',
+      authNotification: 'Session terminated. Please authenticate with your staff credentials.',
     });
   },
 

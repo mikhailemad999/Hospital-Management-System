@@ -14,6 +14,7 @@ export const Header: React.FC = () => {
     setAlarmModalOpen,
     isAlarmActive,
     setLoginModalOpen,
+    logout,
   } = useHospitalStore();
 
   const [roleDropdownOpen, setRoleDropdownOpen] = useState(false);
@@ -148,7 +149,7 @@ export const Header: React.FC = () => {
                   )}
                 </button>
               ))}
-              <div className="pt-1.5 mt-1 border-t border-outline-variant/30 px-2">
+              <div className="pt-1.5 mt-1 border-t border-outline-variant/30 px-2 space-y-1">
                 <button
                   onClick={() => {
                     setRoleDropdownOpen(false);
@@ -157,21 +158,31 @@ export const Header: React.FC = () => {
                   className="w-full text-center py-1.5 text-xs font-bold rounded bg-primary/10 text-primary hover:bg-primary/20 flex items-center justify-center gap-1.5"
                 >
                   <span className="material-symbols-outlined text-[16px]">vpn_key</span>
-                  <span>Clinical Staff Login Portal</span>
+                  <span>Switch Station Persona</span>
+                </button>
+                <button
+                  onClick={() => {
+                    setRoleDropdownOpen(false);
+                    logout();
+                  }}
+                  className="w-full text-center py-1.5 text-xs font-bold rounded bg-error-container/20 text-error hover:bg-error-container/40 flex items-center justify-center gap-1.5"
+                >
+                  <span className="material-symbols-outlined text-[16px]">logout</span>
+                  <span>Sign Out / Lock</span>
                 </button>
               </div>
             </div>
           )}
         </div>
 
-        {/* Staff Sign In / Switch Button */}
+        {/* Lock / Sign Out Button */}
         <button
-          onClick={() => setLoginModalOpen(true)}
-          className="hidden md:flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-primary text-on-primary text-[11px] font-bold shadow-sm hover:bg-primary/90 transition-all"
-          title="Authenticate with staff credentials"
+          onClick={logout}
+          className="hidden md:flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-outline-variant/60 hover:border-error/50 hover:bg-error-container/20 text-on-surface text-[11px] font-semibold transition-all"
+          title="Lock Workstation & Sign Out to Clinical Login Gate"
         >
-          <span className="material-symbols-outlined text-[15px]">key</span>
-          <span>Staff Login</span>
+          <span className="material-symbols-outlined text-[15px] text-error">lock</span>
+          <span>Lock Station</span>
         </button>
 
         {/* Language Switcher (AR/EN) */}
