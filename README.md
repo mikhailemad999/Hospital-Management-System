@@ -22,19 +22,40 @@
 
 ---
 
-## 📸 Screenshots
+## 📸 Screenshots & Interactive Workstations
 
-### Login Page — Clinical Staff Authentication
-![Login Page](./screenshots/01-login-page.jpg)
+### 1. Staff Authentication & Specialist Persona Gate
+![Login Screen](./screenshots/01-login-screen.png)
 
-### Executive Command Center — Real-Time KPI Dashboard
-![Executive Dashboard](./screenshots/02-executive-dashboard.jpg)
+### 2. Executive Command Center — Real-Time Telemetry & KPIs
+![Executive Command Center](./screenshots/02-executive-command-center.png)
 
-### Emergency Trauma Board — L1–L5 Triage
-![Emergency Trauma Board](./screenshots/03-emergency-trauma-board.jpg)
+### 3. Emergency Trauma Board — ESI L1–L5 Triage Matrix
+![Emergency Trauma Board](./screenshots/03-emergency-trauma-board.png)
 
-### Pharmacy FEFO Inventory — Batch Expiry Tracking
-![Pharmacy FEFO Inventory](./screenshots/04-pharmacy-fefo-inventory.jpg)
+### 4. Doctor Clinical Workstation — SOAP Notes & e-Prescribing
+![Doctor Clinical Station](./screenshots/04-doctor-clinical-station.png)
+
+### 5. Bedside Nursing & e-MAR — Real-Time Vitals & Handover
+![Bedside Nursing & MAR](./screenshots/05-bedside-nursing-mar.png)
+
+### 6. Pharmacy FEFO Stock — Expiry Countdown & Auto-Deduction
+![Pharmacy FEFO Stock](./screenshots/06-pharmacy-fefo-stock.png)
+
+### 7. Operating Theaters & Surgical Suites (OR) — Utilization & Commissions
+![Operating Theaters](./screenshots/07-operating-theaters-or.png)
+
+### 8. Outpatient Registration & Queue Dispenser — Digital Token System
+![Patient Registration & Queue](./screenshots/08-patient-registration-queue.png)
+
+### 9. Patient Billing & Cashier Reconciliation — Shift Drawer Balancing
+![Patient Billing & Cashier](./screenshots/09-patient-billing-cashier.png)
+
+### 10. Radiology & PACS Viewer — DICOM Diagnostics & Diagnostic Reporting
+![Radiology & PACS](./screenshots/10-radiology-pacs.png)
+
+### 11. Security Audit Trail & HIPAA Compliance — Cryptographic Ledger
+![Security Audit Trail](./screenshots/11-security-audit-trail.png)
 
 ---
 
