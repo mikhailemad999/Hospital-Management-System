@@ -22,6 +22,22 @@
 
 ---
 
+## 📸 Screenshots
+
+### Login Page — Clinical Staff Authentication
+![Login Page](./screenshots/01-login-page.jpg)
+
+### Executive Command Center — Real-Time KPI Dashboard
+![Executive Dashboard](./screenshots/02-executive-dashboard.jpg)
+
+### Emergency Trauma Board — L1–L5 Triage
+![Emergency Trauma Board](./screenshots/03-emergency-trauma-board.jpg)
+
+### Pharmacy FEFO Inventory — Batch Expiry Tracking
+![Pharmacy FEFO Inventory](./screenshots/04-pharmacy-fefo-inventory.jpg)
+
+---
+
 ## 🩺 Clinical Roles & Workstation Auto-Routing Matrix
 
 Every verified staff member is **automatically routed to their dedicated operational workstation** upon login, and receives an active **`DUTY`** badge on their primary station:
