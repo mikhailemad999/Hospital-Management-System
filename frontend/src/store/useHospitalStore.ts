@@ -356,16 +356,19 @@ export const useHospitalStore = create<HospitalStore>((set, get) => ({
         api.get('/audit/logs'),
       ]);
 
+      // Defensive: coerce every response to array (guards against API errors/wrappers)
+      const toArray = (data: any) => (Array.isArray(data) ? data : []);
+
       set({
         telemetry: telemetryRes.data,
-        patients: patientsRes.data,
-        emergencyCases: emergRes.data,
-        beds: bedsRes.data,
-        batches: batchesRes.data,
-        marRecords: marRes.data,
-        operations: opsRes.data,
-        invoices: invoicesRes.data,
-        auditLogs: auditRes.data,
+        patients: toArray(patientsRes.data),
+        emergencyCases: toArray(emergRes.data),
+        beds: toArray(bedsRes.data),
+        batches: toArray(batchesRes.data),
+        marRecords: toArray(marRes.data),
+        operations: toArray(opsRes.data),
+        invoices: toArray(invoicesRes.data),
+        auditLogs: toArray(auditRes.data),
         loading: false,
       });
     } catch (err) {
@@ -453,7 +456,7 @@ export const useHospitalStore = create<HospitalStore>((set, get) => ({
       if (res.data.success) {
         // Refresh batches
         const batchesRes = await api.get('/pharmacy/batches');
-        set({ batches: batchesRes.data });
+        set({ batches: Array.isArray(batchesRes.data) ? batchesRes.data : [] });
         return true;
       }
       return false;
