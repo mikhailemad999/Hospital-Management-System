@@ -211,3 +211,42 @@ export interface AuditRecord {
   details: string;
   severity: string;
 }
+
+export interface LabResult {
+  id?: string;
+  orderId?: string;
+  parameter: string;
+  value: string;
+  referenceRange: string;
+  unit: string;
+  isAbnormal: boolean;
+}
+
+export interface LabOrder {
+  id: string;
+  orderNumber: string;
+  patientName: string;
+  mrn: string;
+  testName: string;
+  priority: 'STAT' | 'URGENT' | 'ROUTINE';
+  status: 'PENDING' | 'SAMPLE_COLLECTED' | 'ANALYZING' | 'COMPLETED';
+  orderedBy: string;
+  orderedAt: string;
+  results?: LabResult[];
+}
+
+export interface RadiologyOrder {
+  id: string;
+  orderNumber: string;
+  patientName: string;
+  mrn: string;
+  modality: 'CT' | 'X-RAY' | 'MRI' | 'ULTRASOUND';
+  studyDescription: string;
+  priority: 'STAT' | 'URGENT' | 'ROUTINE';
+  status: 'SCHEDULED' | 'IN_PROGRESS' | 'REPORTED';
+  orderedBy: string;
+  findings?: string;
+  impression?: string;
+  radiologist?: string;
+}
+

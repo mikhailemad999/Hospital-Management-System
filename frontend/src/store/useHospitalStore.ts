@@ -12,6 +12,9 @@ import {
   OperationSchedule,
   Invoice,
   AuditRecord,
+  LabOrder,
+  LabResult,
+  RadiologyOrder,
 } from '../types';
 
 interface HospitalStore {
@@ -36,6 +39,8 @@ interface HospitalStore {
   operations: OperationSchedule[];
   invoices: Invoice[];
   auditLogs: AuditRecord[];
+  labOrders: LabOrder[];
+  radiologyOrders: RadiologyOrder[];
   telemetry: any;
   loading: boolean;
 
@@ -63,6 +68,11 @@ interface HospitalStore {
   dispenseMedication: (medicationId: string, quantity: number, patientName: string, mrn: string) => Promise<boolean>;
   recordPayment: (invoiceId: string, amount: number, method: string) => Promise<void>;
   addPatient: (data: Partial<Patient>) => Promise<void>;
+  addLabOrder: (data: Partial<LabOrder>) => Promise<LabOrder | null>;
+  updateLabStatus: (orderId: string, status: string) => Promise<void>;
+  recordLabResult: (orderId: string, result: Partial<LabResult>) => Promise<void>;
+  addRadiologyOrder: (data: Partial<RadiologyOrder>) => Promise<RadiologyOrder | null>;
+  signRadiologyReport: (orderId: string, data: Partial<RadiologyOrder>) => Promise<void>;
 }
 
 export const ROLE_DEFAULT_WORKSTATION: Record<string, WorkstationId> = {
@@ -216,6 +226,8 @@ export const useHospitalStore = create<HospitalStore>((set, get) => ({
   operations: [],
   invoices: [],
   auditLogs: [],
+  labOrders: [],
+  radiologyOrders: [],
   telemetry: null,
   loading: false,
 
@@ -344,6 +356,8 @@ export const useHospitalStore = create<HospitalStore>((set, get) => ({
         opsRes,
         invoicesRes,
         auditRes,
+        labRes,
+        radRes,
       ] = await Promise.all([
         api.get('/telemetry/command-center'),
         api.get('/patients'),
@@ -354,6 +368,8 @@ export const useHospitalStore = create<HospitalStore>((set, get) => ({
         api.get('/operations/schedules'),
         api.get('/billing/invoices'),
         api.get('/audit/logs'),
+        api.get('/diagnostics/lab/orders').catch(() => ({ data: [] })),
+        api.get('/diagnostics/radiology/orders').catch(() => ({ data: [] })),
       ]);
 
       // Defensive: coerce every response to array (guards against API errors/wrappers)
@@ -369,6 +385,8 @@ export const useHospitalStore = create<HospitalStore>((set, get) => ({
         operations: toArray(opsRes.data),
         invoices: toArray(invoicesRes.data),
         auditLogs: toArray(auditRes.data),
+        labOrders: toArray(labRes.data),
+        radiologyOrders: toArray(radRes.data),
         loading: false,
       });
     } catch (err) {
@@ -490,6 +508,85 @@ export const useHospitalStore = create<HospitalStore>((set, get) => ({
       }));
     } catch (err) {
       console.error('Error creating patient:', err);
+    }
+  },
+
+  addLabOrder: async (data) => {
+    try {
+      const doctorName = get().currentUser.fullName;
+      const res = await api.post('/diagnostics/lab/orders', {
+        ...data,
+        orderedBy: data.orderedBy || doctorName,
+      });
+      set((state) => ({
+        labOrders: [res.data, ...state.labOrders],
+      }));
+      return res.data;
+    } catch (err) {
+      console.error('Error ordering lab test:', err);
+      return null;
+    }
+  },
+
+  updateLabStatus: async (orderId, status) => {
+    try {
+      const res = await api.patch(`/diagnostics/lab/orders/${orderId}/status`, { status });
+      set((state) => ({
+        labOrders: state.labOrders.map((o) => (o.id === orderId ? { ...o, status: status as any } : o)),
+      }));
+    } catch (err) {
+      console.error('Error updating lab status:', err);
+    }
+  },
+
+  recordLabResult: async (orderId, result) => {
+    try {
+      const res = await api.post(`/diagnostics/lab/orders/${orderId}/results`, result);
+      set((state) => ({
+        labOrders: state.labOrders.map((o) =>
+          o.id === orderId
+            ? {
+                ...o,
+                status: 'COMPLETED',
+                results: [...(o.results || []), res.data],
+              }
+            : o
+        ),
+      }));
+    } catch (err) {
+      console.error('Error recording lab result:', err);
+    }
+  },
+
+  addRadiologyOrder: async (data) => {
+    try {
+      const doctorName = get().currentUser.fullName;
+      const res = await api.post('/diagnostics/radiology/orders', {
+        ...data,
+        orderedBy: data.orderedBy || doctorName,
+      });
+      set((state) => ({
+        radiologyOrders: [res.data, ...state.radiologyOrders],
+      }));
+      return res.data;
+    } catch (err) {
+      console.error('Error ordering radiology study:', err);
+      return null;
+    }
+  },
+
+  signRadiologyReport: async (orderId, data) => {
+    try {
+      const radiologist = get().currentUser.fullName;
+      const res = await api.patch(`/diagnostics/radiology/orders/${orderId}/report`, {
+        ...data,
+        radiologist: data.radiologist || radiologist,
+      });
+      set((state) => ({
+        radiologyOrders: state.radiologyOrders.map((o) => (o.id === orderId ? res.data : o)),
+      }));
+    } catch (err) {
+      console.error('Error signing radiology report:', err);
     }
   },
 }));

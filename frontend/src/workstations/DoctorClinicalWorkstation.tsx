@@ -2,12 +2,19 @@ import React, { useState } from 'react';
 import { useHospitalStore } from '../store/useHospitalStore';
 
 export const DoctorClinicalWorkstation: React.FC = () => {
-  const { patients, currentUser, batches } = useHospitalStore();
+  const { patients, currentUser, batches, addLabOrder, addRadiologyOrder, setAuthNotification } = useHospitalStore();
   const [selectedPatientId, setSelectedPatientId] = useState(patients[0]?.id || '');
   const [chiefComplaint, setChiefComplaint] = useState('Recurrent substernal pressure and exertional dyspnea x 3 days.');
   const [assessment, setAssessment] = useState('Probable unstable angina vs acute coronary syndrome in high-risk patient.');
   const [icd10, setIcd10] = useState('I20.0');
   const [diagnosisDesc, setDiagnosisDesc] = useState('Unstable angina');
+
+  // Diagnostics state
+  const [orderTroponin, setOrderTroponin] = useState(true);
+  const [orderECG, setOrderECG] = useState(true);
+  const [orderCTA, setOrderCTA] = useState(true);
+  const [orderCMP, setOrderCMP] = useState(true);
+  const [dispatchedMessage, setDispatchedMessage] = useState<string | null>(null);
 
   // E-prescription state
   const [prescriptions, setPrescriptions] = useState<any[]>([
@@ -25,8 +32,45 @@ export const DoctorClinicalWorkstation: React.FC = () => {
     setPrescriptions([...prescriptions, { drug: newDrug, dosage: newDosage, frequency: newFrequency, duration: newDuration, qty: 1 }]);
   };
 
-  const handleFinalizeEncounter = () => {
-    alert(`Encounter finalized for ${selectedPatient?.firstName} ${selectedPatient?.lastName}. Prescription dispatched to Central Pharmacy FEFO Queue!`);
+  const handleFinalizeEncounter = async () => {
+    if (!selectedPatient) return;
+    const patientName = `${selectedPatient.firstName} ${selectedPatient.lastName}`;
+    const mrn = selectedPatient.mrn;
+
+    if (orderTroponin) {
+      await addLabOrder({
+        patientName,
+        mrn,
+        testName: 'High-Sensitivity Cardiac Troponin I',
+        priority: 'STAT',
+        status: 'PENDING',
+        orderedBy: currentUser.fullName,
+      });
+    }
+    if (orderCMP) {
+      await addLabOrder({
+        patientName,
+        mrn,
+        testName: 'Comprehensive Metabolic Panel',
+        priority: 'ROUTINE',
+        status: 'PENDING',
+        orderedBy: currentUser.fullName,
+      });
+    }
+    if (orderCTA) {
+      await addRadiologyOrder({
+        patientName,
+        mrn,
+        modality: 'CT',
+        studyDescription: 'CT Angiography Chest (PE Protocol)',
+        priority: 'STAT',
+        status: 'SCHEDULED',
+        orderedBy: currentUser.fullName,
+      });
+    }
+
+    setDispatchedMessage(`Encounter finalized for ${patientName}. Diagnostics sent to Laboratory & Radiology PACS, e-prescription dispatched!`);
+    setAuthNotification(`Encounter & Diagnostic Orders finalized for ${patientName}`);
   };
 
   return (
@@ -60,6 +104,19 @@ export const DoctorClinicalWorkstation: React.FC = () => {
           </button>
         </div>
       </div>
+
+      {/* Dispatched Confirmation Banner */}
+      {dispatchedMessage && (
+        <div className="mb-4 p-4 rounded-xl bg-emerald-50 border border-emerald-300 text-emerald-900 text-xs flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <span className="material-symbols-outlined text-emerald-600 text-[20px]">verified</span>
+            <span className="font-semibold">{dispatchedMessage}</span>
+          </div>
+          <button onClick={() => setDispatchedMessage(null)} className="text-emerald-700 hover:text-emerald-950 font-bold">
+            Dismiss
+          </button>
+        </div>
+      )}
 
       {/* Patient Selector Strip */}
       <div className="bg-surface-container-lowest rounded-xl p-4 mb-6 border border-outline-variant/30 shadow-sm flex flex-wrap items-center justify-between gap-4">
@@ -152,19 +209,39 @@ export const DoctorClinicalWorkstation: React.FC = () => {
             <span className="text-xs font-mono font-bold text-primary uppercase block">STAT Diagnostic Orders</span>
             <div className="grid grid-cols-2 gap-2 text-xs">
               <label className="flex items-center gap-2 p-2 rounded bg-surface border border-outline-variant/30 cursor-pointer">
-                <input type="checkbox" defaultChecked className="rounded text-primary" />
+                <input
+                  type="checkbox"
+                  checked={orderTroponin}
+                  onChange={(e) => setOrderTroponin(e.target.checked)}
+                  className="rounded text-primary"
+                />
                 <span>Troponin I (High Sensitivity) STAT</span>
               </label>
               <label className="flex items-center gap-2 p-2 rounded bg-surface border border-outline-variant/30 cursor-pointer">
-                <input type="checkbox" defaultChecked className="rounded text-primary" />
+                <input
+                  type="checkbox"
+                  checked={orderECG}
+                  onChange={(e) => setOrderECG(e.target.checked)}
+                  className="rounded text-primary"
+                />
                 <span>12-Lead Electrocardiogram (ECG)</span>
               </label>
               <label className="flex items-center gap-2 p-2 rounded bg-surface border border-outline-variant/30 cursor-pointer">
-                <input type="checkbox" defaultChecked className="rounded text-primary" />
+                <input
+                  type="checkbox"
+                  checked={orderCTA}
+                  onChange={(e) => setOrderCTA(e.target.checked)}
+                  className="rounded text-primary"
+                />
                 <span>CT Angiography Chest (PE Protocol)</span>
               </label>
               <label className="flex items-center gap-2 p-2 rounded bg-surface border border-outline-variant/30 cursor-pointer">
-                <input type="checkbox" defaultChecked className="rounded text-primary" />
+                <input
+                  type="checkbox"
+                  checked={orderCMP}
+                  onChange={(e) => setOrderCMP(e.target.checked)}
+                  className="rounded text-primary"
+                />
                 <span>Comprehensive Metabolic Panel</span>
               </label>
             </div>

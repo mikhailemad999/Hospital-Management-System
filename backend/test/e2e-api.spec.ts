@@ -295,6 +295,56 @@ async function runE2ETests() {
     if (auditRes.status !== 201) throw new Error('Failed audit logging');
   });
 
+  // 14. Diagnostics: Laboratory & Molecular Worklist
+  let labOrderId = '';
+  await assertTest('Diagnostics: order STAT laboratory panel and advance analyzer workflow', async () => {
+    const orderRes = await request('/diagnostics/lab/orders', 'POST', {
+      patientName: 'Jane Automated Doe',
+      mrn: 'MRN-AUTO-991',
+      testName: 'High-Sensitivity Cardiac Troponin I',
+      priority: 'STAT',
+      orderedBy: 'Dr. Sarah Vance, MD',
+    });
+    if (orderRes.status !== 201 || !orderRes.body?.id) throw new Error('Failed to create lab order');
+    labOrderId = orderRes.body.id;
+
+    const statusRes = await request(`/diagnostics/lab/orders/${labOrderId}/status`, 'PATCH', {
+      status: 'ANALYZING',
+    });
+    if (statusRes.status !== 200) throw new Error('Failed to update lab order status');
+
+    const resultRes = await request(`/diagnostics/lab/orders/${labOrderId}/results`, 'POST', {
+      parameter: 'Cardiac Troponin I',
+      value: '2.10',
+      unit: 'ng/mL',
+      referenceRange: '< 0.04',
+      isAbnormal: true,
+    });
+    if (resultRes.status !== 201) throw new Error('Failed to record lab result');
+  });
+
+  // 15. Diagnostics: Radiology Imaging & PACS Reporting
+  await assertTest('Diagnostics: order radiology imaging study and submit diagnostic report', async () => {
+    const radRes = await request('/diagnostics/radiology/orders', 'POST', {
+      patientName: 'Jane Automated Doe',
+      mrn: 'MRN-AUTO-991',
+      modality: 'CT',
+      studyDescription: 'CT Angiography Chest (PE Protocol)',
+      priority: 'STAT',
+      orderedBy: 'Dr. Sarah Vance, MD',
+    });
+    if (radRes.status !== 201 || !radRes.body?.id) throw new Error('Failed to order radiology study');
+    const radId = radRes.body.id;
+
+    const reportRes = await request(`/diagnostics/radiology/orders/${radId}/report`, 'PATCH', {
+      findings: 'No filling defect in main pulmonary arteries. Normal cardiac silhouette. No aortic dissection.',
+      impression: 'Negative for pulmonary embolism.',
+      radiologist: 'Dr. Nathan Drake, MD',
+      status: 'REPORTED',
+    });
+    if (reportRes.status !== 200) throw new Error('Failed to submit radiology report');
+  });
+
   console.log('\n----------------------------------------------------');
   console.log(`  TEST RESULTS: ${passed} PASSED, ${failed} FAILED`);
   console.log('----------------------------------------------------\n');

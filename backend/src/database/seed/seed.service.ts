@@ -15,6 +15,7 @@ export class SeedService {
     const userRepo = this.dataSource.getRepository(entities.User);
     const existingUser = await userRepo.findOne({ where: { username: 'admin' } });
     if (existingUser) {
+      await this.seedDiagnosticsIfEmpty();
       this.logger.log('Database already seeded. Skipping initial seeding.');
       return;
     }
@@ -593,6 +594,136 @@ export class SeedService {
       { timestamp: '2026-09-11 11:15:00', user: 'Pharm. Tariq Al-Mansoor', role: 'pharmacist', action: 'FEFO_BATCH_DEDUCTION', entity: 'INVENTORY_BATCH', entityId: 'LOT-2026-1940', ipAddress: '192.168.10.33', details: 'Selected earliest expiration lot for automated dispensing. Stock updated from 480 to 478.', severity: 'INFO' },
     ]);
 
+    await this.seedDiagnosticsIfEmpty();
+
     this.logger.log('Enterprise Hospital Database seeded successfully!');
+  }
+
+  async seedDiagnosticsIfEmpty() {
+    const labRepo = this.dataSource.getRepository(entities.LabOrder);
+    const existingLabs = await labRepo.count();
+    if (existingLabs === 0) {
+      this.logger.log('Seeding Laboratory Diagnostics and Results...');
+      const labResultRepo = this.dataSource.getRepository(entities.LabResult);
+
+      const o1 = await labRepo.save(
+        labRepo.create({
+          orderNumber: 'LAB-2026-4401',
+          patientName: 'Johnathan Miller',
+          mrn: 'MRN-92810',
+          testName: 'High-Sensitivity Cardiac Troponin I',
+          priority: 'STAT',
+          status: 'COMPLETED',
+          orderedBy: 'Dr. Sarah Vance, MD',
+          orderedAt: '14:15 EST',
+        }),
+      );
+      await labResultRepo.save([
+        labResultRepo.create({
+          orderId: o1.id,
+          parameter: 'Cardiac Troponin I',
+          value: '1.45',
+          unit: 'ng/mL',
+          referenceRange: '< 0.04',
+          isAbnormal: true,
+        }),
+      ]);
+
+      const o2 = await labRepo.save(
+        labRepo.create({
+          orderNumber: 'LAB-2026-4402',
+          patientName: 'Fatima Al-Sayed',
+          mrn: 'MRN-84729',
+          testName: 'Arterial Blood Gas (ABG) Panel',
+          priority: 'STAT',
+          status: 'COMPLETED',
+          orderedBy: 'Dr. Robert Hayes, MD',
+          orderedAt: '13:30 EST',
+        }),
+      );
+      await labResultRepo.save([
+        labResultRepo.create({ orderId: o2.id, parameter: 'Arterial pH', value: '6.92', unit: 'pH', referenceRange: '7.35 - 7.45', isAbnormal: true }),
+        labResultRepo.create({ orderId: o2.id, parameter: 'pCO2', value: '22', unit: 'mmHg', referenceRange: '35 - 45', isAbnormal: true }),
+        labResultRepo.create({ orderId: o2.id, parameter: 'HCO3', value: '6', unit: 'mEq/L', referenceRange: '22 - 26', isAbnormal: true }),
+      ]);
+
+      const o3 = await labRepo.save(
+        labRepo.create({
+          orderNumber: 'LAB-2026-4403',
+          patientName: 'Sophia Reynolds',
+          mrn: 'MRN-33108',
+          testName: 'Complete Blood Count (CBC) with Diff',
+          priority: 'ROUTINE',
+          status: 'COMPLETED',
+          orderedBy: 'Dr. Elena Rostova, MD',
+          orderedAt: '09:45 EST',
+        }),
+      );
+      await labResultRepo.save([
+        labResultRepo.create({ orderId: o3.id, parameter: 'White Blood Cell (WBC)', value: '14.2', unit: 'K/uL', referenceRange: '4.5 - 11.0', isAbnormal: true }),
+        labResultRepo.create({ orderId: o3.id, parameter: 'Hemoglobin', value: '12.8', unit: 'g/dL', referenceRange: '12.0 - 16.0', isAbnormal: false }),
+        labResultRepo.create({ orderId: o3.id, parameter: 'Platelets', value: '284', unit: 'K/uL', referenceRange: '150 - 450', isAbnormal: false }),
+      ]);
+
+      await labRepo.save(
+        labRepo.create({
+          orderNumber: 'LAB-2026-4404',
+          patientName: 'Robert Martinez',
+          mrn: 'MRN-55214',
+          testName: 'Serum Potassium & Electrolytes',
+          priority: 'ROUTINE',
+          status: 'ANALYZING',
+          orderedBy: 'Dr. Marcus Brody, MD',
+          orderedAt: '11:10 EST',
+        }),
+      );
+    }
+
+    const radRepo = this.dataSource.getRepository(entities.RadiologyOrder);
+    const existingRad = await radRepo.count();
+    if (existingRad === 0) {
+      this.logger.log('Seeding Radiology and PACS Studies...');
+      await radRepo.save([
+        radRepo.create({
+          orderNumber: 'RAD-2026-1081',
+          patientName: 'Unidentified Trauma Male',
+          mrn: 'MRN-ED-TEMP-01',
+          modality: 'CT',
+          studyDescription: 'CT Trauma Pan-Scan (Head, C-Spine, Chest, Abdomen, Pelvis)',
+          priority: 'STAT',
+          status: 'REPORTED',
+          orderedBy: 'Dr. Robert Hayes, MD',
+          radiologist: 'Dr. Nathan Drake, MD',
+          findings: 'Grade IV splenic laceration with active contrast extravasation into perisplenic space. Moderate hemoperitoneum. Displaced left 5th-8th rib fractures.',
+          impression: 'Severe blunt abdominal trauma requiring immediate surgical intervention.',
+        }),
+        radRepo.create({
+          orderNumber: 'RAD-2026-1082',
+          patientName: 'Sophia Reynolds',
+          mrn: 'MRN-33108',
+          modality: 'ULTRASOUND',
+          studyDescription: 'Ultrasound Appendix / Pelvis',
+          priority: 'URGENT',
+          status: 'REPORTED',
+          orderedBy: 'Dr. Elena Rostova, MD',
+          radiologist: 'Dr. Lisa Wong, MD',
+          findings: 'Non-compressible dilated appendix measuring 9.4mm in diameter with surrounding fat stranding and appendicolith.',
+          impression: 'Findings consistent with acute appendicitis.',
+        }),
+        radRepo.create({
+          orderNumber: 'RAD-2026-1083',
+          patientName: 'Johnathan Miller',
+          mrn: 'MRN-92810',
+          modality: 'X-RAY',
+          studyDescription: 'Portable Chest Radiograph (AP)',
+          priority: 'STAT',
+          status: 'REPORTED',
+          orderedBy: 'Dr. Sarah Vance, MD',
+          radiologist: 'Dr. Nathan Drake, MD',
+          findings: 'Endotracheal tube tip positioned 4.2cm above carina. Bilateral pulmonary vascular congestion with small left pleural effusion.',
+          impression: 'Mild congestive failure; endotracheal position satisfactory.',
+        }),
+      ]);
+    }
   }
 }

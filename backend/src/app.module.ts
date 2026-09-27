@@ -17,6 +17,7 @@ import { BillingModule } from './modules/billing/billing.module';
 import { PayrollModule } from './modules/payroll/payroll.module';
 import { AuditModule } from './modules/audit/audit.module';
 import { TelemetryModule } from './modules/telemetry/telemetry.module';
+import { DiagnosticsModule } from './modules/diagnostics/diagnostics.module';
 
 @Module({
   imports: [
@@ -35,6 +36,7 @@ import { TelemetryModule } from './modules/telemetry/telemetry.module';
     PayrollModule,
     AuditModule,
     TelemetryModule,
+    DiagnosticsModule,
   ],
   providers: [SeedService],
 })
